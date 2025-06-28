@@ -199,6 +199,15 @@ gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
 
 gulp.task('css', gulp.parallel('css-themes', 'css-core'))
 
+gulp.task('css-tailwind', () => {
+    const sourcemaps = require('gulp-sourcemaps');
+    return gulp.src('style.css')
+      .pipe(sourcemaps.init())
+      .pipe(postcss())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('dist'));
+  });
+
 gulp.task('qunit', () => {
 
     let serverConfig = {
@@ -272,9 +281,9 @@ gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.js'])
 
 gulp.task('test', gulp.series( 'eslint', 'qunit' ))
 
-gulp.task('default', gulp.series(gulp.parallel('js', 'css', 'plugins'), 'test'))
+gulp.task('default', gulp.series(gulp.parallel('js', 'css', 'plugins', 'css-tailwind'), 'test'))
 
-gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
+gulp.task('build', gulp.parallel('js', 'css', 'plugins', 'css-tailwind'))
 
 gulp.task('package', gulp.series(async () => {
 
@@ -326,6 +335,8 @@ gulp.task('serve', () => {
         'css/*.scss',
         'css/print/*.{sass,scss,css}'
     ], gulp.series('css-core', 'reload'))
+
+    gulp.watch(['style.css'], gulp.series('css-tailwind', 'reload'))
 
     gulp.watch(['test/*.html'], gulp.series('test'))
 
