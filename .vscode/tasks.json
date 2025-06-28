@@ -2,9 +2,26 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "start",
             "type": "shell",
-            "command": "npm run build"
+            "command": "npm run start",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": [
+                    {
+                        "regexp": ".*",
+                        "file": 1,
+                        "location": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Server started http://localhost:8000",
+                    "endsPattern": "a^"
+                }
+            }
         }
     ]
 }
