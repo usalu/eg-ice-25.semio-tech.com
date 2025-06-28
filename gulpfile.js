@@ -11,6 +11,7 @@ const babel = require('@rollup/plugin-babel').default
 const commonjs = require('@rollup/plugin-commonjs')
 const resolve = require('@rollup/plugin-node-resolve').default
 const sass = require('sass')
+const postcss = require('gulp-postcss');
 
 const gulp = require('gulp')
 const zip = require('gulp-zip')
