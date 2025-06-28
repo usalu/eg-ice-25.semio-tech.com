@@ -12,6 +12,8 @@ const commonjs = require('@rollup/plugin-commonjs')
 const resolve = require('@rollup/plugin-node-resolve').default
 const sass = require('sass')
 const postcss = require('gulp-postcss');
+const tailwindcss = require('tailwindcss');
+const postcssNested = require('postcss-nested');
 
 const gulp = require('gulp')
 const zip = require('gulp-zip')
@@ -189,6 +191,25 @@ function compileSass() {
 gulp.task('css-themes', () => gulp.src(['./css/theme/source/*.{sass,scss}'])
         .pipe(compileSass())
         .pipe(gulp.dest('./dist/theme')))
+
+// Our main CSS bundle
+function coreStyles() {
+
+	return gulp.src( ['css/reveal.scss', 'css/style.scss'] )
+		.pipe( sourcemaps.init() )
+		.pipe( sassRender() )
+		.pipe( postcss([
+			tailwindcss( './tailwind.config.js' ),
+			postcssNested
+		]) )
+		.pipe( autoprefixer() )
+		.pipe( minify( {
+			compatibility: 'ie9'
+		}) )
+		.pipe( header(cssLicense) )
+		.pipe( sourcemaps.write('.') )
+		.pipe( gulp.dest( './dist' ) );
+}
 
 gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
     .pipe(compileSass())

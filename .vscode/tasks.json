@@ -18,8 +18,8 @@
                 ],
                 "background": {
                     "activeOnStart": true,
-                    "beginsPattern": "Server started http://localhost:8000",
-                    "endsPattern": "a^"
+                    "beginsPattern": "Server started",
+                    "endsPattern": "LiveReload started"
                 }
             }
         }
