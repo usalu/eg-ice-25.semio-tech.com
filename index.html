@@ -183,19 +183,19 @@
               />
               <p data-id="docs-text" style="font-size: 0.9rem">docs</p>
             </div>
-            <div style="text-align: center; margin: 0 1rem">
-              <img
-                data-id="abstract-syntax-tree-format-img"
-                style="height: 20vh; width: 20vh; object-fit: cover"
-                src="public/abstract-syntax-tree-format.png"
-              />
-              <p
-                data-id="abstract-syntax-tree-format-text"
-                style="font-size: 0.9rem"
-              >
-                ast
-              </p>
-            </div>
+          </div>
+          <div style="text-align: center; margin: 0 1rem; margin-top: 2rem">
+            <img
+              data-id="abstract-syntax-tree-format-img"
+              style="height: 20vh; width: 20vh; object-fit: cover"
+              src="public/abstract-syntax-tree-format.png"
+            />
+            <p
+              data-id="abstract-syntax-tree-format-text"
+              style="font-size: 0.9rem"
+            >
+              ast
+            </p>
           </div>
           <div style="text-align: center; margin: 0 1rem; margin-top: 2rem">
             <img
@@ -444,7 +444,7 @@
                 src="public/design-format.png"
               />
               <p data-id="design-format-text" style="font-size: 0.9rem">
-                authoring-format
+                design-format
               </p>
             </div>
             <div style="text-align: center; margin: 0 1rem">
@@ -577,7 +577,7 @@
                 <img data-id="design-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
                   src="public/design-format.png" />
                 <p data-id="design-format-text" style="font-size: 0.9rem">
-                  authoring-format
+                  design-format
                 </p>
               </div>
               <div style="text-align: center; margin: 0 1rem">
@@ -612,24 +612,359 @@
         </section>
         <section data-auto-animate>
           <div
-            style="display: flex; align-items: center; justify-content: center"
+            style="display: flex; align-items: center; justify-content: center; flex-direction: column"
           >
-            <div style="text-align: center; margin: 0 1rem">
-              <img
-                data-id="code-img"
-                style="height: 40vh; width: 40vh; object-fit: cover"
-                src="public/code.png"
-              />
-              <p data-id="code-text">code</p>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="software-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/sketchpad-demo.png"
+                />
+                <p data-id="software-text" style="font-size: 0.9rem">software</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="docs-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/docs.png"
+                />
+                <p data-id="docs-text" style="font-size: 0.9rem">docs</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="abstract-syntax-tree-format-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/abstract-syntax-tree-format.png"
+                />
+                <p
+                  data-id="abstract-syntax-tree-format-text"
+                  style="font-size: 0.9rem"
+                >
+                  ast
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="dev-server-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/dev-server.png"
+                />
+                <p data-id="dev-server-text" style="font-size: 0.9rem">
+                  dev server
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-error-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/code-error.png"
+                />
+                <p data-id="code-error-text" style="font-size: 0.9rem">error</p>
+              </div>
             </div>
-            <h2>→</h2>
-            <div style="text-align: center; margin: 0 1rem">
-              <img
-                data-id="authoring-format-img"
-                style="height: 40vh; width: 40vh; object-fit: cover"
-                src="public/design-format.png"
-              />
-              <p data-id="authoring-format-text">authoring-format</p>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/code.png"
+                />
+                <p data-id="code-text">code</p>
+              </div>
+              <h2>→</h2>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="design-format-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/design-format.png"
+                />
+                <p data-id="design-format-text">design-format</p>
+              </div>
+            </div>
+            <div>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="building-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/building.png" />
+                <p data-id="building-text" style="font-size: 0.9rem">building</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="design-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/design-format.png" />
+                <p data-id="design-format-text" style="font-size: 0.9rem">
+                  design-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-code-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-code.png" />
+                <p data-id="compliance-code-text" style="font-size: 0.9rem">
+                  compliance-code
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-format.png" />
+                <p data-id="compliance-format-text" style="font-size: 0.9rem">
+                  compliance-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="constraint-server-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/constraint-server.png" />
+                <p data-id="constraint-server-text" style="font-size: 0.9rem">
+                  constraint-server
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="violation-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/violation.png" />
+                <p data-id="violation-text" style="font-size: 0.9rem">
+                  violation
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div
+            style="display: flex; align-items: center; justify-content: center; flex-direction: column"
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="software-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/sketchpad-demo.png"
+                />
+                <p data-id="software-text" style="font-size: 0.9rem">software</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/code.png"
+                />
+                <p data-id="code-text" style="font-size: 0.9rem">code</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="docs-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/docs.png"
+                />
+                <p data-id="docs-text" style="font-size: 0.9rem">docs</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="abstract-syntax-tree-format-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/abstract-syntax-tree-format.png"
+                />
+                <p
+                  data-id="abstract-syntax-tree-format-text"
+                  style="font-size: 0.9rem"
+                >
+                  ast
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="dev-server-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/dev-server.png"
+                />
+                <p data-id="dev-server-text" style="font-size: 0.9rem">
+                  dev server
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-error-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/code-error.png"
+                />
+                <p data-id="code-error-text">error</p>
+              </div>
+              <h2>→</h2>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="violation-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/violation.png"
+                />
+                <p data-id="violation-text">violation</p>
+              </div>
+            </div>
+            <div>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="building-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/building.png" />
+                <p data-id="building-text" style="font-size: 0.9rem">building</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="design-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/design-format.png" />
+                <p data-id="design-format-text" style="font-size: 0.9rem">
+                  design-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-code-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-code.png" />
+                <p data-id="compliance-code-text" style="font-size: 0.9rem">
+                  compliance-code
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-format.png" />
+                <p data-id="compliance-format-text" style="font-size: 0.9rem">
+                  compliance-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="constraint-server-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/constraint-server.png" />
+                <p data-id="constraint-server-text" style="font-size: 0.9rem">
+                  constraint-server
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="violation-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/violation.png" />
+                <p data-id="violation-text" style="font-size: 0.9rem">
+                  violation
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <div
+            style="display: flex; align-items: center; justify-content: center; flex-direction: column"
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="software-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/sketchpad-demo.png"
+                />
+                <p data-id="software-text" style="font-size: 0.9rem">software</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/code.png"
+                />
+                <p data-id="code-text" style="font-size: 0.9rem">code</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="docs-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/docs.png"
+                />
+                <p data-id="docs-text" style="font-size: 0.9rem">docs</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="dev-server-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/dev-server.png"
+                />
+                <p data-id="dev-server-text" style="font-size: 0.9rem">
+                  dev server
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="code-error-img"
+                  style="height: 20vh; width: 20vh; object-fit: cover"
+                  src="public/code-error.png"
+                />
+                <p data-id="code-error-text" style="font-size: 0.9rem">error</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="abstract-syntax-tree-format-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/abstract-syntax-tree-format.png"
+                />
+                <p data-id="abstract-syntax-tree-format-text">ast</p>
+              </div>
+              <h2>→</h2>
+              <div style="text-align: center; margin: 0 1rem">
+                <img
+                  data-id="compliance-format-img"
+                  style="height: 40vh; width: 40vh; object-fit: cover"
+                  src="public/compliance-format.png"
+                />
+                <p data-id="compliance-format-text">compliance-format</p>
+              </div>
+            </div>
+            <div>
+            <div style="display: flex; align-items: center; justify-content: center">
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="building-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/building.png" />
+                <p data-id="building-text" style="font-size: 0.9rem">building</p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="design-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/design-format.png" />
+                <p data-id="design-format-text" style="font-size: 0.9rem">
+                  design-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-code-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-code.png" />
+                <p data-id="compliance-code-text" style="font-size: 0.9rem">
+                  compliance-code
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="compliance-format-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/compliance-format.png" />
+                <p data-id="compliance-format-text" style="font-size: 0.9rem">
+                  compliance-format
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="constraint-server-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover"
+                  src="public/constraint-server.png" />
+                <p data-id="constraint-server-text" style="font-size: 0.9rem">
+                  constraint-server
+                </p>
+              </div>
+              <div style="text-align: center; margin: 0 1rem">
+                <img data-id="violation-img" style="height: 16.6vh; width: 16.6vh; object-fit: cover" src="public/violation.png" />
+                <p data-id="violation-text" style="font-size: 0.9rem">
+                  violation
+                </p>
+              </div>
             </div>
           </div>
         </section>
