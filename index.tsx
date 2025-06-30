@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client'
 import React from 'react'
 
 import { useEffect, useRef } from "react";
-
 import Reveal from "reveal.js";
+
+import './index.css'
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 
@@ -39,7 +40,7 @@ function App() {
 
   return (
     <div
-      className="reveal bg-gray-100"
+      className="reveal"
       ref={deckDivRef}
       style={{ width: "100vw", height: "100vh" }}
     >
