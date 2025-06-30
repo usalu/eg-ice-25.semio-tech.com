@@ -1,3 +1,7 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import React from 'react'
+
 import { useEffect, useRef } from "react";
 
 import Reveal from "reveal.js";
@@ -34,9 +38,11 @@ function App() {
   }, []);
 
   return (
-    // Your presentation is sized based on the width and height of
-    // our parent element. Make sure the parent is not 0-height.
-    <div className="reveal" ref={deckDivRef}>
+    <div
+      className="reveal bg-gray-100"
+      ref={deckDivRef}
+      style={{ width: "100vw", height: "100vh" }}
+    >
       <div className="slides">
         <section>Slide 1</section>
         <section>Slide 2</section>
@@ -45,4 +51,8 @@ function App() {
   );
 }
 
-export default App;
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
