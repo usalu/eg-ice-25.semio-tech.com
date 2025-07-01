@@ -105,76 +105,80 @@ const Timeline: FC = () => {
 
   const modelData = [
     {
+      announced: "2018-06-11",
       name: "GPT",
       context: 512,
-      announced: "2018-06-11",
       equivalent: "< 1 page",
     },
     {
+      announced: "2019-11-05",
       name: "GPT-2",
       context: 1024,
-      announced: "2019-11-05",
       equivalent: "~2 pages",
     },
     {
+      announced: "2020-05-28",
       name: "GPT-3",
       context: 2048,
-      announced: "2020-05-28",
       equivalent: "~4 pages",
     },
     {
+      announced: "2022-03-15",
       name: "GPT-3.5",
       context: 16384,
-      announced: "2022-03-15",
       equivalent: "~30 pages",
     },
     {
+      announced: "2023-03-14",
       name: "Claude 1.5",
       context: 100000,
-      announced: "2023-03-14",
       equivalent: "~150 pages",
     },
     {
+      announced: "2024-02-15",
       name: "Gemini 1.5 Pro",
       context: 1000000,
-      announced: "2024-02-15",
       equivalent: "~1500 pages",
     },
     {
+      announced: "2025-04-05",
       name: "Llama 4",
       context: 10000000,
-      announced: "2025-04-05",
       equivalent: "~15000 pages",
     },
   ];
 
   const timelineData = [
     {
-      date: "2020-12-01",
+      event: "2020-12-01",
       title: "RAG",
+      image: "/rag.png",
     },
     {
-      date: "2024-11-01",
+      event: "2024-11-01",
       title: "MCP",
+      image: "/mcp.png",
     },
     {
-      date: "2025-06-01",
+      event: "2025-06-01",
       title: "Cursor 1.0",
+      image: "/cursor.png",
     },
   ];
 
   const combinedData = [
-    ...modelData.map((d) => ({ ...d, announced: new Date(d.announced) })),
+    ...modelData.map((d) => ({ ...d, date: new Date(d.announced) })),
     ...timelineData.map((d) => ({
       name: d.title,
-      timeline: 5000000,
-      announced: new Date(d.date),
+      context: 5000000,
+      announced: new Date(d.event),
+      image: d.image,
     })),
   ]
-    .sort((a, b) => a.announced.getTime() - b.announced.getTime())
+    .sort((a, b) => a.date.getTime() - b.date.getTime())
     .map((d) => ({
       ...d,
-      announced: d.announced.toISOString().split("T")[0],
+      date: d.date.toISOString().split("T")[0],
     }));
 
   return (
@@ -208,7 +212,7 @@ const Timeline: FC = () => {
               stroke="#ff344f"
               dot={false}
             />
-            {/* <Scatter dataKey="timeline" fill="#ff344f" /> */}
+            <Scatter dataKey="context" fill="#ff344f" />
             <Tooltip content={<CustomTooltip />} />
           </ComposedChart>
         </ResponsiveContainer>
