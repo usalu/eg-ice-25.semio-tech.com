@@ -9,70 +9,6 @@ import './index.css'
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 
-const App: FC = () => {
-  const deckDivRef = useRef<HTMLDivElement>(null); // reference to deck container div
-  const deckRef = useRef<Reveal.Api | null>(null); // reference to deck reveal instance
-
-  useEffect(() => {
-    // Prevents double initialization in strict mode
-    if (deckRef.current) return;
-
-    deckRef.current = new Reveal(deckDivRef.current!, {
-      transition: "slide",
-      // other config options
-    });
-
-    deckRef.current.initialize().then(() => {
-      // good place for event handlers and plugin setups
-    });
-
-    return () => {
-      try {
-        if (deckRef.current) {
-          deckRef.current.destroy();
-          deckRef.current = null;
-        }
-      } catch (e) {
-        console.warn("Reveal.js destroy call failed.");
-      }
-    };
-  }, []);
-
-  return (
-    <div
-      className="reveal"
-      ref={deckDivRef}
-      style={{ width: "100vw", height: "100vh" }}
-    >
-      <div className="slides">
-        <Semio />
-        <Title />
-        <Subtitle />
-        <Background />
-        <Analogy />
-        <Software />
-        <Code />
-        <Docs />
-        <Ast />
-        <DevServer />
-        <CodeError />
-        <Building />
-        <DesignFormat />
-        <ComplianceCode />
-        <ComplianceFormat />
-        <ConstraintServer />
-        <Violation />
-        <Comparison />
-        <SoftwareBuilding />
-        <CodeDesignFormat />
-        <DocsComplianceCode />
-        <AstComplianceFormat />
-        <DevServerConstraintServer />
-        <ErrorViolation />
-      </div>
-    </div>
-  );
-}
 
 const Semio: FC = () => (
   <section title="semio" data-auto-animate>
@@ -120,17 +56,25 @@ const Analogy: FC = () => (
   </section>
 );
 
-const Software: FC = () => (
-  <section title="software" data-auto-animate>
-    <div style={{ textAlign: "center", margin: "0 1rem" }}>
-      <img
-        data-id="software-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
-        src="/sketchpad-demo.png"
-      />
-      <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
-    </div>
-  </section>
+interface ImageAndTextProps {
+  id: string;
+  height: string;
+  src: string;
+}
+
+const ImageAndText: FC<ImageAndTextProps> = ({ height, src, id }) => (
+  <div style={{ textAlign: "center", margin: "0 1rem" }}>
+    <img
+      data-id={`${id}-img`}
+      style={{ height: height, width: height, objectFit: "cover", margin: "0px" }}
+      src={src}
+    />
+    <p data-id={`${id}-text`} style={{ fontSize: "0.9rem", margin: "0px" }}>{id}</p>
+  </div>
+);
+
+const Software: FC<{ height?: string }> = ({ height = "60vh" }) => (
+  <ImageAndText id="software" height={height} src="/sketchpad-demo.png" />
 );
 
 const Code: FC = () => (
@@ -138,14 +82,7 @@ const Code: FC = () => (
     <div
       style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
-        <img
-          data-id="software-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
-          src="/sketchpad-demo.png"
-        />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
-      </div>
+      <Software height="20vh" />
     </div>
     <div style={{ textAlign: "center", margin: "0 1rem" }}>
       <img
@@ -585,6 +522,74 @@ const ErrorViolation: FC = () => (
     bottomImages={imagesRow2.slice(0, 5)}
   />
 );
+
+
+const App: FC = () => {
+  const deckDivRef = useRef<HTMLDivElement>(null); // reference to deck container div
+  const deckRef = useRef<Reveal.Api | null>(null); // reference to deck reveal instance
+
+  useEffect(() => {
+    // Prevents double initialization in strict mode
+    if (deckRef.current) return;
+
+    deckRef.current = new Reveal(deckDivRef.current!, {
+      transition: "slide",
+      // other config options
+    });
+
+    deckRef.current.initialize().then(() => {
+      // good place for event handlers and plugin setups
+    });
+
+    return () => {
+      try {
+        if (deckRef.current) {
+          deckRef.current.destroy();
+          deckRef.current = null;
+        }
+      } catch (e) {
+        console.warn("Reveal.js destroy call failed.");
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      className="reveal"
+      ref={deckDivRef}
+      style={{ width: "100vw", height: "100vh" }}
+    >
+      <div className="slides">
+        <Semio />
+        <Title />
+        <Subtitle />
+        <Background />
+        <Analogy />
+        <section title="software" data-auto-animate>
+          <Software />
+        </section>
+        <Code />
+        <Docs />
+        <Ast />
+        <DevServer />
+        <CodeError />
+        <Building />
+        <DesignFormat />
+        <ComplianceCode />
+        <ComplianceFormat />
+        <ConstraintServer />
+        <Violation />
+        <Comparison />
+        <SoftwareBuilding />
+        <CodeDesignFormat />
+        <DocsComplianceCode />
+        <AstComplianceFormat />
+        <DevServerConstraintServer />
+        <ErrorViolation />
+      </div>
+    </div>
+  );
+};
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
