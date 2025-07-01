@@ -1024,58 +1024,71 @@ const ErrorViolation: FC = () => (
 const Regulation: FC = () => (
   <section>
     <section title="regulation" data-auto-animate>
-      <h3 data-id="title">Berliner Bauordnung</h3>
-      <h4 data-id="regulation-title">§ 35 Notwendige Treppenräume, Ausgänge</h4>
-      <p data-id="regulation-text" className="text-2xl">
-        (1) Jede notwendige Treppe muss zur Sicherstellung der Rettungswege aus
-        den Geschossen ins Freie in einem eigenen, durchgehenden Treppenraum
-        liegen (notwendiger Treppenraum). Notwendige Treppenräume müssen so
-        angeordnet und ausgebildet sein, dass die Nutzung der notwendigen
-        Treppen im Brandfall ausreichend lange möglich ist. Notwendige Treppen
-        sind ohne eigenen Treppenraum zulässig
-      </p>
-      <ol className="text-2xl">
-        <li data-id="regulation-one">
-          in Gebäuden der Gebäudeklassen 1 und 2,{" "}
-        </li>
-        <li data-id="regulation-two">
-          für die Verbindung von höchstens zwei Geschossen innerhalb derselben
-          Nutzungseinheit von insgesamt nicht mehr als 200 m²
-          Brutto-Grundfläche, wenn in jedem Geschoss ein anderer Rettungsweg
-          erreicht werden kann,{" "}
-        </li>
-        <li data-id="regulation-three">
-          als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
-          Brandfall nicht gefährdet werden kann.{" "}
-        </li>
-      </ol>
+      <div className="flex justify-around items-start">
+        <div className="w-5/12">
+          <h5 data-id="title">Berliner Bauordnung</h5>
+          <h6 data-id="regulation-title">
+            § 35 Notwendige Treppenräume, Ausgänge
+          </h6>
+          <p data-id="regulation-text" className="text-xl">
+            (1) Jede notwendige Treppe muss zur Sicherstellung der Rettungswege
+            aus den Geschossen ins Freie in einem eigenen, durchgehenden
+            Treppenraum liegen (notwendiger Treppenraum). Notwendige
+            Treppenräume müssen so angeordnet und ausgebildet sein, dass die
+            Nutzung der notwendigen Treppen im Brandfall ausreichend lange
+            möglich ist. Notwendige Treppen sind ohne eigenen Treppenraum
+            zulässig
+          </p>
+          <ol className="text-xl">
+            <li data-id="regulation-one">
+              in Gebäuden der Gebäudeklassen 1 und 2,{" "}
+            </li>
+            <li data-id="regulation-two">
+              für die Verbindung von höchstens zwei Geschossen innerhalb
+              derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
+              Brutto-Grundfläche, wenn in jedem Geschoss ein anderer Rettungsweg
+              erreicht werden kann,{" "}
+            </li>
+            <li data-id="regulation-three">
+              als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
+              Brandfall nicht gefährdet werden kann.{" "}
+            </li>
+          </ol>
+        </div>
+        <div className="w-5/12"></div>
+      </div>
     </section>
-    <section title="regulation-text" data-auto-animate>
-      <h3 data-id="title">Building Code Berlin</h3>
-      <h4 data-id="regulation-title">§ 35 Necessary stairwells, exits</h4>
-      <p data-id="regulation-text" className="text-2xl">
-        (1) Each necessary staircase must be located in a separate, continuous
-        stairwell to ensure escape routes from the storeys to the outside
-        (necessary stairwell). Necessary stairwells must be arranged and
-        designed in such a way that the use of the necessary stairs is possible
-        for a sufficiently long time in the event of fire. Necessary staircases
-        are permitted without a separate stairwell
-      </p>
-      <ol className="text-2xl">
-        <li data-id="regulation-one">
-          in buildings of building classes 1 and 2,
-        </li>
-        <li data-id="regulation-two">
-          {" "}
-          for connecting a maximum of two storeys within the same usage unit
-          with a total gross floor area of no more than 200 m², if a different
-          escape route can be reached on each storey,
-        </li>
-        <li data-id="regulation-three">
-          as an external staircase if its use is sufficiently safe and cannot be
-          endangered in the event of fire.
-        </li>
-      </ol>
+    <section title="regulation" data-auto-animate>
+      <div className="flex justify-around items-start">
+        <div className="w-5/12"></div>
+        <div className="w-5/12">
+          <h5 data-id="title">Building Code Berlin</h5>
+          <h6 data-id="regulation-title">§ 35 Necessary stairwells, exits</h6>
+          <p data-id="regulation-text" className="text-xl">
+            (1) Each necessary staircase must be located in a separate,
+            continuous stairwell to ensure escape routes from the storeys to the
+            outside (necessary stairwell). Necessary stairwells must be arranged
+            and designed in such a way that the use of the necessary stairs is
+            possible for a sufficiently long time in the event of fire.
+            Necessary staircases are permitted without a separate stairwell
+          </p>
+          <ol className="text-xl">
+            <li data-id="regulation-one">
+              in buildings of building classes 1 and 2,
+            </li>
+            <li data-id="regulation-two">
+              {" "}
+              for connecting a maximum of two storeys within the same usage unit
+              with a total gross floor area of no more than 200 m², if a
+              different escape route can be reached on each storey,
+            </li>
+            <li data-id="regulation-three">
+              as an external staircase if its use is sufficiently safe and
+              cannot be endangered in the event of fire.
+            </li>
+          </ol>
+        </div>
+      </div>
     </section>
   </section>
 );
