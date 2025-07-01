@@ -60,11 +60,11 @@ const StatsAboutLLMs: FC = () => {
   const CustomTooltip: FC<any> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip" style={{ backgroundColor: "white", padding: "1rem", border: "1px solid #ccc" }}>
-          <p className="label">{`${payload[0].payload.name}`}</p>
-          <p className="intro">{`Context: ${yAxisFormatter(payload[0].value)}`}</p>
-          <p className="desc">{`Announced: ${dateFormatter(label)}`}</p>
-          {payload[0].payload.equivalent && <p className="equivalent">{`Equivalent: ${payload[0].payload.equivalent}`}</p>}
+        <div className="custom-tooltip">
+          <p className="label"><text className="font-bold">Model:</text>{` ${payload[0].payload.name}`}</p>
+          {payload[0].payload.equivalent && <p className="equivalent"><text className="font-bold">Equivalent:</text>{` ${payload[0].payload.equivalent}`}</p>}
+          <p className="intro"><text className="font-bold">Context:</text>{` ${yAxisFormatter(payload[0].value)}`}</p>
+          <p className="desc"><text className="font-bold">Announced:</text>{` ${dateFormatter(label)}`}</p>
         </div>
       );
     }
@@ -91,10 +91,10 @@ const StatsAboutLLMs: FC = () => {
               { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15", equivalent: "~1500 pages" },
               { name: 'Llama 4', context: 10000000, announced: "2025-04-05", equivalent: "~15000 pages" },
             ]}>
-            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
             <XAxis dataKey="announced" tickFormatter={dateFormatter} />
             <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
-            <Line type="monotone" dataKey="context" stroke="#8884d8" />
+            <Line type="monotone" dataKey="context" stroke="#ff344f" />
             <Tooltip content={<CustomTooltip />} />
           </LineChart>
         </ResponsiveContainer>
