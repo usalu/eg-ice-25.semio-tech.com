@@ -16,6 +16,7 @@ import {
   YAxis,
   Scatter,
   Line,
+  ScatterChart,
 } from "recharts";
 import { CartesianGrid } from "recharts";
 
@@ -96,16 +97,10 @@ const Timeline: FC = () => {
             <span className="font-bold">Name:</span>
             {` ${point.name}`}
           </p>
-          {point.equivalent && (
-            <p className="equivalent">
-              <span className="font-bold">Equivalent:</span>
-              {` ${point.equivalent}`}
-            </p>
-          )}
           {point.context && (
             <p className="intro">
               <span className="font-bold">Context:</span>
-              {` ${yAxisFormatter(point.context)}`}
+              {` ${yAxisFormatter(point.context)} (${point.equivalent})`}
             </p>
           )}
           <p className="desc">
@@ -120,43 +115,43 @@ const Timeline: FC = () => {
 
   const modelData = [
     {
-      announced: "2018-06-11",
+      date: "2018-06-11",
       name: "GPT",
       context: 512,
       equivalent: "< 1 page",
     },
     {
-      announced: "2019-11-05",
+      date: "2019-11-05",
       name: "GPT-2",
       context: 1024,
       equivalent: "~2 pages",
     },
     {
-      announced: "2020-05-28",
+      date: "2020-05-28",
       name: "GPT-3",
       context: 2048,
       equivalent: "~4 pages",
     },
     {
-      announced: "2022-03-15",
+      date: "2022-03-15",
       name: "GPT-3.5",
       context: 16384,
       equivalent: "~30 pages",
     },
     {
-      announced: "2023-03-14",
+      date: "2023-03-14",
       name: "Claude 1.5",
       context: 100000,
       equivalent: "~150 pages",
     },
     {
-      announced: "2024-02-15",
+      date: "2024-02-15",
       name: "Gemini 1.5 Pro",
       context: 1000000,
       equivalent: "~1500 pages",
     },
     {
-      announced: "2025-04-05",
+      date: "2025-04-05",
       name: "Llama 4",
       context: 10000000,
       equivalent: "~15000 pages",
@@ -165,57 +160,41 @@ const Timeline: FC = () => {
 
   const eventData = [
     {
-      event: "2020-12-01",
-      title: "RAG",
+      date: "2020-12-01",
+      name: "RAG",
       image: "/rag.png",
+      context: 5000000,
     },
     {
-      event: "2024-11-01",
-      title: "MCP",
+      date: "2024-11-01",
+      name: "MCP",
       image: "/mcp.png",
+      context: 5000000,
     },
     {
-      event: "2025-06-01",
-      title: "Cursor 1.0",
+      date: "2025-06-01",
+      name: "Cursor 1.0",
       image: "/cursor.png",
+      context: 5000000,
     },
   ];
-
-  const combinedData = [
-    ...modelData.map((d) => ({
-      date: new Date(d.announced),
-      name: d.name,
-      context: d.context,
-    })),
-    ...eventData.map((d) => ({
-      date: new Date(d.event),
-      name: d.title,
-      context: 5000000,
-      image: d.image,
-    })),
-  ]
-    .sort((a, b) => a.date.getTime() - b.date.getTime())
-    .map((d) => ({
-      ...d,
-      date: d.date.toISOString().split("T")[0],
-    }));
 
   return (
     <section title="stats-about-llms" data-auto-animate>
       <div className="w-[80vw] h-[40vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
-          <ComposedChart
+          <ScatterChart
             margin={{
               top: 5,
               right: 40,
               left: 40,
               bottom: 30,
             }}
-            data={combinedData}
+            syncMethod="index"
           >
-            <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
+            <CartesianGrid />
             <XAxis
-              dataKey="announced"
+              dataKey="date"
               tickFormatter={(value) => (value ? dateFormatter(value) : "")}
               type="category"
               allowDuplicatedCategory={false}
@@ -224,16 +203,18 @@ const Timeline: FC = () => {
               dataKey="context"
               tickFormatter={yAxisFormatter}
               type="number"
+              stroke="#8884d8"
             />
-            <Line
-              type="monotone"
-              dataKey="context"
-              stroke="#ff344f"
-              dot={false}
+
+            <Scatter data={modelData} fill="#8884d8" line />
+            <Scatter data={eventData} fill="#82ca9d" />
+            <Tooltip
+              cursor={{
+                strokeDasharray: "3 3",
+              }}
+              content={<CustomTooltip />}
             />
-            <Scatter dataKey="context" fill="#ff344f" />
-            <Tooltip content={<CustomTooltip />} />
-          </ComposedChart>
+          </ScatterChart>
         </ResponsiveContainer>
       </div>
     </section>
