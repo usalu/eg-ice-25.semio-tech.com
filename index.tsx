@@ -125,7 +125,7 @@ const Timeline: FC = () => {
 const Frameworks: FC = () => (
   <section title="Frameworks" data-auto-animate>
     <h2 data-id="title">Frameworks</h2>
-    <ul>
+    <ul className="text-3xl">
       <li data-id="ids-ifc-step" className="fragment">
         Information Delivery Specification (IDS)
       </li>
@@ -899,7 +899,7 @@ const Violation: FC = () => (
     >
       <img
         data-id="violation-img"
-        className="h-[35vh] w-auto object-cover"
+        className="h-[25vh] w-auto object-cover"
         src="/violation.png"
       />
       <p
@@ -1022,11 +1022,11 @@ const ErrorViolation: FC = () => (
 );
 
 const Regulation: FC = () => (
-  <>
+  <section>
     <section title="regulation" data-auto-animate>
-      <h3 data-id="title">Berliner Bauordnung (BauO Bln)</h3>
+      <h3 data-id="title">Berliner Bauordnung</h3>
       <h4 data-id="regulation-title">§ 35 Notwendige Treppenräume, Ausgänge</h4>
-      <p data-id="regulation-text">
+      <p data-id="regulation-text" className="text-2xl">
         (1) Jede notwendige Treppe muss zur Sicherstellung der Rettungswege aus
         den Geschossen ins Freie in einem eigenen, durchgehenden Treppenraum
         liegen (notwendiger Treppenraum). Notwendige Treppenräume müssen so
@@ -1034,7 +1034,7 @@ const Regulation: FC = () => (
         Treppen im Brandfall ausreichend lange möglich ist. Notwendige Treppen
         sind ohne eigenen Treppenraum zulässig
       </p>
-      <ul>
+      <ol className="text-2xl">
         <li data-id="regulation-one">
           in Gebäuden der Gebäudeklassen 1 und 2,{" "}
         </li>
@@ -1048,12 +1048,12 @@ const Regulation: FC = () => (
           als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
           Brandfall nicht gefährdet werden kann.{" "}
         </li>
-      </ul>
+      </ol>
     </section>
     <section title="regulation-text" data-auto-animate>
-      <h3 data-id="title">Berliner Bauordnung (BauO Bln)</h3>
+      <h3 data-id="title">Building Code Berlin</h3>
       <h4 data-id="regulation-title">§ 35 Necessary stairwells, exits</h4>
-      <p data-id="regulation-text">
+      <p data-id="regulation-text" className="text-2xl">
         (1) Each necessary staircase must be located in a separate, continuous
         stairwell to ensure escape routes from the storeys to the outside
         (necessary stairwell). Necessary stairwells must be arranged and
@@ -1061,7 +1061,7 @@ const Regulation: FC = () => (
         for a sufficiently long time in the event of fire. Necessary staircases
         are permitted without a separate stairwell
       </p>
-      <ul>
+      <ol className="text-2xl">
         <li data-id="regulation-one">
           in buildings of building classes 1 and 2,
         </li>
@@ -1075,9 +1075,9 @@ const Regulation: FC = () => (
           as an external staircase if its use is sufficiently safe and cannot be
           endangered in the event of fire.
         </li>
-      </ul>
+      </ol>
     </section>
-  </>
+  </section>
 );
 
 const App: FC = () => {
