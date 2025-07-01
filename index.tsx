@@ -17,7 +17,6 @@ import {
   YAxis,
 } from "recharts";
 import { CartesianGrid } from "recharts";
-import { Chrono } from "react-chrono";
 
 const Semio: FC = () => (
   <section title="title" data-auto-animate>
@@ -54,65 +53,74 @@ const Subtitle: FC = () => (
   </section>
 );
 
-const Timeline: FC = () => (
-  <section title="timeline" data-auto-animate>
-    <div className="w-[80vw] h-[80vh] mx-auto">
-      <Chrono
-        disableToolbar
-        showAllCardsHorizontal
-        mode="HORIZONTAL"
-        // itemWidth={150}
-        theme={{
-          primary: "#ff344f",
-          secondary: "#7b827d",
-        }}
-        items={[
-          {
-            title: "December 2020",
-            cardTitle: "RAG",
-            url: "https://arxiv.org/abs/2005.11401",
-            media: {
-              type: "IMAGE",
-              name: "RAG",
-              source: {
-                url: "/rag.png",
-              },
-            },
-            cardSubtitle:
-              "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-          },
-          {
-            title: "November 2024",
-            cardTitle: "MCP",
-            cardSubtitle: "Model Context Protocol",
-            url: "https://modelcontextprotocol.io/",
-            media: {
-              type: "IMAGE",
-              name: "MCP",
-              source: {
-                url: "/mcp.png",
-              },
-            },
-          },
-          {
-            title: "June 2025",
-            cardTitle: "Cursor",
-            cardSubtitle:
-              "Cursor is a code editor that uses MCP to retrieve and update model context.",
-            url: "https://www.cursor.com/en/changelog/1-0",
-            media: {
-              type: "IMAGE",
-              name: "Cursor",
-              source: {
-                url: "/cursor.png",
-              },
-            },
-          },
-        ]}
-      />
-    </div>
-  </section>
-);
+const Timeline: FC = () => {
+  const timelineData = [
+    {
+      date: "December 2020",
+      title: "RAG",
+      subtitle:
+        "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      url: "https://arxiv.org/abs/2005.11401",
+      image: "/rag.png",
+    },
+    {
+      date: "November 2024",
+      title: "MCP",
+      subtitle: "Model Context Protocol",
+      url: "https://modelcontextprotocol.io/",
+      image: "/mcp.png",
+    },
+    {
+      date: "June 2025",
+      title: "Cursor 1.0",
+      subtitle:
+        "Cursor is a code editor that uses MCP to retrieve and update model context.",
+      url: "https://www.cursor.com/en/changelog/1-0",
+      image: "/cursor.png",
+    },
+  ];
+
+  return (
+    <section title="timeline">
+      <div className="w-[80vw] h-[80vh] mx-auto flex flex-col justify-center">
+        {/* Timeline line with circles */}
+        <div className="relative mb-8">
+          <div className="absolute top-4 left-0 right-0 h-0.5 bg-gray-300"></div>
+          <div className="flex justify-between relative">
+            {timelineData.map((item, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="text-sm font-medium text-gray-600 mb-2">
+                  {item.date}
+                </div>
+                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-md relative z-10"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Cards */}
+        <div className="flex justify-between gap-4">
+          {timelineData.map((item, index) => (
+            <div key={index} className="flex-1 max-w-xs">
+              <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-32 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="font-bold text-lg text-center">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Frameworks: FC = () => (
   <section title="Frameworks" data-auto-animate>
@@ -227,7 +235,11 @@ const StatsAboutLLMs: FC = () => {
     return value.toString();
   };
 
-  const CustomTooltip: FC<any> = ({ active, payload, label }) => {
+  const CustomTooltip: FC<{
+    active?: boolean;
+    payload?: any[];
+    label?: string;
+  }> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
@@ -247,7 +259,7 @@ const StatsAboutLLMs: FC = () => {
           </p>
           <p className="desc">
             <span className="font-bold">Announced:</span>
-            {` ${dateFormatter(label)}`}
+            {` ${label ? dateFormatter(label) : ""}`}
           </p>
         </div>
       );
@@ -312,7 +324,10 @@ const StatsAboutLLMs: FC = () => {
             ]}
           >
             <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
-            <XAxis dataKey="announced" tickFormatter={dateFormatter} />
+            <XAxis
+              dataKey="announced"
+              tickFormatter={(value) => (value ? dateFormatter(value) : "")}
+            />
             <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
             <Line type="monotone" dataKey="context" stroke="#ff344f" />
             <Tooltip content={<CustomTooltip />} />
@@ -912,10 +927,10 @@ const Comparison: FC = () => (
 
 const PairedSlide: FC<{
   title: string;
-  topImages: any[];
-  mainImageLeft: any;
-  mainImageRight: any;
-  bottomImages: any[];
+  topImages: { id: string; src: string; text: string }[];
+  mainImageLeft: { id: string; src: string; text: string };
+  mainImageRight: { id: string; src: string; text: string };
+  bottomImages: { id: string; src: string; text: string }[];
 }> = ({ title, topImages, mainImageLeft, mainImageRight, bottomImages }) => (
   <section title={title} data-auto-animate>
     <div className="flex flex-col items-center justify-center">
@@ -1016,6 +1031,7 @@ const App: FC = () => {
 
     deckRef.current = new Reveal(deckDivRef.current!, {
       transition: "fade",
+      // disableLayout: true,
       // other config options
     });
 
@@ -1030,7 +1046,7 @@ const App: FC = () => {
           deckRef.current = null;
         }
       } catch (e) {
-        console.warn("Reveal.js destroy call failed.");
+        console.warn("Reveal.js destroy call failed:", e);
       }
     };
   }, []);
@@ -1048,8 +1064,8 @@ const App: FC = () => {
           <Subtitle />
         </section>
         <section>
-          <Timeline />
           <StatsAboutLLMs />
+          <Timeline />
         </section>
         <Analogy />
         <section>
