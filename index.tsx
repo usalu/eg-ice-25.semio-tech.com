@@ -53,6 +53,123 @@ const Subtitle: FC = () => (
   </section>
 );
 
+const StatsAboutLLMs: FC = () => {
+  const dateFormatter = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+    });
+  };
+
+  const yAxisFormatter = (value: number) => {
+    if (value >= 1000000) return `${value / 1000000}M`;
+    if (value >= 1000) return `${value / 1000}K`;
+    return value.toString();
+  };
+
+  const CustomTooltip: FC<{
+    active?: boolean;
+    payload?: any[];
+    label?: string;
+  }> = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">
+            <span className="font-bold">Model:</span>
+            {` ${payload[0].payload.name}`}
+          </p>
+          {payload[0].payload.equivalent && (
+            <p className="equivalent">
+              <span className="font-bold">Equivalent:</span>
+              {` ${payload[0].payload.equivalent}`}
+            </p>
+          )}
+          <p className="intro">
+            <span className="font-bold">Context:</span>
+            {` ${yAxisFormatter(payload[0].value)}`}
+          </p>
+          <p className="desc">
+            <span className="font-bold">Announced:</span>
+            {` ${label ? dateFormatter(label) : ""}`}
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <section title="stats-about-llms" data-auto-animate>
+      <div className="w-[80vw] h-[80vh] mx-auto">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            margin={{
+              top: 5,
+              right: 40,
+              left: 40,
+              bottom: 30,
+            }}
+            data={[
+              {
+                name: "GPT",
+                context: 512,
+                announced: "2018-06-11",
+                equivalent: "< 1 page",
+              },
+              {
+                name: "GPT-2",
+                context: 1024,
+                announced: "2019-11-05",
+                equivalent: "~2 pages",
+              },
+              {
+                name: "GPT-3",
+                context: 2048,
+                announced: "2020-05-28",
+                equivalent: "~4 pages",
+              },
+              {
+                name: "GPT-3.5",
+                context: 16384,
+                announced: "2022-03-15",
+                equivalent: "~30 pages",
+              },
+              {
+                name: "Claude 1.5",
+                context: 100000,
+                announced: "2023-03-14",
+                equivalent: "~150 pages",
+              },
+              {
+                name: "Gemini 1.5 Pro",
+                context: 1000000,
+                announced: "2024-02-15",
+                equivalent: "~1500 pages",
+              },
+              {
+                name: "Llama 4",
+                context: 10000000,
+                announced: "2025-04-05",
+                equivalent: "~15000 pages",
+              },
+            ]}
+          >
+            <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
+            <XAxis
+              dataKey="announced"
+              tickFormatter={(value) => (value ? dateFormatter(value) : "")}
+            />
+            <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
+            <Line type="monotone" dataKey="context" stroke="#ff344f" />
+            <Tooltip content={<CustomTooltip />} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
+  );
+};
+
 const Timeline: FC = () => {
   const timelineData = [
     {
@@ -220,123 +337,6 @@ const Analogy: FC = () => (
     <img src="/sketchpad-demo.gif" data-preview-video="/coding.mp4" />
   </section>
 );
-
-const StatsAboutLLMs: FC = () => {
-  const dateFormatter = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-    });
-  };
-
-  const yAxisFormatter = (value: number) => {
-    if (value >= 1000000) return `${value / 1000000}M`;
-    if (value >= 1000) return `${value / 1000}K`;
-    return value.toString();
-  };
-
-  const CustomTooltip: FC<{
-    active?: boolean;
-    payload?: any[];
-    label?: string;
-  }> = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="custom-tooltip">
-          <p className="label">
-            <span className="font-bold">Model:</span>
-            {` ${payload[0].payload.name}`}
-          </p>
-          {payload[0].payload.equivalent && (
-            <p className="equivalent">
-              <span className="font-bold">Equivalent:</span>
-              {` ${payload[0].payload.equivalent}`}
-            </p>
-          )}
-          <p className="intro">
-            <span className="font-bold">Context:</span>
-            {` ${yAxisFormatter(payload[0].value)}`}
-          </p>
-          <p className="desc">
-            <span className="font-bold">Announced:</span>
-            {` ${label ? dateFormatter(label) : ""}`}
-          </p>
-        </div>
-      );
-    }
-    return null;
-  };
-
-  return (
-    <section title="stats-about-llms" data-auto-animate>
-      <div className="w-[80vw] h-[80vh] mx-auto">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart
-            margin={{
-              top: 5,
-              right: 40,
-              left: 40,
-              bottom: 30,
-            }}
-            data={[
-              {
-                name: "GPT",
-                context: 512,
-                announced: "2018-06-11",
-                equivalent: "< 1 page",
-              },
-              {
-                name: "GPT-2",
-                context: 1024,
-                announced: "2019-11-05",
-                equivalent: "~2 pages",
-              },
-              {
-                name: "GPT-3",
-                context: 2048,
-                announced: "2020-05-28",
-                equivalent: "~4 pages",
-              },
-              {
-                name: "GPT-3.5",
-                context: 16384,
-                announced: "2022-03-15",
-                equivalent: "~30 pages",
-              },
-              {
-                name: "Claude 1.5",
-                context: 100000,
-                announced: "2023-03-14",
-                equivalent: "~150 pages",
-              },
-              {
-                name: "Gemini 1.5 Pro",
-                context: 1000000,
-                announced: "2024-02-15",
-                equivalent: "~1500 pages",
-              },
-              {
-                name: "Llama 4",
-                context: 10000000,
-                announced: "2025-04-05",
-                equivalent: "~15000 pages",
-              },
-            ]}
-          >
-            <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
-            <XAxis
-              dataKey="announced"
-              tickFormatter={(value) => (value ? dateFormatter(value) : "")}
-            />
-            <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
-            <Line type="monotone" dataKey="context" stroke="#ff344f" />
-            <Tooltip content={<CustomTooltip />} />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-    </section>
-  );
-};
 
 const Software: FC = () => (
   <section title="software" data-auto-animate>
