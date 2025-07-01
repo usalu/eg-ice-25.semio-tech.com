@@ -1035,15 +1035,17 @@ const Regulation: FC = () => (
         sind ohne eigenen Treppenraum zulässig
       </p>
       <ul>
-        <li>1. in Gebäuden der Gebäudeklassen 1 und 2, </li>
-        <li>
-          2. für die Verbindung von höchstens zwei Geschossen innerhalb
-          derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
+        <li data-id="regulation-one">
+          in Gebäuden der Gebäudeklassen 1 und 2,{" "}
+        </li>
+        <li data-id="regulation-two">
+          für die Verbindung von höchstens zwei Geschossen innerhalb derselben
+          Nutzungseinheit von insgesamt nicht mehr als 200 m²
           Brutto-Grundfläche, wenn in jedem Geschoss ein anderer Rettungsweg
           erreicht werden kann,{" "}
         </li>
-        <li>
-          3. als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
+        <li data-id="regulation-three">
+          als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
           Brandfall nicht gefährdet werden kann.{" "}
         </li>
       </ul>
@@ -1059,6 +1061,21 @@ const Regulation: FC = () => (
         for a sufficiently long time in the event of fire. Necessary staircases
         are permitted without a separate stairwell
       </p>
+      <ul>
+        <li data-id="regulation-one">
+          in buildings of building classes 1 and 2,
+        </li>
+        <li data-id="regulation-two">
+          {" "}
+          for connecting a maximum of two storeys within the same usage unit
+          with a total gross floor area of no more than 200 m², if a different
+          escape route can be reached on each storey,
+        </li>
+        <li data-id="regulation-three">
+          as an external staircase if its use is sufficiently safe and cannot be
+          endangered in the event of fire.
+        </li>
+      </ul>
     </section>
   </>
 );
