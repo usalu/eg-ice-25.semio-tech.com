@@ -64,11 +64,12 @@ const Frameworks: FC = () => (
 );
 
 const Models: FC = () => (
-  <section title="Models" data-auto-animate>
-    <h2 data-id="title">Models</h2>
+  <section title="Datamodels" data-auto-animate>
+    <h2 data-id="title">Datamodels</h2>
     <ul>
       <li data-id="ids-ifc-step">Industry Foundation Classes (IFC)</li>
       <li data-id="rdf-cqie-owl">Construction Quality Inspection and Evaluation Ontology (CQIE)</li>
+      <li data-id="comon">Compliance-Management-Ontology (CoMOn)</li>
       <li data-id="legaldocml">Legal Document Markup Language (LegalDocML)</li>
       <li data-id="rase">Requirement Applicability Selection Exceptions (RASE)</li>
       <li data-id="framework-model-format">…</li>
@@ -106,6 +107,15 @@ const Alignment: FC = () => (
       <li className="text-center list-none">↕️</li>
       <li data-id="framework-model-format">…</li>
     </ul>
+  </section>
+);
+
+const Analogy: FC = () => (
+  <section title="analogy">
+    <img
+      src="/sketchpad-demo.gif"
+      data-preview-video="/coding.mp4"
+    />
   </section>
 );
 
@@ -169,15 +179,6 @@ const StatsAboutLLMs: FC = () => {
     </section>
   )
 };
-
-const Analogy: FC = () => (
-  <section title="analogy">
-    <img
-      src="/sketchpad-demo.gif"
-      data-preview-video="/coding.mp4"
-    />
-  </section>
-);
 
 const Software: FC = () => (
   <section title="software" data-auto-animate>
@@ -676,12 +677,12 @@ const App: FC = () => {
         <Semio />
         <Title />
         <Subtitle />
+        <StatsAboutLLMs />
+        <Analogy />
         <Frameworks />
         <Models />
         <Formats />
         <Alignment />
-        <StatsAboutLLMs />
-        <Analogy />
         <Software />
         <Code />
         <Docs />
