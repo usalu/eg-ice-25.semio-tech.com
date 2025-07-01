@@ -1041,21 +1041,21 @@ const Regulation: FC = () => (
               Treppenraum zulässig
             </p>
           </div>
-          <ol className="text-xl">
-            <li data-id="regulation-one">
-              in Gebäuden der Gebäudeklassen 1 und 2,{" "}
-            </li>
-            <li data-id="regulation-two">
-              für die Verbindung von höchstens zwei Geschossen innerhalb
-              derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
-              Brutto-Grundfläche, wenn in jedem Geschoss ein anderer Rettungsweg
-              erreicht werden kann,{" "}
-            </li>
-            <li data-id="regulation-three">
-              als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
-              Brandfall nicht gefährdet werden kann.{" "}
-            </li>
-          </ol>
+          <div data-id="regulation-constraints">
+            <ol className="text-xl">
+              <li>in Gebäuden der Gebäudeklassen 1 und 2, </li>
+              <li>
+                für die Verbindung von höchstens zwei Geschossen innerhalb
+                derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
+                Brutto-Grundfläche, wenn in jedem Geschoss ein anderer
+                Rettungsweg erreicht werden kann,{" "}
+                <li>
+                  als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und
+                  im Brandfall nicht gefährdet werden kann.{" "}
+                </li>
+              </li>
+            </ol>
+          </div>
         </div>
         <div className="w-5/12"></div>
       </div>
@@ -1077,21 +1077,21 @@ const Regulation: FC = () => (
               stairwell
             </p>
           </div>
-          <ol className="text-xl">
-            <li data-id="regulation-one">
-              in buildings of building classes 1 and 2,
-            </li>
-            <li data-id="regulation-two">
-              {" "}
-              for connecting a maximum of two storeys within the same usage unit
-              with a total gross floor area of no more than 200 m², if a
-              different escape route can be reached on each storey,
-            </li>
-            <li data-id="regulation-three">
-              as an external staircase if its use is sufficiently safe and
-              cannot be endangered in the event of fire.
-            </li>
-          </ol>
+          <div data-id="regulation-constraints">
+            <ol className="text-xl">
+              <li>in buildings of building classes 1 and 2,</li>
+              <li>
+                {" "}
+                for connecting a maximum of two storeys within the same usage
+                unit with a total gross floor area of no more than 200 m², if a
+                different escape route can be reached on each storey,
+              </li>
+              <li>
+                as an external staircase if its use is sufficiently safe and
+                cannot be endangered in the event of fire.
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -1099,27 +1099,13 @@ const Regulation: FC = () => (
       <div className="flex justify-around items-start">
         <div className="w-5/12">
           <h5 data-id="title">Ontology</h5>
-          <h6 data-id="regulation-title">
-            § 35 Notwendige Treppenräume, Ausgänge
-          </h6>
+          <h6 data-id="regulation-title">Web Ontology Language (OWL)</h6>
           <div data-id="regulation-text">
             <img data-id="regulation-text" src="/ontology.png" />
           </div>
-          <ol className="text-xl">
-            <li data-id="regulation-one">
-              in Gebäuden der Gebäudeklassen 1 und 2,{" "}
-            </li>
-            <li data-id="regulation-two">
-              für die Verbindung von höchstens zwei Geschossen innerhalb
-              derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
-              Brutto-Grundfläche, wenn in jedem Geschoss ein anderer Rettungsweg
-              erreicht werden kann,{" "}
-            </li>
-            <li data-id="regulation-three">
-              als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
-              Brandfall nicht gefährdet werden kann.{" "}
-            </li>
-          </ol>
+          <div data-id="regulation-constraints">
+            <img data-id="regulation-constraints" src="/constraints.png" />
+          </div>
         </div>
         <div className="w-5/12"></div>
       </div>
