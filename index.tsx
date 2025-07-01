@@ -33,7 +33,7 @@ const Title: FC = () => (
     </h1>
     <div data-id="title">
       <h2 className="r-fit-text">Large-Language-Model-based</h2>
-      <h2 className="r-fit-text">Building-InformationModel Alignment</h2>
+      <h2 className="r-fit-text">Building-Information-Model Alignment</h2>
       <h2 className="r-fit-text">for Automatic-Compliance-Checking</h2>
     </div>
   </section>
@@ -92,7 +92,7 @@ const Timeline: FC = () => {
           ? payload[0].payload
           : payload[payload.length - 1].payload;
 
-      console.log(active, payload, label);
+      // console.log(active, payload, label);
       if (point.image) {
         return (
           <div className="custom-tooltip">
@@ -202,6 +202,13 @@ const Timeline: FC = () => {
       context: 5000000,
     },
     {
+      date: "2024-12-05",
+      timestamp: new Date("2024-12-05").getTime(),
+      name: "o1 (Strawberry)",
+      image: "/o1.png",
+      context: 128000,
+    },
+    {
       date: "2025-06-01",
       timestamp: new Date("2025-06-01").getTime(),
       name: "Cursor 1.0",
@@ -243,8 +250,8 @@ const Timeline: FC = () => {
               tickFormatter={yAxisFormatter}
               type="number"
             />
-            <Scatter data={modelData} fill="#ff344f" line />
-            <Scatter data={eventData} fill="#00a69d" />
+            <Scatter data={modelData} name="Model" fill="#ff344f" line />
+            <Scatter data={eventData} name="Event" fill="#00a69d" />
             <Tooltip content={CustomTooltip} />
           </ScatterChart>
         </ResponsiveContainer>
@@ -287,16 +294,16 @@ const Frameworks: FC = () => (
       <li data-id="python" className="fragment">
         Python
       </li>
-      <li data-id="framework-model-format" className="fragment">
+      <li data-id="framework-schema-format" className="fragment">
         …
       </li>
     </ul>
   </section>
 );
 
-const Models: FC = () => (
-  <section title="Datamodels" data-auto-animate>
-    <h2 data-id="title">Datamodels</h2>
+const Schemas: FC = () => (
+  <section title="Schemas" data-auto-animate>
+    <h2 data-id="title">Schemas</h2>
     <ul>
       <li data-id="ids-ifc-step">Industry Foundation Classes (IFC)</li>
       <li data-id="rdf-cqie-owl">
@@ -307,7 +314,7 @@ const Models: FC = () => (
       <li data-id="rase">
         Requirement Applicability Selection Exceptions (RASE)
       </li>
-      <li data-id="framework-model-format">…</li>
+      <li data-id="framework-schema-format">…</li>
     </ul>
   </section>
 );
@@ -322,7 +329,7 @@ const Formats: FC = () => (
       <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
       <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
       <li data-id="json-">JavaScript Object Notation (JSON)</li>
-      <li data-id="framework-model-format">…</li>
+      <li data-id="framework-schema-format">…</li>
     </ul>
   </section>
 );
@@ -341,7 +348,7 @@ const Alignment: FC = () => (
       <li className="text-center list-none">↕️</li>
       <li data-id="json-">JavaScript Object Notation (JSON)</li>
       <li className="text-center list-none">↕️</li>
-      <li data-id="framework-model-format">…</li>
+      <li data-id="framework-schema-format">…</li>
     </ul>
   </section>
 );
@@ -1072,11 +1079,11 @@ const Regulation: FC = () => (
                 für die Verbindung von höchstens zwei Geschossen innerhalb
                 derselben Nutzungseinheit von insgesamt nicht mehr als 200 m²
                 Brutto-Grundfläche, wenn in jedem Geschoss ein anderer
-                Rettungsweg erreicht werden kann,{" "}
-                <li>
-                  als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und
-                  im Brandfall nicht gefährdet werden kann.{" "}
-                </li>
+                Rettungsweg erreicht werden kann,
+              </li>
+              <li>
+                als Außentreppe, wenn ihre Nutzung ausreichend sicher ist und im
+                Brandfall nicht gefährdet werden kann.
               </li>
             </ol>
           </div>
@@ -1105,7 +1112,6 @@ const Regulation: FC = () => (
             <ol className="text-xl">
               <li>in buildings of building classes 1 and 2,</li>
               <li>
-                {" "}
                 for connecting a maximum of two storeys within the same usage
                 unit with a total gross floor area of no more than 200 m², if a
                 different escape route can be reached on each storey,
@@ -1270,7 +1276,7 @@ const App: FC = () => {
         </section>
         <section>
           <Frameworks />
-          <Models />
+          <Schemas />
           <Formats />
           <Alignment />
         </section>
