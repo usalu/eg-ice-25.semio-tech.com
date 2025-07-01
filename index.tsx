@@ -1,16 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import React, { type FC } from 'react'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import React, { type FC } from "react";
 
 import { useEffect, useRef } from "react";
 import Reveal from "reveal.js";
 
-import './index.css'
+import "./index.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
-import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { CartesianGrid } from 'recharts';
-
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { CartesianGrid } from "recharts";
+import { Chrono } from "react-chrono";
 
 const Semio: FC = () => (
   <section title="title" data-auto-animate>
@@ -20,7 +27,9 @@ const Semio: FC = () => (
 
 const Title: FC = () => (
   <section title="paper-title" data-auto-animate>
-    <h1 data-id="name" className="opacity-20">semio</h1>
+    <h1 data-id="name" className="opacity-20">
+      semio
+    </h1>
     <div data-id="title">
       <h2 className="r-fit-text">Large-Language-Model-based</h2>
       <h2 className="r-fit-text">Building-InformationModel Alignment</h2>
@@ -31,7 +40,9 @@ const Title: FC = () => (
 
 const Subtitle: FC = () => (
   <section title="paper-subtitle" data-auto-animate>
-    <h1 data-id="name" className="opacity-20">semio</h1>
+    <h1 data-id="name" className="opacity-20">
+      semio
+    </h1>
     <h2 data-id="title" className="r-fit-text opacity-20">
       LLM-based BIM Alignment for ACC
     </h2>
@@ -43,24 +54,101 @@ const Subtitle: FC = () => (
   </section>
 );
 
+const Timeline: FC = () => (
+  <section title="timeline" data-auto-animate>
+    <div className="w-[80vw] h-[80vh] mx-auto">
+      <Chrono
+        disableToolbar
+        showAllCardsHorizontal
+        mode="HORIZONTAL"
+        // itemWidth={150}
+        items={[
+          {
+            title: "December 2020",
+            cardTitle: "RAG",
+            url: "https://arxiv.org/abs/2005.11401",
+            media: {
+              type: "IMAGE",
+              name: "RAG",
+              source: {
+                url: "/rag.png",
+              },
+            },
+            cardSubtitle:
+              "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          },
+          {
+            title: "November 2024",
+            cardTitle: "MCP",
+            cardSubtitle: "Model Context Protocol",
+            url: "https://modelcontextprotocol.io/",
+            media: {
+              type: "IMAGE",
+              name: "MCP",
+              source: {
+                url: "/mcp.png",
+              },
+            },
+          },
+          {
+            title: "June 2025",
+            cardTitle: "Cursor",
+            cardSubtitle:
+              "Cursor is a code editor that uses MCP to retrieve and update model context.",
+            url: "https://www.cursor.com/en/changelog/1-0",
+            media: {
+              type: "IMAGE",
+              name: "Cursor",
+              source: {
+                url: "/cursor.png",
+              },
+            },
+          },
+        ]}
+      />
+    </div>
+  </section>
+);
 
 const Frameworks: FC = () => (
   <section title="Frameworks" data-auto-animate>
     <h2 data-id="title">Frameworks</h2>
     <ul>
-      <li data-id="ids-ifc-step" className="fragment">Information Delivery Specification (IDS)</li>
-      <li data-id="solibri" className="fragment">Solibri Model Checker</li>
-      <li data-id="bimtester" className="fragment">BIMTester</li>
-      <li data-id="owl-cqie-rdf" className="fragment">Web Ontology Language (OWL)</li>
-      <li data-id="shacl" className="fragment">Shapes Constraint Language (SHACL)</li>
-      <li data-id="sparql" className="fragment">SPARQL Protocol and RDF Query Language</li>
-      <li data-id="ifcopenshell" className="fragment">IfcOpenShell</li>
-      <li data-id="xbim-toolkit" className="fragment">Xbim Toolkit</li>
-      <li data-id="prolog" className="fragment">Prolog</li>
-      <li data-id="python" className="fragment">Python</li>
-      <li data-id="framework-model-format" className="fragment">…</li>
+      <li data-id="ids-ifc-step" className="fragment">
+        Information Delivery Specification (IDS)
+      </li>
+      <li data-id="solibri" className="fragment">
+        Solibri Model Checker
+      </li>
+      <li data-id="bimtester" className="fragment">
+        BIMTester
+      </li>
+      <li data-id="owl-cqie-rdf" className="fragment">
+        Web Ontology Language (OWL)
+      </li>
+      <li data-id="shacl" className="fragment">
+        Shapes Constraint Language (SHACL)
+      </li>
+      <li data-id="sparql" className="fragment">
+        SPARQL Protocol and RDF Query Language
+      </li>
+      <li data-id="ifcopenshell" className="fragment">
+        IfcOpenShell
+      </li>
+      <li data-id="xbim-toolkit" className="fragment">
+        Xbim Toolkit
+      </li>
+      <li data-id="prolog" className="fragment">
+        Prolog
+      </li>
+      <li data-id="python" className="fragment">
+        Python
+      </li>
+      <li data-id="framework-model-format" className="fragment">
+        …
+      </li>
     </ul>
-  </section >
+  </section>
 );
 
 const Models: FC = () => (
@@ -68,36 +156,41 @@ const Models: FC = () => (
     <h2 data-id="title">Datamodels</h2>
     <ul>
       <li data-id="ids-ifc-step">Industry Foundation Classes (IFC)</li>
-      <li data-id="rdf-cqie-owl">Construction Quality Inspection and Evaluation Ontology (CQIE)</li>
+      <li data-id="rdf-cqie-owl">
+        Construction Quality Inspection and Evaluation Ontology (CQIE)
+      </li>
       <li data-id="comon">Compliance-Management-Ontology (CoMOn)</li>
       <li data-id="legaldocml">Legal Document Markup Language (LegalDocML)</li>
-      <li data-id="rase">Requirement Applicability Selection Exceptions (RASE)</li>
+      <li data-id="rase">
+        Requirement Applicability Selection Exceptions (RASE)
+      </li>
       <li data-id="framework-model-format">…</li>
     </ul>
-  </section >
+  </section>
 );
-
 
 const Formats: FC = () => (
   <section title="Formats" data-auto-animate>
     <h2 data-id="title">Formats</h2>
     <ul>
-      <li data-id="ids-ifc-step">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li data-id="ids-ifc-step">
+        Standard for the Exchange of Product-Model Data (STEP)
+      </li>
       <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
       <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
       <li data-id="json-">JavaScript Object Notation (JSON)</li>
       <li data-id="framework-model-format">…</li>
     </ul>
-
   </section>
 );
-
 
 const Alignment: FC = () => (
   <section title="Alignment" data-auto-animate>
     <h2 data-id="title">Automaric Alignment?</h2>
     <ul>
-      <li data-id="ids-ifc-step">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li data-id="ids-ifc-step">
+        Standard for the Exchange of Product-Model Data (STEP)
+      </li>
       <li className="text-center list-none">↕️</li>
       <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
       <li className="text-center list-none">↕️</li>
@@ -112,19 +205,15 @@ const Alignment: FC = () => (
 
 const Analogy: FC = () => (
   <section title="analogy">
-    <img
-      src="/sketchpad-demo.gif"
-      data-preview-video="/coding.mp4"
-    />
+    <img src="/sketchpad-demo.gif" data-preview-video="/coding.mp4" />
   </section>
 );
 
-
 const StatsAboutLLMs: FC = () => {
   const dateFormatter = (dateStr: string) => {
-    return new Date(dateStr).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
     });
   };
 
@@ -132,16 +221,30 @@ const StatsAboutLLMs: FC = () => {
     if (value >= 1000000) return `${value / 1000000}M`;
     if (value >= 1000) return `${value / 1000}K`;
     return value.toString();
-  }
+  };
 
   const CustomTooltip: FC<any> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
-          <p className="label"><span className="font-bold">Model:</span>{` ${payload[0].payload.name}`}</p>
-          {payload[0].payload.equivalent && <p className="equivalent"><span className="font-bold">Equivalent:</span>{` ${payload[0].payload.equivalent}`}</p>}
-          <p className="intro"><span className="font-bold">Context:</span>{` ${yAxisFormatter(payload[0].value)}`}</p>
-          <p className="desc"><span className="font-bold">Announced:</span>{` ${dateFormatter(label)}`}</p>
+          <p className="label">
+            <span className="font-bold">Model:</span>
+            {` ${payload[0].payload.name}`}
+          </p>
+          {payload[0].payload.equivalent && (
+            <p className="equivalent">
+              <span className="font-bold">Equivalent:</span>
+              {` ${payload[0].payload.equivalent}`}
+            </p>
+          )}
+          <p className="intro">
+            <span className="font-bold">Context:</span>
+            {` ${yAxisFormatter(payload[0].value)}`}
+          </p>
+          <p className="desc">
+            <span className="font-bold">Announced:</span>
+            {` ${dateFormatter(label)}`}
+          </p>
         </div>
       );
     }
@@ -160,14 +263,50 @@ const StatsAboutLLMs: FC = () => {
               bottom: 30,
             }}
             data={[
-              { name: 'GPT', context: 512, announced: "2018-06-11", equivalent: "< 1 page" },
-              { name: 'GPT-2', context: 1024, announced: "2019-11-05", equivalent: "~2 pages" },
-              { name: 'GPT-3', context: 2048, announced: "2020-05-28", equivalent: "~4 pages" },
-              { name: 'GPT-3.5', context: 16384, announced: "2022-03-15", equivalent: "~30 pages" },
-              { name: 'Claude 1.5', context: 100000, announced: "2023-03-14", equivalent: "~150 pages" },
-              { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15", equivalent: "~1500 pages" },
-              { name: 'Llama 4', context: 10000000, announced: "2025-04-05", equivalent: "~15000 pages" },
-            ]}>
+              {
+                name: "GPT",
+                context: 512,
+                announced: "2018-06-11",
+                equivalent: "< 1 page",
+              },
+              {
+                name: "GPT-2",
+                context: 1024,
+                announced: "2019-11-05",
+                equivalent: "~2 pages",
+              },
+              {
+                name: "GPT-3",
+                context: 2048,
+                announced: "2020-05-28",
+                equivalent: "~4 pages",
+              },
+              {
+                name: "GPT-3.5",
+                context: 16384,
+                announced: "2022-03-15",
+                equivalent: "~30 pages",
+              },
+              {
+                name: "Claude 1.5",
+                context: 100000,
+                announced: "2023-03-14",
+                equivalent: "~150 pages",
+              },
+              {
+                name: "Gemini 1.5 Pro",
+                context: 1000000,
+                announced: "2024-02-15",
+                equivalent: "~1500 pages",
+              },
+              {
+                name: "Llama 4",
+                context: 10000000,
+                announced: "2025-04-05",
+                equivalent: "~15000 pages",
+              },
+            ]}
+          >
             <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
             <XAxis dataKey="announced" tickFormatter={dateFormatter} />
             <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
@@ -177,7 +316,7 @@ const StatsAboutLLMs: FC = () => {
         </ResponsiveContainer>
       </div>
     </section>
-  )
+  );
 };
 
 const Software: FC = () => (
@@ -188,16 +327,20 @@ const Software: FC = () => (
         className="h-[50vh] w-auto object-cover"
         src="/sketchpad-demo.png"
       />
-      <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+      <p
+        data-id="software-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        software
+      </p>
     </div>
   </section>
 );
 
 const Code: FC = () => (
   <section title="code" data-auto-animate>
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
@@ -205,7 +348,13 @@ const Code: FC = () => (
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+        <p
+          data-id="software-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          software
+        </p>
       </div>
     </div>
     <div className="text-center" style={{ margin: "0 1rem" }}>
@@ -214,16 +363,20 @@ const Code: FC = () => (
         className="h-[50vh] w-auto object-cover"
         src="/code.png"
       />
-      <p data-id="code-text" className="text-[0.9rem]" style={{ margin: "0px" }} >code</p>
+      <p
+        data-id="code-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        code
+      </p>
     </div>
   </section>
 );
 
 const Docs: FC = () => (
   <section title="docs" data-auto-animate>
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
@@ -231,7 +384,13 @@ const Docs: FC = () => (
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+        <p
+          data-id="software-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          software
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -240,7 +399,13 @@ const Docs: FC = () => (
           style={{ margin: "0px" }}
           src="/code.png"
         />
-        <p data-id="code-text" className="text-[0.9rem]" style={{ margin: "0px" }} >code</p>
+        <p
+          data-id="code-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          code
+        </p>
       </div>
     </div>
     <div className="text-center" style={{ margin: "0 1rem" }}>
@@ -249,16 +414,20 @@ const Docs: FC = () => (
         className="h-[50vh] w-auto object-cover"
         src="/docs.png"
       />
-      <p data-id="docs-text" className="text-[0.9rem]" style={{ margin: "0px" }} >docs</p>
+      <p
+        data-id="docs-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        docs
+      </p>
     </div>
   </section>
 );
 
 const Ast: FC = () => (
   <section title="ast" data-auto-animate>
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
@@ -266,7 +435,13 @@ const Ast: FC = () => (
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+        <p
+          data-id="software-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          software
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -275,7 +450,13 @@ const Ast: FC = () => (
           style={{ margin: "0px" }}
           src="/code.png"
         />
-        <p data-id="code-text" className="text-[0.9rem]" style={{ margin: "0px" }} >code</p>
+        <p
+          data-id="code-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          code
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -284,10 +465,19 @@ const Ast: FC = () => (
           style={{ margin: "0px" }}
           src="/docs.png"
         />
-        <p data-id="docs-text" className="text-[0.9rem]" style={{ margin: "0px" }} >docs</p>
+        <p
+          data-id="docs-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          docs
+        </p>
       </div>
     </div>
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
       <img
         data-id="abstract-syntax-tree-format-img"
         className="h-[50vh] w-auto object-cover"
@@ -306,9 +496,7 @@ const Ast: FC = () => (
 
 const DevServer: FC = () => (
   <section title="compiler" data-auto-animate>
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
@@ -316,7 +504,13 @@ const DevServer: FC = () => (
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+        <p
+          data-id="software-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          software
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -325,7 +519,13 @@ const DevServer: FC = () => (
           style={{ margin: "0px" }}
           src="/code.png"
         />
-        <p data-id="code-text" className="text-[0.9rem]" style={{ margin: "0px" }} >code</p>
+        <p
+          data-id="code-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          code
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -334,7 +534,13 @@ const DevServer: FC = () => (
           style={{ margin: "0px" }}
           src="/docs.png"
         />
-        <p data-id="docs-text" className="text-[0.9rem]" style={{ margin: "0px" }} >docs</p>
+        <p
+          data-id="docs-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          docs
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -352,13 +558,20 @@ const DevServer: FC = () => (
         </p>
       </div>
     </div>
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
       <img
         data-id="compiler-img"
         className="h-[50vh] w-auto object-cover"
         src="/compiler.png"
       />
-      <p data-id="compiler-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
+      <p
+        data-id="compiler-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
         compiler
       </p>
     </div>
@@ -367,9 +580,7 @@ const DevServer: FC = () => (
 
 const CodeError: FC = () => (
   <section title="code-error" data-auto-animate>
-    <div
-      className="flex items-center justify-center"
-    >
+    <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
@@ -377,7 +588,13 @@ const CodeError: FC = () => (
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" className="text-[0.9rem]" style={{ margin: "0px" }} >software</p>
+        <p
+          data-id="software-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          software
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -386,7 +603,13 @@ const CodeError: FC = () => (
           style={{ margin: "0px" }}
           src="/code.png"
         />
-        <p data-id="code-text" className="text-[0.9rem]" style={{ margin: "0px" }} >code</p>
+        <p
+          data-id="code-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          code
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -395,7 +618,13 @@ const CodeError: FC = () => (
           style={{ margin: "0px" }}
           src="/docs.png"
         />
-        <p data-id="docs-text" className="text-[0.9rem]" style={{ margin: "0px" }} >docs</p>
+        <p
+          data-id="docs-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          docs
+        </p>
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
@@ -419,51 +648,81 @@ const CodeError: FC = () => (
           style={{ margin: "0px" }}
           src="/compiler.png"
         />
-        <p data-id="compiler-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
+        <p
+          data-id="compiler-text"
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
           compiler
         </p>
       </div>
     </div>
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
       <img
         data-id="code-error-img"
         className="h-[50vh] w-auto object-cover"
         src="/code-error.png"
       />
-      <p data-id="code-error-text" className="text-[0.9rem]" style={{ margin: "0px" }} >error</p>
+      <p
+        data-id="code-error-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        error
+      </p>
     </div>
   </section>
 );
 
 const imagesRow1 = [
-  { id: 'software', src: '/sketchpad-demo.png', text: 'software' },
-  { id: 'code', src: '/code.png', text: 'code' },
-  { id: 'docs', src: '/docs.png', text: 'docs' },
-  { id: 'ast', src: '/abstract-syntax-tree-format.png', text: 'ast' },
-  { id: 'compiler', src: '/compiler.png', text: 'compiler' },
-  { id: 'code-error', src: '/code-error.png', text: 'error' },
+  { id: "software", src: "/sketchpad-demo.png", text: "software" },
+  { id: "code", src: "/code.png", text: "code" },
+  { id: "docs", src: "/docs.png", text: "docs" },
+  { id: "ast", src: "/abstract-syntax-tree-format.png", text: "ast" },
+  { id: "compiler", src: "/compiler.png", text: "compiler" },
+  { id: "code-error", src: "/code-error.png", text: "error" },
 ];
 
 const imagesRow2 = [
-  { id: 'building', src: '/building.png', text: 'building' },
-  { id: 'design-format', src: '/design-format.png', text: 'design-format' },
-  { id: 'compliance-code', src: '/compliance-code.png', text: 'compliance-code' },
-  { id: 'compliance-format', src: '/compliance-format.png', text: 'compliance-format' },
-  { id: 'acc-framework', src: '/acc-framework.png', text: 'acc-framework' },
-  { id: 'violation', src: '/violation.png', text: 'violation' },
+  { id: "building", src: "/building.png", text: "building" },
+  { id: "design-format", src: "/design-format.png", text: "design-format" },
+  {
+    id: "compliance-code",
+    src: "/compliance-code.png",
+    text: "compliance-code",
+  },
+  {
+    id: "compliance-format",
+    src: "/compliance-format.png",
+    text: "compliance-format",
+  },
+  { id: "acc-framework", src: "/acc-framework.png", text: "acc-framework" },
+  { id: "violation", src: "/violation.png", text: "violation" },
 ];
 
-const ImageBar: FC<{ images: { id: string; src: string; text: string; }[], imgClassName?: string }> = ({ images, imgClassName }) => (
+const ImageBar: FC<{
+  images: { id: string; src: string; text: string }[];
+  imgClassName?: string;
+}> = ({ images, imgClassName }) => (
   <div className="flex items-center justify-center">
-    {images.map(img => (
+    {images.map((img) => (
       <div key={img.id} className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id={`${img.id}-img`}
-          className={`object-cover ${imgClassName || 'h-[15vh] w-[15vh]'}`}
-          style={{ margin: '0px' }}
+          className={`object-cover ${imgClassName || "h-[15vh] w-[15vh]"}`}
+          style={{ margin: "0px" }}
           src={img.src}
         />
-        <p data-id={`${img.id}-text`} className="text-[0.9rem]" style={{ margin: '0px' }}>{img.text}</p>
+        <p
+          data-id={`${img.id}-text`}
+          className="text-[0.9rem]"
+          style={{ margin: "0px" }}
+        >
+          {img.text}
+        </p>
       </div>
     ))}
   </div>
@@ -476,74 +735,172 @@ const Building: FC = () => (
     className="flex flex-col justify-between"
   >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
       <img
         data-id="building-img"
         className="h-[50vh] w-auto object-cover"
         src="/building.png"
       />
-      <p data-id="building-text" className="text-[0.9rem]" style={{ margin: "0px" }} >building</p>
+      <p
+        data-id="building-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        building
+      </p>
     </div>
   </section>
 );
 
 const DesignFormat: FC = () => (
-  <section title="design-format" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="design-format"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="design-format-img" className="h-[35vh] w-auto object-cover" src="/design-format.png" />
-      <p data-id="design-format-text" className="text-[0.9rem]" style={{ margin: "0px" }}>design-format</p>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
+      <img
+        data-id="design-format-img"
+        className="h-[35vh] w-auto object-cover"
+        src="/design-format.png"
+      />
+      <p
+        data-id="design-format-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        design-format
+      </p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 1)} />
   </section>
 );
 
 const ComplianceCode: FC = () => (
-  <section title="compliance-code" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="compliance-code"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-code-img" className="h-[35vh] w-auto object-cover" src="/compliance-code.png" />
-      <p data-id="compliance-code-text" className="text-[0.9rem]" style={{ margin: "0px" }}>compliance-code</p>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
+      <img
+        data-id="compliance-code-img"
+        className="h-[35vh] w-auto object-cover"
+        src="/compliance-code.png"
+      />
+      <p
+        data-id="compliance-code-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        compliance-code
+      </p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 2)} />
   </section>
 );
 
 const ComplianceFormat: FC = () => (
-  <section title="compliance-format" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="compliance-format"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-format-img" className="h-[35vh] w-auto object-cover" src="/compliance-format.png" />
-      <p data-id="compliance-format-text" className="text-[0.9rem]" style={{ margin: "0px" }}>compliance-format</p>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
+      <img
+        data-id="compliance-format-img"
+        className="h-[35vh] w-auto object-cover"
+        src="/compliance-format.png"
+      />
+      <p
+        data-id="compliance-format-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        compliance-format
+      </p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 3)} />
   </section>
 );
 
 const ConstraintServer: FC = () => (
-  <section title="acc-framework" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="acc-framework"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="acc-framework-img" className="h-[35vh] w-auto object-cover" src="/acc-framework.png" />
-      <p data-id="acc-framework-text" className="text-[0.9rem]" style={{ margin: "0px" }}>acc-framework</p>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
+      <img
+        data-id="acc-framework-img"
+        className="h-[35vh] w-auto object-cover"
+        src="/acc-framework.png"
+      />
+      <p
+        data-id="acc-framework-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        acc-framework
+      </p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 4)} />
   </section>
 );
 
 const Violation: FC = () => (
-  <section title="violation" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="violation"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} />
-    <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="violation-img" className="h-[35vh] w-auto object-cover" src="/violation.png" />
-      <p data-id="violation-text" className="text-[0.9rem]" style={{ margin: "0px" }}>violation</p>
+    <div
+      className="text-center"
+      style={{ margin: "0 1rem", marginTop: "2rem" }}
+    >
+      <img
+        data-id="violation-img"
+        className="h-[35vh] w-auto object-cover"
+        src="/violation.png"
+      />
+      <p
+        data-id="violation-text"
+        className="text-[0.9rem]"
+        style={{ margin: "0px" }}
+      >
+        violation
+      </p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 5)} />
   </section>
 );
 
 const Comparison: FC = () => (
-  <section title="comparison" data-auto-animate className="flex flex-col justify-between">
+  <section
+    title="comparison"
+    data-auto-animate
+    className="flex flex-col justify-between"
+  >
     <ImageBar images={imagesRow1} imgClassName="h-auto w-[16.6vh]" />
     <ImageBar images={imagesRow2} imgClassName="h-auto w-[16.6vh]" />
   </section>
@@ -561,12 +918,20 @@ const PairedSlide: FC<{
       <ImageBar images={topImages} />
       <div className="flex items-center justify-center">
         <div className="text-center" style={{ margin: "0 1rem" }}>
-          <img data-id={`${mainImageLeft.id}-img`} className="h-[35vh] w-auto object-cover" src={mainImageLeft.src} />
+          <img
+            data-id={`${mainImageLeft.id}-img`}
+            className="h-[35vh] w-auto object-cover"
+            src={mainImageLeft.src}
+          />
           <p data-id={`${mainImageLeft.id}-text`}>{mainImageLeft.text}</p>
         </div>
         <h2>→</h2>
         <div className="text-center" style={{ margin: "0 1rem" }}>
-          <img data-id={`${mainImageRight.id}-img`} className="h-[35vh] w-auto object-cover" src={mainImageRight.src} />
+          <img
+            data-id={`${mainImageRight.id}-img`}
+            className="h-[35vh] w-auto object-cover"
+            src={mainImageRight.src}
+          />
           <p data-id={`${mainImageRight.id}-text`}>{mainImageRight.text}</p>
         </div>
       </div>
@@ -637,7 +1002,6 @@ const ErrorViolation: FC = () => (
   />
 );
 
-
 const App: FC = () => {
   const deckDivRef = useRef<HTMLDivElement>(null); // reference to deck container div
   const deckRef = useRef<Reveal.Api | null>(null); // reference to deck reveal instance
@@ -677,6 +1041,7 @@ const App: FC = () => {
         <Semio />
         <Title />
         <Subtitle />
+        <Timeline />
         <StatsAboutLLMs />
         <Analogy />
         <Frameworks />
@@ -707,8 +1072,8 @@ const App: FC = () => {
   );
 };
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
-)
+  </StrictMode>
+);
