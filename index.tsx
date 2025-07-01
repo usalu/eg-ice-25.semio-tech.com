@@ -62,6 +62,10 @@ const Timeline: FC = () => (
         showAllCardsHorizontal
         mode="HORIZONTAL"
         // itemWidth={150}
+        theme={{
+          primary: "#ff344f",
+          secondary: "#7b827d",
+        }}
         items={[
           {
             title: "December 2020",
@@ -1038,35 +1042,47 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
-        <Semio />
-        <Title />
-        <Subtitle />
-        <Timeline />
-        <StatsAboutLLMs />
+        <section>
+          <Semio />
+          <Title />
+          <Subtitle />
+        </section>
+        <section>
+          <Timeline />
+          <StatsAboutLLMs />
+        </section>
         <Analogy />
-        <Frameworks />
-        <Models />
-        <Formats />
-        <Alignment />
-        <Software />
-        <Code />
-        <Docs />
-        <Ast />
-        <DevServer />
-        <CodeError />
-        <Building />
-        <DesignFormat />
-        <ComplianceCode />
-        <ComplianceFormat />
-        <ConstraintServer />
-        <Violation />
+        <section>
+          <Software />
+          <Code />
+          <Docs />
+          <Ast />
+          <DevServer />
+          <CodeError />
+        </section>
+        <section>
+          <Building />
+          <DesignFormat />
+          <ComplianceCode />
+          <ComplianceFormat />
+          <ConstraintServer />
+          <Violation />
+        </section>
         <Comparison />
-        <SoftwareBuilding />
-        <CodeDesignFormat />
-        <DocsComplianceCode />
-        <AstComplianceFormat />
-        <DevServerConstraintServer />
-        <ErrorViolation />
+        <section>
+          <SoftwareBuilding />
+          <CodeDesignFormat />
+          <DocsComplianceCode />
+          <AstComplianceFormat />
+          <DevServerConstraintServer />
+          <ErrorViolation />
+        </section>
+        <section>
+          <Frameworks />
+          <Models />
+          <Formats />
+          <Alignment />
+        </section>
       </div>
     </div>
   );
