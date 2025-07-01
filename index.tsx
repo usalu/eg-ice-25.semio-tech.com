@@ -69,13 +69,26 @@ const Timeline: FC = () => {
     return value.toString();
   };
 
-  const CustomTooltip: FC<{
+  const CustomTooltip = ({
+    active,
+    payload,
+    label,
+  }: {
     active?: boolean;
-    payload?: any[];
-    label?: string;
-  }> = ({ active, payload, label }) => {
+    payload?: Array<{
+      payload: {
+        name: string;
+        date?: string;
+        context?: number;
+        equivalent?: string;
+        image?: string;
+      };
+    }>;
+    label?: string | number;
+  }) => {
     if (active && payload && payload.length) {
-      const point = payload[0].payload;
+      const point = payload[payload.length - 1].payload;
+      console.log(payload);
       if (point.image) {
         return (
           <div className="custom-tooltip">
@@ -83,11 +96,15 @@ const Timeline: FC = () => {
               <span className="font-bold">Event:</span>
               {` ${point.name}`}
             </p>
+            <img
+              src={point.image}
+              alt={point.name}
+              className="h-[40vh] w-auto"
+            />
             <p className="desc">
               <span className="font-bold">Date:</span>
-              {` ${label ? dateFormatter(label) : ""}`}
+              {` ${point.date ? dateFormatter(point.date) : ""}`}
             </p>
-            <img src={point.image} alt={point.name} className="h-24 w-auto" />
           </div>
         );
       }
@@ -105,7 +122,7 @@ const Timeline: FC = () => {
           )}
           <p className="desc">
             <span className="font-bold">Announced:</span>
-            {` ${label ? dateFormatter(label) : ""}`}
+            {` ${point.date ? dateFormatter(point.date) : ""}`}
           </p>
         </div>
       );
@@ -116,42 +133,49 @@ const Timeline: FC = () => {
   const modelData = [
     {
       date: "2018-06-11",
+      timestamp: new Date("2018-06-11").getTime(),
       name: "GPT",
       context: 512,
       equivalent: "< 1 page",
     },
     {
       date: "2019-11-05",
+      timestamp: new Date("2019-11-05").getTime(),
       name: "GPT-2",
       context: 1024,
       equivalent: "~2 pages",
     },
     {
       date: "2020-05-28",
+      timestamp: new Date("2020-05-28").getTime(),
       name: "GPT-3",
       context: 2048,
       equivalent: "~4 pages",
     },
     {
       date: "2022-03-15",
+      timestamp: new Date("2022-03-15").getTime(),
       name: "GPT-3.5",
       context: 16384,
       equivalent: "~30 pages",
     },
     {
       date: "2023-03-14",
+      timestamp: new Date("2023-03-14").getTime(),
       name: "Claude 1.5",
       context: 100000,
       equivalent: "~150 pages",
     },
     {
       date: "2024-02-15",
+      timestamp: new Date("2024-02-15").getTime(),
       name: "Gemini 1.5 Pro",
       context: 1000000,
       equivalent: "~1500 pages",
     },
     {
       date: "2025-04-05",
+      timestamp: new Date("2025-04-05").getTime(),
       name: "Llama 4",
       context: 10000000,
       equivalent: "~15000 pages",
@@ -161,18 +185,21 @@ const Timeline: FC = () => {
   const eventData = [
     {
       date: "2020-12-01",
+      timestamp: new Date("2020-12-01").getTime(),
       name: "RAG",
       image: "/rag.png",
       context: 5000000,
     },
     {
       date: "2024-11-01",
+      timestamp: new Date("2024-11-01").getTime(),
       name: "MCP",
       image: "/mcp.png",
       context: 5000000,
     },
     {
       date: "2025-06-01",
+      timestamp: new Date("2025-06-01").getTime(),
       name: "Cursor 1.0",
       image: "/cursor.png",
       context: 5000000,
@@ -181,7 +208,7 @@ const Timeline: FC = () => {
 
   return (
     <section title="stats-about-llms" data-auto-animate>
-      <div className="w-[80vw] h-[40vh] mx-auto">
+      <div className="w-[80vw] h-[80vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             margin={{
@@ -194,10 +221,14 @@ const Timeline: FC = () => {
           >
             <CartesianGrid />
             <XAxis
-              dataKey="date"
-              tickFormatter={(value) => (value ? dateFormatter(value) : "")}
-              type="category"
-              allowDuplicatedCategory={false}
+              dataKey="timestamp"
+              tickFormatter={(value) => {
+                const date = new Date(value);
+                return dateFormatter(date.toISOString().split('T')[0]);
+              }}
+              type="number"
+              scale="time"
+              domain={['dataMin', 'dataMax']}
             />
             <YAxis
               dataKey="context"
@@ -212,7 +243,7 @@ const Timeline: FC = () => {
               cursor={{
                 strokeDasharray: "3 3",
               }}
-              content={<CustomTooltip />}
+              content={CustomTooltip}
             />
           </ScatterChart>
         </ResponsiveContainer>
