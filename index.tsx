@@ -47,11 +47,11 @@ const Formats: FC = () => (
   <section title="Formats" data-auto-animate>
     <h2 data-id="format-model-framework-title">Formats</h2>
     <ul>
-      <li data-id="step-ifc-solibri">Standard for the Exchange of Product-Model Data (STEP)</li>
-      <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
-      <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
-      <li data-id="json-">JavaScript Object Notation (JSON)</li>
-      <li data-id="format-model-framework">…</li>
+      <li data-id="step-ifc-ids" className="fragment">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li data-id="rdf-cqie-owl" className="fragment">Resource-Description-Framework (RDF)</li>
+      <li data-id="xml-gbxml-" className="fragment">Extensible Markup Language (XML)</li>
+      <li data-id="json-" className="fragment">JavaScript Object Notation (JSON)</li>
+      <li data-id="format-model-framework" className="fragment">…</li>
     </ul>
 
   </section>
@@ -61,7 +61,7 @@ const Models: FC = () => (
   <section title="Models" data-auto-animate>
     <h2 data-id="format-model-framework-title">Models</h2>
     <ul>
-      <li data-id="step-ifc-solibri">Industry Foundation Classes (IFC)</li>
+      <li data-id="step-ifc-ids">Industry Foundation Classes (IFC)</li>
       <li data-id="rdf-cqie-owl">Construction Quality Inspection and Evaluation Ontology (CQIE)</li>
       <li data-id="format-model-framework">…</li>
     </ul>
@@ -73,13 +73,16 @@ const Frameworks: FC = () => (
   <section title="Frameworks" data-auto-animate>
     <h2 data-id="format-model-framework-title">Frameworks</h2>
     <ul>
-      <li data-id="step-ifc-solibri">Solibri Model Checker</li>
+      <li data-id="step-ifc-ids">Information Delivery Specification (IDS)</li>
+      <li data-id="solibri">Solibri Model Checker</li>
+      <li data-id="bimtester">BIMTester</li>
       <li data-id="rdf-cqie-owl">Web Ontology Language (OWL)</li>
       <li data-id="shacl">Shapes Constraint Language (SHACL)</li>
-      <li data-id="sparql">SPARQL Protocol and RDF Query Language (SPARQL)</li>
+      <li data-id="sparql">SPARQL Protocol and RDF Query Language</li>
       <li data-id="ifcopenshell">IfcOpenShell</li>
+      <li data-id="xbim-toolkit">Xbim Toolkit</li>
       <li data-id="prolog">Prolog</li>
-      <li data-id="json-ld">JSON-LD</li>
+      <li data-id="python">Python</li>
       <li data-id="format-model-framework">…</li>
     </ul>
   </section >
@@ -286,7 +289,7 @@ const Ast: FC = () => (
 );
 
 const DevServer: FC = () => (
-  <section title="dev-server" data-auto-animate>
+  <section title="compiler" data-auto-animate>
     <div
       className="flex items-center justify-center"
     >
@@ -335,12 +338,12 @@ const DevServer: FC = () => (
     </div>
     <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
       <img
-        data-id="dev-server-img"
+        data-id="compiler-img"
         className="h-[50vh] w-auto object-cover"
-        src="/dev-server.png"
+        src="/compiler.png"
       />
-      <p data-id="dev-server-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
-        dev server
+      <p data-id="compiler-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
+        compiler
       </p>
     </div>
   </section>
@@ -395,13 +398,13 @@ const CodeError: FC = () => (
       </div>
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
-          data-id="dev-server-img"
+          data-id="compiler-img"
           className="h-[15vh] w-[15vh] object-cover"
           style={{ margin: "0px" }}
-          src="/dev-server.png"
+          src="/compiler.png"
         />
-        <p data-id="dev-server-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
-          dev server
+        <p data-id="compiler-text" className="text-[0.9rem]" style={{ margin: "0px" }} >
+          compiler
         </p>
       </div>
     </div>
@@ -421,7 +424,7 @@ const imagesRow1 = [
   { id: 'code', src: '/code.png', text: 'code' },
   { id: 'docs', src: '/docs.png', text: 'docs' },
   { id: 'ast', src: '/abstract-syntax-tree-format.png', text: 'ast' },
-  { id: 'dev-server', src: '/dev-server.png', text: 'dev server' },
+  { id: 'compiler', src: '/compiler.png', text: 'compiler' },
   { id: 'code-error', src: '/code-error.png', text: 'error' },
 ];
 
@@ -430,7 +433,7 @@ const imagesRow2 = [
   { id: 'design-format', src: '/design-format.png', text: 'design-format' },
   { id: 'compliance-code', src: '/compliance-code.png', text: 'compliance-code' },
   { id: 'compliance-format', src: '/compliance-format.png', text: 'compliance-format' },
-  { id: 'constraint-server', src: '/constraint-server.png', text: 'constraint-server' },
+  { id: 'acc-framework', src: '/acc-framework.png', text: 'acc-framework' },
   { id: 'violation', src: '/violation.png', text: 'violation' },
 ];
 
@@ -502,11 +505,11 @@ const ComplianceFormat: FC = () => (
 );
 
 const ConstraintServer: FC = () => (
-  <section title="constraint-server" data-auto-animate className="flex flex-col justify-between">
+  <section title="acc-framework" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
     <div className="text-center" style={{ margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="constraint-server-img" className="h-[35vh] w-auto object-cover" src="/constraint-server.png" />
-      <p data-id="constraint-server-text" className="text-[0.9rem]" style={{ margin: "0px" }}>constraint-server</p>
+      <img data-id="acc-framework-img" className="h-[35vh] w-auto object-cover" src="/acc-framework.png" />
+      <p data-id="acc-framework-text" className="text-[0.9rem]" style={{ margin: "0px" }}>acc-framework</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 4)} />
   </section>
@@ -600,7 +603,7 @@ const AstComplianceFormat: FC = () => (
 
 const DevServerConstraintServer: FC = () => (
   <PairedSlide
-    title="dev-server-constraint-server"
+    title="compiler-acc-framework"
     topImages={[...imagesRow1.slice(0, 4), ...imagesRow1.slice(5)]}
     mainImageLeft={imagesRow1[4]}
     mainImageRight={imagesRow2[4]}
@@ -628,7 +631,7 @@ const App: FC = () => {
     if (deckRef.current) return;
 
     deckRef.current = new Reveal(deckDivRef.current!, {
-      transition: "slide",
+      transition: "fade",
       // other config options
     });
 
