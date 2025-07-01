@@ -9,12 +9,13 @@ import "./index.css";
 import "reveal.js/dist/reveal.css";
 import "reveal.js/dist/theme/white.css";
 import {
-  Line,
-  LineChart,
+  ComposedChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
+  Scatter,
+  Line,
 } from "recharts";
 import { CartesianGrid } from "recharts";
 
@@ -53,7 +54,7 @@ const Subtitle: FC = () => (
   </section>
 );
 
-const StatsAboutLLMs: FC = () => {
+const Timeline: FC = () => {
   const dateFormatter = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
       year: "numeric",
@@ -73,22 +74,25 @@ const StatsAboutLLMs: FC = () => {
     label?: string;
   }> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
+      const point = payload[0].payload;
       return (
         <div className="custom-tooltip">
           <p className="label">
-            <span className="font-bold">Model:</span>
-            {` ${payload[0].payload.name}`}
+            <span className="font-bold">Name:</span>
+            {` ${point.name}`}
           </p>
-          {payload[0].payload.equivalent && (
+          {point.equivalent && (
             <p className="equivalent">
               <span className="font-bold">Equivalent:</span>
-              {` ${payload[0].payload.equivalent}`}
+              {` ${point.equivalent}`}
             </p>
           )}
-          <p className="intro">
-            <span className="font-bold">Context:</span>
-            {` ${yAxisFormatter(payload[0].value)}`}
-          </p>
+          {point.context && (
+            <p className="intro">
+              <span className="font-bold">Context:</span>
+              {` ${yAxisFormatter(point.context)}`}
+            </p>
+          )}
           <p className="desc">
             <span className="font-bold">Announced:</span>
             {` ${label ? dateFormatter(label) : ""}`}
@@ -99,141 +103,115 @@ const StatsAboutLLMs: FC = () => {
     return null;
   };
 
+  const modelData = [
+    {
+      name: "GPT",
+      context: 512,
+      announced: "2018-06-11",
+      equivalent: "< 1 page",
+    },
+    {
+      name: "GPT-2",
+      context: 1024,
+      announced: "2019-11-05",
+      equivalent: "~2 pages",
+    },
+    {
+      name: "GPT-3",
+      context: 2048,
+      announced: "2020-05-28",
+      equivalent: "~4 pages",
+    },
+    {
+      name: "GPT-3.5",
+      context: 16384,
+      announced: "2022-03-15",
+      equivalent: "~30 pages",
+    },
+    {
+      name: "Claude 1.5",
+      context: 100000,
+      announced: "2023-03-14",
+      equivalent: "~150 pages",
+    },
+    {
+      name: "Gemini 1.5 Pro",
+      context: 1000000,
+      announced: "2024-02-15",
+      equivalent: "~1500 pages",
+    },
+    {
+      name: "Llama 4",
+      context: 10000000,
+      announced: "2025-04-05",
+      equivalent: "~15000 pages",
+    },
+  ];
+
+  const timelineData = [
+    {
+      date: "2020-12-01",
+      title: "RAG",
+    },
+    {
+      date: "2024-11-01",
+      title: "MCP",
+    },
+    {
+      date: "2025-06-01",
+      title: "Cursor 1.0",
+    },
+  ];
+
+  const combinedData = [
+    ...modelData.map((d) => ({ ...d, announced: new Date(d.announced) })),
+    ...timelineData.map((d) => ({
+      name: d.title,
+      timeline: 5000000,
+      announced: new Date(d.date),
+    })),
+  ]
+    .sort((a, b) => a.announced.getTime() - b.announced.getTime())
+    .map((d) => ({
+      ...d,
+      announced: d.announced.toISOString().split("T")[0],
+    }));
+
   return (
     <section title="stats-about-llms" data-auto-animate>
       <div className="w-[80vw] h-[80vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart
+          <ComposedChart
             margin={{
               top: 5,
               right: 40,
               left: 40,
               bottom: 30,
             }}
-            data={[
-              {
-                name: "GPT",
-                context: 512,
-                announced: "2018-06-11",
-                equivalent: "< 1 page",
-              },
-              {
-                name: "GPT-2",
-                context: 1024,
-                announced: "2019-11-05",
-                equivalent: "~2 pages",
-              },
-              {
-                name: "GPT-3",
-                context: 2048,
-                announced: "2020-05-28",
-                equivalent: "~4 pages",
-              },
-              {
-                name: "GPT-3.5",
-                context: 16384,
-                announced: "2022-03-15",
-                equivalent: "~30 pages",
-              },
-              {
-                name: "Claude 1.5",
-                context: 100000,
-                announced: "2023-03-14",
-                equivalent: "~150 pages",
-              },
-              {
-                name: "Gemini 1.5 Pro",
-                context: 1000000,
-                announced: "2024-02-15",
-                equivalent: "~1500 pages",
-              },
-              {
-                name: "Llama 4",
-                context: 10000000,
-                announced: "2025-04-05",
-                equivalent: "~15000 pages",
-              },
-            ]}
+            data={combinedData}
           >
             <CartesianGrid stroke="#7b827d" strokeDasharray="5 5" />
             <XAxis
               dataKey="announced"
               tickFormatter={(value) => (value ? dateFormatter(value) : "")}
+              type="category"
+              allowDuplicatedCategory={false}
             />
-            <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
-            <Line type="monotone" dataKey="context" stroke="#ff344f" />
+            <YAxis
+              dataKey="context"
+              tickFormatter={yAxisFormatter}
+              type="number"
+            />
+            <Line
+              type="monotone"
+              dataKey="context"
+              stroke="#ff344f"
+              dot={false}
+            />
+            {/* <Scatter dataKey="timeline" fill="#ff344f" /> */}
             <Tooltip content={<CustomTooltip />} />
-          </LineChart>
+          </ComposedChart>
         </ResponsiveContainer>
-      </div>
-    </section>
-  );
-};
-
-const Timeline: FC = () => {
-  const timelineData = [
-    {
-      date: "December 2020",
-      title: "RAG",
-      subtitle:
-        "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-      url: "https://arxiv.org/abs/2005.11401",
-      image: "/rag.png",
-    },
-    {
-      date: "November 2024",
-      title: "MCP",
-      subtitle: "Model Context Protocol",
-      url: "https://modelcontextprotocol.io/",
-      image: "/mcp.png",
-    },
-    {
-      date: "June 2025",
-      title: "Cursor 1.0",
-      subtitle:
-        "Cursor is a code editor that uses MCP to retrieve and update model context.",
-      url: "https://www.cursor.com/en/changelog/1-0",
-      image: "/cursor.png",
-    },
-  ];
-
-  return (
-    <section title="timeline">
-      <div className="w-[80vw] h-[80vh] mx-auto flex flex-col justify-center">
-        {/* Timeline line with circles */}
-        <div className="relative mb-8">
-          <div className="absolute top-4 left-0 right-0 h-0.5 bg-gray-300"></div>
-          <div className="flex justify-between relative">
-            {timelineData.map((item, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="text-sm font-medium text-gray-600 mb-2">
-                  {item.date}
-                </div>
-                <div className="w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-md relative z-10"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Cards */}
-        <div className="flex justify-between gap-4">
-          {timelineData.map((item, index) => (
-            <div key={index} className="flex-1 max-w-xs">
-              <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-32 object-cover"
-                />
-                <div className="p-4">
-                  <h3 className="font-bold text-lg text-center">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
@@ -1166,7 +1144,6 @@ const App: FC = () => {
           <Subtitle />
         </section>
         <section>
-          <StatsAboutLLMs />
           <Timeline />
           <Analogy />
         </section>
