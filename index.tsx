@@ -20,7 +20,7 @@ const Semio: FC = () => (
 
 const Title: FC = () => (
   <section title="title" data-auto-animate>
-    <h1 data-id="name" style={{ opacity: 0.2 }}>semio</h1>
+    <h1 data-id="name" className="opacity-20">semio</h1>
     <div data-id="title">
       <h2 className="r-fit-text">Large-Language-Model-based</h2>
       <h2 className="r-fit-text">Building Information-Model Alignment</h2>
@@ -31,8 +31,8 @@ const Title: FC = () => (
 
 const Subtitle: FC = () => (
   <section title="subtitle" data-auto-animate>
-    <h1 data-id="name" style={{ opacity: 0.2 }}>semio</h1>
-    <h2 data-id="title" className="r-fit-text" style={{ opacity: 0.2 }}>
+    <h1 data-id="name" className="opacity-20">semio</h1>
+    <h2 data-id="title" className="r-fit-text opacity-20">
       LLM-based BIM Alignment for ACC
     </h2>
     <div data-id="subtitle">
@@ -61,10 +61,10 @@ const StatsAboutLLMs: FC = () => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
-          <p className="label"><text className="font-bold">Model:</text>{` ${payload[0].payload.name}`}</p>
-          {payload[0].payload.equivalent && <p className="equivalent"><text className="font-bold">Equivalent:</text>{` ${payload[0].payload.equivalent}`}</p>}
-          <p className="intro"><text className="font-bold">Context:</text>{` ${yAxisFormatter(payload[0].value)}`}</p>
-          <p className="desc"><text className="font-bold">Announced:</text>{` ${dateFormatter(label)}`}</p>
+          <p className="label"><span className="font-bold">Model:</span>{` ${payload[0].payload.name}`}</p>
+          {payload[0].payload.equivalent && <p className="equivalent"><span className="font-bold">Equivalent:</span>{` ${payload[0].payload.equivalent}`}</p>}
+          <p className="intro"><span className="font-bold">Context:</span>{` ${yAxisFormatter(payload[0].value)}`}</p>
+          <p className="desc"><span className="font-bold">Announced:</span>{` ${dateFormatter(label)}`}</p>
         </div>
       );
     }
@@ -73,7 +73,7 @@ const StatsAboutLLMs: FC = () => {
 
   return (
     <section title="stats-about-llms" data-auto-animate>
-      <div style={{ width: "80vw", height: "80vh", margin: "0 auto" }}>
+      <div className="w-[80vw] h-[80vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             margin={{
@@ -114,13 +114,13 @@ const Analogy: FC = () => (
 
 const Software: FC = () => (
   <section title="software" data-auto-animate>
-    <div style={{ textAlign: "center", margin: "0 1rem" }}>
+    <div className="text-center mx-4">
       <img
         data-id="software-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/sketchpad-demo.png"
       />
-      <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+      <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
     </div>
   </section>
 );
@@ -128,24 +128,24 @@ const Software: FC = () => (
 const Code: FC = () => (
   <section title="code" data-auto-animate>
     <div
-      style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="flex items-center justify-center"
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="software-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+        <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
       </div>
     </div>
-    <div style={{ textAlign: "center", margin: "0 1rem" }}>
+    <div className="text-center mx-4">
       <img
         data-id="code-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/code.png"
       />
-      <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
+      <p data-id="code-text" className="text-[0.9rem] m-0" >code</p>
     </div>
   </section>
 );
@@ -153,32 +153,32 @@ const Code: FC = () => (
 const Docs: FC = () => (
   <section title="docs" data-auto-animate>
     <div
-      style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="flex items-center justify-center"
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="software-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+        <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="code-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/code.png"
         />
-        <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
+        <p data-id="code-text" className="text-[0.9rem] m-0" >code</p>
       </div>
     </div>
-    <div style={{ textAlign: "center", margin: "0 1rem" }}>
+    <div className="text-center mx-4">
       <img
         data-id="docs-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/docs.png"
       />
-      <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
+      <p data-id="docs-text" className="text-[0.9rem] m-0" >docs</p>
     </div>
   </section>
 );
@@ -186,42 +186,42 @@ const Docs: FC = () => (
 const Ast: FC = () => (
   <section title="ast" data-auto-animate>
     <div
-      style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="flex items-center justify-center"
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="software-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+        <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="code-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/code.png"
         />
-        <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
+        <p data-id="code-text" className="text-[0.9rem] m-0" >code</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="docs-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/docs.png"
         />
-        <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
+        <p data-id="docs-text" className="text-[0.9rem] m-0" >docs</p>
       </div>
     </div>
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
+    <div className="text-center mx-4 mt-8">
       <img
         data-id="abstract-syntax-tree-format-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/abstract-syntax-tree-format.png"
       />
       <p
         data-id="abstract-syntax-tree-format-text"
-        style={{ fontSize: "0.9rem", margin: "0px" }}
+        className="text-[0.9rem] m-0"
       >
         ast
       </p>
@@ -232,53 +232,53 @@ const Ast: FC = () => (
 const DevServer: FC = () => (
   <section title="dev-server" data-auto-animate>
     <div
-      style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="flex items-center justify-center"
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="software-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+        <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="code-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/code.png"
         />
-        <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
+        <p data-id="code-text" className="text-[0.9rem] m-0" >code</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="docs-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/docs.png"
         />
-        <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
+        <p data-id="docs-text" className="text-[0.9rem] m-0" >docs</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="abstract-syntax-tree-format-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/abstract-syntax-tree-format.png"
         />
         <p
           data-id="abstract-syntax-tree-format-text"
-          style={{ fontSize: "0.9rem", margin: "0px" }}
+          className="text-[0.9rem] m-0"
         >
           ast
         </p>
       </div>
     </div>
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
+    <div className="text-center mx-4 mt-8">
       <img
         data-id="dev-server-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/dev-server.png"
       />
-      <p data-id="dev-server-text" style={{ fontSize: "0.9rem", margin: "0px" }} >
+      <p data-id="dev-server-text" className="text-[0.9rem] m-0" >
         dev server
       </p>
     </div>
@@ -288,63 +288,63 @@ const DevServer: FC = () => (
 const CodeError: FC = () => (
   <section title="code-error" data-auto-animate>
     <div
-      style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      className="flex items-center justify-center"
     >
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="software-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/sketchpad-demo.png"
         />
-        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+        <p data-id="software-text" className="text-[0.9rem] m-0" >software</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="code-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/code.png"
         />
-        <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
+        <p data-id="code-text" className="text-[0.9rem] m-0" >code</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="docs-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/docs.png"
         />
-        <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
+        <p data-id="docs-text" className="text-[0.9rem] m-0" >docs</p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="abstract-syntax-tree-format-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/abstract-syntax-tree-format.png"
         />
         <p
           data-id="abstract-syntax-tree-format-text"
-          style={{ fontSize: "0.9rem", margin: "0px" }}
+          className="text-[0.9rem] m-0"
         >
           ast
         </p>
       </div>
-      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div className="text-center mx-4">
         <img
           data-id="dev-server-img"
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          className="h-[15vh] w-[15vh] object-cover m-0"
           src="/dev-server.png"
         />
-        <p data-id="dev-server-text" style={{ fontSize: "0.9rem", margin: "0px" }} >
+        <p data-id="dev-server-text" className="text-[0.9rem] m-0" >
           dev server
         </p>
       </div>
     </div>
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
+    <div className="text-center mx-4 mt-8">
       <img
         data-id="code-error-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/code-error.png"
       />
-      <p data-id="code-error-text" style={{ fontSize: "0.9rem", margin: "0px" }} >error</p>
+      <p data-id="code-error-text" className="text-[0.9rem] m-0" >error</p>
     </div>
   </section>
 );
@@ -367,16 +367,16 @@ const imagesRow2 = [
   { id: 'violation', src: '/violation.png', text: 'violation' },
 ];
 
-const ImageBar: FC<{ images: { id: string; src: string; text: string; }[], imgStyle?: React.CSSProperties }> = ({ images, imgStyle }) => (
-  <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+const ImageBar: FC<{ images: { id: string; src: string; text: string; }[], imgClassName?: string }> = ({ images, imgClassName }) => (
+  <div className="flex items-center justify-center">
     {images.map(img => (
-      <div key={img.id} style={{ textAlign: "center", margin: "0 1rem" }}>
+      <div key={img.id} className="text-center mx-4">
         <img
           data-id={`${img.id}-img`}
-          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px", ...imgStyle }}
+          className={`object-cover m-0 ${imgClassName || 'h-[15vh] w-[15vh]'}`}
           src={img.src}
         />
-        <p data-id={`${img.id}-text`} style={{ fontSize: "0.9rem", margin: "0px" }}>{img.text}</p>
+        <p data-id={`${img.id}-text`} className="text-[0.9rem] m-0">{img.text}</p>
       </div>
     ))}
   </div>
@@ -386,107 +386,79 @@ const Building: FC = () => (
   <section
     title="building"
     data-auto-animate
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-    }}
+    className="flex flex-col justify-between"
   >
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
+    <div className="text-center mx-4 mt-8">
       <img
         data-id="building-img"
-        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        className="h-[50vh] w-auto object-cover"
         src="/building.png"
       />
-      <p data-id="building-text" style={{ fontSize: "0.9rem", margin: "0px" }} >building</p>
+      <p data-id="building-text" className="text-[0.9rem] m-0" >building</p>
     </div>
   </section>
 );
 
 const DesignFormat: FC = () => (
-  <section title="design-format" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
+  <section title="design-format" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="design-format-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/design-format.png" />
-      <p data-id="design-format-text" style={{ fontSize: "0.9rem", margin: "0px" }}>design-format</p>
+    <div className="text-center mx-4 mt-8">
+      <img data-id="design-format-img" className="h-[35vh] w-auto object-cover" src="/design-format.png" />
+      <p data-id="design-format-text" className="text-[0.9rem] m-0">design-format</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 1)} />
   </section>
 );
 
 const ComplianceCode: FC = () => (
-  <section title="compliance-code" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
+  <section title="compliance-code" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-code-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/compliance-code.png" />
-      <p data-id="compliance-code-text" style={{ fontSize: "0.9rem", margin: "0px" }}>compliance-code</p>
+    <div className="text-center mx-4 mt-8">
+      <img data-id="compliance-code-img" className="h-[35vh] w-auto object-cover" src="/compliance-code.png" />
+      <p data-id="compliance-code-text" className="text-[0.9rem] m-0">compliance-code</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 2)} />
   </section>
 );
 
 const ComplianceFormat: FC = () => (
-  <section title="compliance-format" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
+  <section title="compliance-format" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-format-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/compliance-format.png" />
-      <p data-id="compliance-format-text" style={{ fontSize: "0.9rem", margin: "0px" }}>compliance-format</p>
+    <div className="text-center mx-4 mt-8">
+      <img data-id="compliance-format-img" className="h-[35vh] w-auto object-cover" src="/compliance-format.png" />
+      <p data-id="compliance-format-text" className="text-[0.9rem] m-0">compliance-format</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 3)} />
   </section>
 );
 
 const ConstraintServer: FC = () => (
-  <section title="constraint-server" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
+  <section title="constraint-server" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="constraint-server-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/constraint-server.png" />
-      <p data-id="constraint-server-text" style={{ fontSize: "0.9rem", margin: "0px" }}>constraint-server</p>
+    <div className="text-center mx-4 mt-8">
+      <img data-id="constraint-server-img" className="h-[35vh] w-auto object-cover" src="/constraint-server.png" />
+      <p data-id="constraint-server-text" className="text-[0.9rem] m-0">constraint-server</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 4)} />
   </section>
 );
 
 const Violation: FC = () => (
-  <section title="violation" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
+  <section title="violation" data-auto-animate className="flex flex-col justify-between">
     <ImageBar images={imagesRow1} />
-    <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="violation-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/violation.png" />
-      <p data-id="violation-text" style={{ fontSize: "0.9rem", margin: "0px" }}>violation</p>
+    <div className="text-center mx-4 mt-8">
+      <img data-id="violation-img" className="h-[35vh] w-auto object-cover" src="/violation.png" />
+      <p data-id="violation-text" className="text-[0.9rem] m-0">violation</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 5)} />
   </section>
 );
 
 const Comparison: FC = () => (
-  <section title="comparison" data-auto-animate style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-  }}>
-    <ImageBar images={imagesRow1} imgStyle={{ height: "auto", width: "16.6vh" }} />
-    <ImageBar images={imagesRow2} imgStyle={{ height: "auto", width: "16.6vh" }} />
+  <section title="comparison" data-auto-animate className="flex flex-col justify-between">
+    <ImageBar images={imagesRow1} imgClassName="h-auto w-[16.6vh]" />
+    <ImageBar images={imagesRow2} imgClassName="h-auto w-[16.6vh]" />
   </section>
 );
 
@@ -498,21 +470,21 @@ const PairedSlide: FC<{
   bottomImages: any[];
 }> = ({ title, topImages, mainImageLeft, mainImageRight, bottomImages }) => (
   <section title={title} data-auto-animate>
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+    <div className="flex flex-col items-center justify-center">
       <ImageBar images={topImages} />
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ textAlign: "center", margin: "0 1rem" }}>
-          <img data-id={`${mainImageLeft.id}-img`} style={{ height: "35vh", width: "auto", objectFit: "cover" }} src={mainImageLeft.src} />
+      <div className="flex items-center justify-center">
+        <div className="text-center mx-4">
+          <img data-id={`${mainImageLeft.id}-img`} className="h-[35vh] w-auto object-cover" src={mainImageLeft.src} />
           <p data-id={`${mainImageLeft.id}-text`}>{mainImageLeft.text}</p>
         </div>
         <h2>→</h2>
-        <div style={{ textAlign: "center", margin: "0 1rem" }}>
-          <img data-id={`${mainImageRight.id}-img`} style={{ height: "35vh", width: "auto", objectFit: "cover" }} src={mainImageRight.src} />
+        <div className="text-center mx-4">
+          <img data-id={`${mainImageRight.id}-img`} className="h-[35vh] w-auto object-cover" src={mainImageRight.src} />
           <p data-id={`${mainImageRight.id}-text`}>{mainImageRight.text}</p>
         </div>
       </div>
       <div>
-        <ImageBar images={bottomImages} imgStyle={{ height: "16.6vh", width: "16.6vh" }} />
+        <ImageBar images={bottomImages} imgClassName="h-[16.6vh] w-[16.6vh]" />
       </div>
     </div>
   </section>
