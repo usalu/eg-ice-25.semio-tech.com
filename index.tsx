@@ -17,7 +17,12 @@ import {
   YAxis,
 } from "recharts";
 import { CartesianGrid } from "recharts";
-import { Chrono } from "react-chrono";
+import {
+  Timeline as MercTimeline,
+  Events,
+  UrlButton,
+  ImageEvent,
+} from "@merc/react-timeline";
 
 const Semio: FC = () => (
   <section title="title" data-auto-animate>
@@ -57,59 +62,30 @@ const Subtitle: FC = () => (
 const Timeline: FC = () => (
   <section title="timeline" data-auto-animate>
     <div className="w-[80vw] h-[80vh] mx-auto">
-      <Chrono
-        disableToolbar
-        showAllCardsHorizontal
-        mode="HORIZONTAL"
-        // itemWidth={150}
-        theme={{
-          primary: "#ff344f",
-          secondary: "#7b827d",
-        }}
-        items={[
-          {
-            title: "December 2020",
-            cardTitle: "RAG",
-            url: "https://arxiv.org/abs/2005.11401",
-            media: {
-              type: "IMAGE",
-              name: "RAG",
-              source: {
-                url: "/rag.png",
-              },
-            },
-            cardSubtitle:
-              "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
-          },
-          {
-            title: "November 2024",
-            cardTitle: "MCP",
-            cardSubtitle: "Model Context Protocol",
-            url: "https://modelcontextprotocol.io/",
-            media: {
-              type: "IMAGE",
-              name: "MCP",
-              source: {
-                url: "/mcp.png",
-              },
-            },
-          },
-          {
-            title: "June 2025",
-            cardTitle: "Cursor",
-            cardSubtitle:
-              "Cursor is a code editor that uses MCP to retrieve and update model context.",
-            url: "https://www.cursor.com/en/changelog/1-0",
-            media: {
-              type: "IMAGE",
-              name: "Cursor",
-              source: {
-                url: "/cursor.png",
-              },
-            },
-          },
-        ]}
-      />
+      <MercTimeline>
+        <Events>
+          <ImageEvent
+            date="December 2020"
+            text="**RAG** - Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+            src="/rag.png"
+            alt="RAG"
+          ></ImageEvent>
+
+          <ImageEvent
+            date="November 2024"
+            text="**MCP** - Model Context Protocol"
+            src="/mcp.png"
+            alt="MCP"
+          ></ImageEvent>
+
+          <ImageEvent
+            date="June 2025"
+            text="**Cursor** - Code editor that uses MCP to retrieve and update model context"
+            src="/cursor.png"
+            alt="Cursor"
+          ></ImageEvent>
+        </Events>
+      </MercTimeline>
     </div>
   </section>
 );

@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@merc/react-timeline": "^0.1.42",
     "@tailwindcss/vite": "^4.1.11",
     "react": "^19.1.0",
-    "react-chrono": "^2.9.1",
     "react-dom": "^19.1.0",
     "recharts": "^3.0.2",
     "reveal.js": "^5.2.1",
