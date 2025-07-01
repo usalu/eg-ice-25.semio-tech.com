@@ -43,33 +43,64 @@ const Subtitle: FC = () => (
   </section>
 );
 
-const StatsAboutLLMs: FC = () => (
-  <section title="stats-about-llms">
-    <div style={{ width: "80vh", height: "80vh" }}>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          style={{ width: "100%", height: "100%" }}
-          data={[
-            { name: 'GPT', context: 512, announced: "2018-06-11" },
-            { name: 'GPT-2', context: 1024, announced: "2019-11-05" },
-            { name: 'GPT-3', context: 2048, announced: "2020-05-28" },
-            { name: 'GPT-3.5', context: 16384, announced: "2022-03-15" },
-            { name: 'Claude 1.5', context: 100000, announced: "2023-03-14" },
-            { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15" },
-            { name: 'Llama 4', context: 10000000, announced: "2025-04-05" },
-          ]}>
-          <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-          <XAxis dataKey="announced" />
-          <YAxis dataKey="context" />
-          <Line type="monotone" dataKey="context" stroke="#8884d8" />
-          <Tooltip />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
-  </section>
-);
+const StatsAboutLLMs: FC = () => {
+  const dateFormatter = (dateStr: string) => {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+    });
+  };
+
+  const yAxisFormatter = (value: number) => {
+    if (value >= 1000000) return `${value / 1000000}M`;
+    if (value >= 1000) return `${value / 1000}K`;
+    return value.toString();
+  }
+
+  const CustomTooltip: FC<any> = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip" style={{ backgroundColor: "white", padding: "1rem", border: "1px solid #ccc" }}>
+          <p className="label">{`${payload[0].payload.name}`}</p>
+          <p className="intro">{`Context: ${yAxisFormatter(payload[0].value)}`}</p>
+          <p className="desc">{`Announced: ${dateFormatter(label)}`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <section title="stats-about-llms" data-auto-animate>
+      <div style={{ width: "80vw", height: "80vh", margin: "0 auto" }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            margin={{
+              top: 5,
+              right: 40,
+              left: 40,
+              bottom: 30,
+            }}
+            data={[
+              { name: 'GPT', context: 512, announced: "2018-06-11" },
+              { name: 'GPT-2', context: 1024, announced: "2019-11-05" },
+              { name: 'GPT-3', context: 2048, announced: "2020-05-28" },
+              { name: 'GPT-3.5', context: 16384, announced: "2022-03-15" },
+              { name: 'Claude 1.5', context: 100000, announced: "2023-03-14" },
+              { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15" },
+              { name: 'Llama 4', context: 10000000, announced: "2025-04-05" },
+            ]}>
+            <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+            <XAxis dataKey="announced" tickFormatter={dateFormatter} />
+            <YAxis dataKey="context" tickFormatter={yAxisFormatter} />
+            <Line type="monotone" dataKey="context" stroke="#8884d8" />
+            <Tooltip content={<CustomTooltip />} />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+    </section>
+  )
+};
 
 const Analogy: FC = () => (
   <section title="analogy">
