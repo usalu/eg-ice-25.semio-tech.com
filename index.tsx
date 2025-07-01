@@ -5,9 +5,10 @@ import React, { type FC } from "react";
 import { useEffect, useRef } from "react";
 import Reveal from "reveal.js";
 
-import "./index.css";
 import "reveal.js/dist/reveal.css";
-import "reveal.js/dist/theme/white.css";
+import "reveal.js/dist/theme/black.css";
+import "./index.css";
+
 import {
   ComposedChart,
   ResponsiveContainer,
@@ -22,9 +23,7 @@ import { CartesianGrid } from "recharts";
 
 const Semio: FC = () => (
   <section title="title" data-auto-animate>
-    <h1 data-id="name" className="font-sans">
-      semio
-    </h1>
+    <h1 data-id="name">semio</h1>
   </section>
 );
 
@@ -343,13 +342,13 @@ const Alignment: FC = () => (
       <li data-id="ids-ifc-step">
         Standard for the Exchange of Product-Model Data (STEP)
       </li>
-      <li className="text-center list-none">↕️</li>
+      <li className="text-center list-none">↕</li>
       <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
-      <li className="text-center list-none">↕️</li>
+      <li className="text-center list-none">↕</li>
       <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
-      <li className="text-center list-none">↕️</li>
+      <li className="text-center list-none">↕</li>
       <li data-id="json-">JavaScript Object Notation (JSON)</li>
-      <li className="text-center list-none">↕️</li>
+      <li className="text-center list-none">↕</li>
       <li data-id="framework-schema-format">…</li>
     </ul>
   </section>
