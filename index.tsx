@@ -23,8 +23,8 @@ const Title: FC = () => (
     <h1 data-id="name" className="opacity-20">semio</h1>
     <div data-id="title">
       <h2 className="r-fit-text">Large-Language-Model-based</h2>
-      <h2 className="r-fit-text">Building Information-Model Alignment</h2>
-      <h2 className="r-fit-text">for Automatic Compliance-Checking</h2>
+      <h2 className="r-fit-text">Building-InformationModel Alignment</h2>
+      <h2 className="r-fit-text">for Automatic-Compliance-Checking</h2>
     </div>
   </section>
 );
@@ -40,6 +40,55 @@ const Subtitle: FC = () => (
       <h2 className="r-fit-text">Model Authoring and Model Checking</h2>
       <h2 className="r-fit-text">for Kit-of-Parts Architecture</h2>
     </div>
+  </section>
+);
+
+const Formats: FC = () => (
+  <section title="Formats" data-auto-animate>
+    <h2 data-id="format-model-framework-title">Formats</h2>
+    <ul>
+      <li data-id="step-ifc-solibri">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
+      <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
+      <li data-id="json-">JavaScript Object Notation (JSON)</li>
+      <li data-id="format-model-framework">…</li>
+    </ul>
+
+  </section>
+);
+
+const Models: FC = () => (
+  <section title="Models" data-auto-animate>
+    <h2 data-id="format-model-framework-title">Models</h2>
+    <ul>
+      <li data-id="step-ifc-solibri">Industry Foundation Classes (IFC)</li>
+      <li data-id="rdf-cqie-owl">Construction Quality Inspection and Evaluation Ontology (CQIE)</li>
+      <li data-id="format-model-framework">…</li>
+    </ul>
+  </section >
+);
+
+
+const Frameworks: FC = () => (
+  <section title="Frameworks" data-auto-animate>
+    <h2 data-id="format-model-framework-title">Frameworks</h2>
+    <ul>
+      <li data-id="step-ifc-solibri">Solibri Model Checker</li>
+      <li data-id="rdf-cqie-owl">Web Ontology Language (OWL)</li>
+      <li data-id="shacl">Shapes Constraint Language (SHACL)</li>
+      <li data-id="sparql">SPARQL Protocol and RDF Query Language (SPARQL)</li>
+      <li data-id="ifcopenshell">IfcOpenShell</li>
+      <li data-id="prolog">Prolog</li>
+      <li data-id="json-ld">JSON-LD</li>
+      <li data-id="format-model-framework">…</li>
+    </ul>
+  </section >
+);
+
+
+const ACC: FC = () => (
+  <section title="Automatic Compliance Checking (ACC)" data-auto-animate>
+    <h1 data-id="name">acc</h1>
   </section>
 );
 
@@ -609,6 +658,10 @@ const App: FC = () => {
         <Semio />
         <Title />
         <Subtitle />
+        <Formats />
+        <Models />
+        <Frameworks />
+        <ACC />
         <StatsAboutLLMs />
         <Analogy />
         <Software />
