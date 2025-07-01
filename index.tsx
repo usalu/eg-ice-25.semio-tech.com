@@ -1053,15 +1053,16 @@ const DesignFormatConstraintFormat: FC = () => (
   />
 );
 
-const Regulation: FC = () => (
+const TestCase: FC = () => (
   <section>
-    <section title="regulation" data-auto-animate>
+    <section title="test-case" data-auto-animate>
+      <h3 data-id="test-case-title">Test-Case</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
-          <h5 data-id="title">Berliner Bauordnung</h5>
-          <h6 data-id="regulation-title">
+          <h6 data-id="regulation-title">Berliner Bauordnung</h6>
+          <p data-id="regulation-paragraph" className="text-2xl">
             § 35 Notwendige Treppenräume, Ausgänge
-          </h6>
+          </p>
           <div data-id="regulation-text">
             <p className="text-xl">
               (1) Jede notwendige Treppe muss zur Sicherstellung der
@@ -1089,15 +1090,34 @@ const Regulation: FC = () => (
             </ol>
           </div>
         </div>
-        <div className="w-5/12"></div>
+        <div className="w-5/12">
+          <h6 data-id="test-case-design-title">Conceptual Design</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Prefab
+          </p>
+          <div data-id="test-case-design">
+            <img src="/design.png" className="h-auto w-full object-cover" />
+          </div>
+        </div>
       </div>
     </section>
-    <section title="regulation" data-auto-animate>
+    <section title="test-case" data-auto-animate>
+      <h3 data-id="test-case-title">Components</h3>
       <div className="flex justify-around items-start">
-        <div className="w-5/12"></div>
         <div className="w-5/12">
-          <h5 data-id="title">Building Code Berlin</h5>
-          <h6 data-id="regulation-title">§ 35 Necessary stairwells, exits</h6>
+          <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Kit-of-Parts
+          </p>
+          <div data-id="test-case-design">
+            <img src="/kit.png" className="h-auto w-full object-cover" />
+          </div>
+        </div>
+        <div className="w-5/12">
+          <h6 data-id="regulation-title">Building Code Berlin</h6>
+          <p data-id="regulation-paragraph" className="text-2xl">
+            § 35 Necessary stairwells, exits
+          </p>
           <div data-id="regulation-text">
             <p className="text-xl">
               (1) Each necessary staircase must be located in a separate,
@@ -1126,11 +1146,14 @@ const Regulation: FC = () => (
         </div>
       </div>
     </section>
-    <section title="regulation" data-auto-animate>
+    <section title="test-case" data-auto-animate>
+      <h3 data-id="test-case-title">Mapping</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
-          <h5 data-id="title">Ontology</h5>
-          <h6 data-id="regulation-title">Web Ontology Language (OWL)</h6>
+          <h6 data-id="regulation-title">Ontology</h6>
+          <p data-id="regulation-paragraph" className="text-2xl">
+            Web Ontology Language (OWL)
+          </p>
           <div data-id="regulation-text">
             <img data-id="regulation-text" src="/ontology.png" />
           </div>
@@ -1138,9 +1161,78 @@ const Regulation: FC = () => (
             <img data-id="regulation-constraints" src="/constraints.png" />
           </div>
         </div>
-        <div className="w-5/12"></div>
+        <div className="w-5/12">
+          <h6 data-id="test-case-design-title">Design-Information-Model</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Structured-Query-Language (SQL)
+          </p>
+          <div data-id="test-case-design">
+            <img
+              src="/design-schema.png"
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </section>
+  </section>
+);
+
+const Prompt: FC = () => (
+  <section data-markdown className="text-2xl text-left">
+    <p>
+      <strong>Task</strong>: Instantiate the OWL ontology from <code>onto</code>{" "}
+      by creating OWL NamedIndividuals based on the data from{" "}
+      <code>design data</code>, following the structure defined in{" "}
+      <code>design schema</code>
+    </p>
+    <p>
+      <strong>Examples</strong>: When instantiating the ontology, use the
+      following OWL NamedIndividuals as examples:{" "}
+      <code>example OWL individuals</code>
+    </p>
+    <p>
+      <strong>Input Files</strong>:
+    </p>
+    <ul>
+      <li>
+        <code>onto</code> – Defines the ontology with predefined classes,
+        relationships, and properties.
+      </li>
+      <li>
+        <code>design schema</code> – Contains the dataset to be instantiated.
+      </li>
+      <li>
+        <code>design data</code> – Specifies the structure and constraints of
+        the dataset.
+      </li>
+    </ul>
+    <p>
+      <strong>Requirements</strong>:
+    </p>
+    <ul>
+      <li>The output must be a valid OWL ontology in Turtle (.ttl) format.</li>
+      <li>
+        Preserve the original ontology and incorporate the newly created
+        individuals.
+      </li>
+      <li>
+        Use only classes, relationships, and properties defined in{" "}
+        <code>onto</code>.
+      </li>
+      <li>
+        Include all relevant data from <code>design data</code>.
+      </li>
+    </ul>
+    <p>
+      <strong>Deliverable</strong>:
+    </p>
+    <ul>
+      <li>
+        A .ttl file containing the transformed data merged with the given
+        ontology.
+      </li>
+    </ul>
   </section>
 );
 
@@ -1182,70 +1274,10 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
-        <section data-markdown className="text-2xl text-left">
-          <p>
-            <strong>Task</strong>: Instantiate the OWL ontology from{" "}
-            <code>onto</code> by creating OWL NamedIndividuals based on the data
-            from <code>design data</code>, following the structure defined in{" "}
-            <code>design schema</code>
-          </p>
-          <p>
-            <strong>Examples</strong>: When instantiating the ontology, use the
-            following OWL NamedIndividuals as examples:{" "}
-            <code>example OWL individuals</code>
-          </p>
-          <p>
-            <strong>Input Files</strong>:
-          </p>
-          <ul>
-            <li>
-              <code>onto</code> – Defines the ontology with predefined classes,
-              relationships, and properties.
-            </li>
-            <li>
-              <code>design schema</code> – Contains the dataset to be
-              instantiated.
-            </li>
-            <li>
-              <code>design data</code> – Specifies the structure and constraints
-              of the dataset.
-            </li>
-          </ul>
-          <p>
-            <strong>Requirements</strong>:
-          </p>
-          <ul>
-            <li>
-              The output must be a valid OWL ontology in Turtle (.ttl) format.
-            </li>
-            <li>
-              Preserve the original ontology and incorporate the newly created
-              individuals.
-            </li>
-            <li>
-              Use only classes, relationships, and properties defined in{" "}
-              <code>onto</code>.
-            </li>
-            <li>
-              Include all relevant data from <code>design data</code>.
-            </li>
-          </ul>
-          <p>
-            <strong>Deliverable</strong>:
-          </p>
-          <ul>
-            <li>
-              A .ttl file containing the transformed data merged with the given
-              ontology.
-            </li>
-          </ul>
-        </section>
         <section>
           <Semio />
           <Title />
           <Subtitle />
-        </section>
-        <section>
           <Timeline />
           <Analogy />
         </section>
@@ -1281,7 +1313,8 @@ const App: FC = () => {
           <Formats />
           <Alignment />
         </section>
-        <Regulation />
+        <TestCase />
+        <Prompt />
       </div>
     </div>
   );

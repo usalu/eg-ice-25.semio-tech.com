@@ -12,6 +12,8 @@
 /* Set base all components */
 @layer base {
   :root {
+    cursor: url("cursor.svg"), auto;
+
     --r-background-color: var(--color-dark);
     --r-main-font: var(--font-sans);
     /* --r-main-font-size: #{$mainFontSize}; */
@@ -34,7 +36,7 @@
     --r-link-color: var(--color-primary);
     /* --r-link-color-dark: #{color.scale($linkColor, $lightness: -15%)}; */
     --r-link-color-hover: var(--color-primary);
-    --r-selection-background-color: var(--color-primary);
+    --r-selection-background-color: var(--accent);
     --r-selection-color: var(--color-light);
     --r-overlay-element-bg-color: var(--color-dark);
     --r-overlay-element-fg-color: var(--color-light);
@@ -204,7 +206,7 @@
   --r-link-color: var(--color-primary);
   /* --r-link-color-dark: #{color.scale($linkColor, $lightness: -15%)}; */
   --r-link-color-hover: var(--color-primary);
-  --r-selection-background-color: var(--color-primary);
+  --r-selection-background-color: var(--color-accent);
   --r-selection-color: var(--color-primary);
   --r-overlay-element-bg-color: var(--color-dark);
   --r-overlay-element-fg-color: var(--color-light);
@@ -218,14 +220,18 @@
   background-color: var(--color-dark) !important;
 }
 
+.r-overlay {
+  font-family: var(--font-sans) !important;
+}
+
 .reveal ::selection {
   color: var(--color-primary);
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 .reveal ::-moz-selection {
   color: var(--color-primary);
-  background: var(--color-primary);
+  background: var(--color-accent);
 }
 
 .reveal .slides section,
