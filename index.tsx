@@ -75,6 +75,21 @@ const Timeline: FC = () => {
   }> = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       const point = payload[0].payload;
+      if (point.image) {
+        return (
+          <div className="custom-tooltip">
+            <p className="label">
+              <span className="font-bold">Event:</span>
+              {` ${point.name}`}
+            </p>
+            <p className="desc">
+              <span className="font-bold">Date:</span>
+              {` ${label ? dateFormatter(label) : ""}`}
+            </p>
+            <img src={point.image} alt={point.name} className="h-24 w-auto" />
+          </div>
+        );
+      }
       return (
         <div className="custom-tooltip">
           <p className="label">
@@ -148,7 +163,7 @@ const Timeline: FC = () => {
     },
   ];
 
-  const timelineData = [
+  const eventData = [
     {
       event: "2020-12-01",
       title: "RAG",
@@ -167,11 +182,15 @@ const Timeline: FC = () => {
   ];
 
   const combinedData = [
-    ...modelData.map((d) => ({ ...d, date: new Date(d.announced) })),
-    ...timelineData.map((d) => ({
+    ...modelData.map((d) => ({
+      date: new Date(d.announced),
+      name: d.name,
+      context: d.context,
+    })),
+    ...eventData.map((d) => ({
+      date: new Date(d.event),
       name: d.title,
       context: 5000000,
-      announced: new Date(d.event),
       image: d.image,
     })),
   ]
@@ -183,7 +202,7 @@ const Timeline: FC = () => {
 
   return (
     <section title="stats-about-llms" data-auto-animate>
-      <div className="w-[80vw] h-[80vh] mx-auto">
+      <div className="w-[80vw] h-[40vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             margin={{
