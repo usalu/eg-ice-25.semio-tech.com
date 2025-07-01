@@ -13,13 +13,13 @@ import { CartesianGrid } from 'recharts';
 
 
 const Semio: FC = () => (
-  <section title="semio" data-auto-animate>
+  <section title="title" data-auto-animate>
     <h1 data-id="name">semio</h1>
   </section>
 );
 
 const Title: FC = () => (
-  <section title="title" data-auto-animate>
+  <section title="paper-title" data-auto-animate>
     <h1 data-id="name" className="opacity-20">semio</h1>
     <div data-id="title">
       <h2 className="r-fit-text">Large-Language-Model-based</h2>
@@ -30,7 +30,7 @@ const Title: FC = () => (
 );
 
 const Subtitle: FC = () => (
-  <section title="subtitle" data-auto-animate>
+  <section title="paper-subtitle" data-auto-animate>
     <h1 data-id="name" className="opacity-20">semio</h1>
     <h2 data-id="title" className="r-fit-text opacity-20">
       LLM-based BIM Alignment for ACC
@@ -43,57 +43,72 @@ const Subtitle: FC = () => (
   </section>
 );
 
-const Formats: FC = () => (
-  <section title="Formats" data-auto-animate>
-    <h2 data-id="format-model-framework-title">Formats</h2>
-    <ul>
-      <li data-id="step-ifc-ids" className="fragment">Standard for the Exchange of Product-Model Data (STEP)</li>
-      <li data-id="rdf-cqie-owl" className="fragment">Resource-Description-Framework (RDF)</li>
-      <li data-id="xml-gbxml-" className="fragment">Extensible Markup Language (XML)</li>
-      <li data-id="json-" className="fragment">JavaScript Object Notation (JSON)</li>
-      <li data-id="format-model-framework" className="fragment">…</li>
-    </ul>
 
-  </section>
+const Frameworks: FC = () => (
+  <section title="Frameworks" data-auto-animate>
+    <h2 data-id="title">Frameworks</h2>
+    <ul>
+      <li data-id="ids-ifc-step" className="fragment">Information Delivery Specification (IDS)</li>
+      <li data-id="solibri" className="fragment">Solibri Model Checker</li>
+      <li data-id="bimtester" className="fragment">BIMTester</li>
+      <li data-id="owl-cqie-rdf" className="fragment">Web Ontology Language (OWL)</li>
+      <li data-id="shacl" className="fragment">Shapes Constraint Language (SHACL)</li>
+      <li data-id="sparql" className="fragment">SPARQL Protocol and RDF Query Language</li>
+      <li data-id="ifcopenshell" className="fragment">IfcOpenShell</li>
+      <li data-id="xbim-toolkit" className="fragment">Xbim Toolkit</li>
+      <li data-id="prolog" className="fragment">Prolog</li>
+      <li data-id="python" className="fragment">Python</li>
+      <li data-id="framework-model-format" className="fragment">…</li>
+    </ul>
+  </section >
 );
 
 const Models: FC = () => (
   <section title="Models" data-auto-animate>
-    <h2 data-id="format-model-framework-title">Models</h2>
+    <h2 data-id="title">Models</h2>
     <ul>
-      <li data-id="step-ifc-ids">Industry Foundation Classes (IFC)</li>
+      <li data-id="ids-ifc-step">Industry Foundation Classes (IFC)</li>
       <li data-id="rdf-cqie-owl">Construction Quality Inspection and Evaluation Ontology (CQIE)</li>
-      <li data-id="format-model-framework">…</li>
+      <li data-id="legaldocml">Legal Document Markup Language (LegalDocML)</li>
+      <li data-id="rase">Requirement Applicability Selection Exceptions (RASE)</li>
+      <li data-id="framework-model-format">…</li>
     </ul>
   </section >
 );
 
 
-const Frameworks: FC = () => (
-  <section title="Frameworks" data-auto-animate>
-    <h2 data-id="format-model-framework-title">Frameworks</h2>
+const Formats: FC = () => (
+  <section title="Formats" data-auto-animate>
+    <h2 data-id="title">Formats</h2>
     <ul>
-      <li data-id="step-ifc-ids">Information Delivery Specification (IDS)</li>
-      <li data-id="solibri">Solibri Model Checker</li>
-      <li data-id="bimtester">BIMTester</li>
-      <li data-id="rdf-cqie-owl">Web Ontology Language (OWL)</li>
-      <li data-id="shacl">Shapes Constraint Language (SHACL)</li>
-      <li data-id="sparql">SPARQL Protocol and RDF Query Language</li>
-      <li data-id="ifcopenshell">IfcOpenShell</li>
-      <li data-id="xbim-toolkit">Xbim Toolkit</li>
-      <li data-id="prolog">Prolog</li>
-      <li data-id="python">Python</li>
-      <li data-id="format-model-framework">…</li>
+      <li data-id="ids-ifc-step">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
+      <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
+      <li data-id="json-">JavaScript Object Notation (JSON)</li>
+      <li data-id="framework-model-format">…</li>
     </ul>
-  </section >
-);
 
-
-const ACC: FC = () => (
-  <section title="Automatic Compliance Checking (ACC)" data-auto-animate>
-    <h1 data-id="name">acc</h1>
   </section>
 );
+
+
+const Alignment: FC = () => (
+  <section title="Alignment" data-auto-animate>
+    <h2 data-id="title">Automaric Alignment?</h2>
+    <ul>
+      <li data-id="ids-ifc-step">Standard for the Exchange of Product-Model Data (STEP)</li>
+      <li className="text-center list-none">↕️</li>
+      <li data-id="rdf-cqie-owl">Resource-Description-Framework (RDF)</li>
+      <li className="text-center list-none">↕️</li>
+      <li data-id="xml-gbxml-">Extensible Markup Language (XML)</li>
+      <li className="text-center list-none">↕️</li>
+      <li data-id="json-">JavaScript Object Notation (JSON)</li>
+      <li className="text-center list-none">↕️</li>
+      <li data-id="framework-model-format">…</li>
+    </ul>
+  </section>
+);
+
 
 const StatsAboutLLMs: FC = () => {
   const dateFormatter = (dateStr: string) => {
@@ -661,10 +676,10 @@ const App: FC = () => {
         <Semio />
         <Title />
         <Subtitle />
-        <Formats />
-        <Models />
         <Frameworks />
-        <ACC />
+        <Models />
+        <Formats />
+        <Alignment />
         <StatsAboutLLMs />
         <Analogy />
         <Software />
