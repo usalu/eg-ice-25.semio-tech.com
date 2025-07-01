@@ -444,7 +444,7 @@ const Docs: FC = () => (
   </section>
 );
 
-const Ast: FC = () => (
+const AST: FC = () => (
   <section title="ast" data-auto-animate>
     <div className="flex items-center justify-center">
       <div className="text-center" style={{ margin: "0 1rem" }}>
@@ -858,7 +858,7 @@ const ComplianceFormat: FC = () => (
   </section>
 );
 
-const ConstraintServer: FC = () => (
+const ACCFramework: FC = () => (
   <section
     title="acc-framework"
     data-auto-animate
@@ -955,7 +955,7 @@ const PairedSlide: FC<{
         </div>
       </div>
       <div>
-        <ImageBar images={bottomImages} imgClassName="h-[16.6vh] w-[16.6vh]" />
+        <ImageBar images={bottomImages} />
       </div>
     </div>
   </section>
@@ -991,7 +991,7 @@ const DocsComplianceCode: FC = () => (
   />
 );
 
-const AstComplianceFormat: FC = () => (
+const ASTComplianceFormat: FC = () => (
   <PairedSlide
     title="ast-compliance-format"
     topImages={[...imagesRow1.slice(0, 3), ...imagesRow1.slice(4)]}
@@ -1001,7 +1001,7 @@ const AstComplianceFormat: FC = () => (
   />
 );
 
-const DevServerConstraintServer: FC = () => (
+const DevServerACCFramework: FC = () => (
   <PairedSlide
     title="compiler-acc-framework"
     topImages={[...imagesRow1.slice(0, 4), ...imagesRow1.slice(5)]}
@@ -1018,6 +1018,16 @@ const ErrorViolation: FC = () => (
     mainImageLeft={imagesRow1[5]}
     mainImageRight={imagesRow2[5]}
     bottomImages={imagesRow2.slice(0, 5)}
+  />
+);
+
+const DesignFormatConstraintFormat: FC = () => (
+  <PairedSlide
+    title="design-format-constraint-format"
+    topImages={imagesRow1}
+    mainImageLeft={imagesRow2[1]}
+    mainImageRight={imagesRow2[3]}
+    bottomImages={imagesRow2.filter((_, i) => i !== 1 && i !== 3)}
   />
 );
 
@@ -1165,7 +1175,7 @@ const App: FC = () => {
           <Software />
           <Code />
           <Docs />
-          <Ast />
+          <AST />
           <DevServer />
           <CodeError />
         </section>
@@ -1174,7 +1184,7 @@ const App: FC = () => {
           <DesignFormat />
           <ComplianceCode />
           <ComplianceFormat />
-          <ConstraintServer />
+          <ACCFramework />
           <Violation />
         </section>
         <Comparison />
@@ -1182,9 +1192,10 @@ const App: FC = () => {
           <SoftwareBuilding />
           <CodeDesignFormat />
           <DocsComplianceCode />
-          <AstComplianceFormat />
-          <DevServerConstraintServer />
+          <ASTComplianceFormat />
+          <DevServerACCFramework />
           <ErrorViolation />
+          <DesignFormatConstraintFormat />
         </section>
         <section>
           <Frameworks />
