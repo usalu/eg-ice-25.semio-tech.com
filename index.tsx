@@ -87,8 +87,12 @@ const Timeline: FC = () => {
     label?: string | number;
   }) => {
     if (active && payload && payload.length) {
-      const point = payload[payload.length - 1].payload;
-      console.log(payload);
+      const point =
+        payload.length === 2 // super hacky, don't know why not just one item is returned
+          ? payload[0].payload
+          : payload[payload.length - 1].payload;
+
+      console.log(active, payload, label);
       if (point.image) {
         return (
           <div className="custom-tooltip">
@@ -206,11 +210,14 @@ const Timeline: FC = () => {
     },
   ];
 
+  const combinedData = [...modelData, ...eventData];
+
   return (
     <section title="stats-about-llms" data-auto-animate>
       <div className="w-[80vw] h-[80vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
+            data={combinedData}
             margin={{
               top: 5,
               right: 40,
@@ -224,27 +231,21 @@ const Timeline: FC = () => {
               dataKey="timestamp"
               tickFormatter={(value) => {
                 const date = new Date(value);
-                return dateFormatter(date.toISOString().split('T')[0]);
+                return dateFormatter(date.toISOString().split("T")[0]);
               }}
               type="number"
               scale="time"
-              domain={['dataMin', 'dataMax']}
+              domain={["dataMin", "dataMax"]}
+              allowDuplicatedCategory={false}
             />
             <YAxis
               dataKey="context"
               tickFormatter={yAxisFormatter}
               type="number"
-              stroke="#8884d8"
             />
-
-            <Scatter data={modelData} fill="#8884d8" line />
-            <Scatter data={eventData} fill="#82ca9d" />
-            <Tooltip
-              cursor={{
-                strokeDasharray: "3 3",
-              }}
-              content={CustomTooltip}
-            />
+            <Scatter data={modelData} fill="#ff344f" line />
+            <Scatter data={eventData} fill="#00a69d" />
+            <Tooltip content={CustomTooltip} />
           </ScatterChart>
         </ResponsiveContainer>
       </div>
@@ -1148,6 +1149,7 @@ const App: FC = () => {
       transition: "fade",
       // disableLayout: true,
       // other config options
+      // plugins: [RevealMarkdown],
     });
 
     deckRef.current.initialize().then(() => {
@@ -1173,6 +1175,64 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
+        <section data-markdown className="text-2xl text-left">
+          <p>
+            <strong>Task</strong>: Instantiate the OWL ontology from{" "}
+            <code>onto</code> by creating OWL NamedIndividuals based on the data
+            from <code>design data</code>, following the structure defined in{" "}
+            <code>design schema</code>
+          </p>
+          <p>
+            <strong>Examples</strong>: When instantiating the ontology, use the
+            following OWL NamedIndividuals as examples:{" "}
+            <code>example OWL individuals</code>
+          </p>
+          <p>
+            <strong>Input Files</strong>:
+          </p>
+          <ul>
+            <li>
+              <code>onto</code> – Defines the ontology with predefined classes,
+              relationships, and properties.
+            </li>
+            <li>
+              <code>design schema</code> – Contains the dataset to be
+              instantiated.
+            </li>
+            <li>
+              <code>design data</code> – Specifies the structure and constraints
+              of the dataset.
+            </li>
+          </ul>
+          <p>
+            <strong>Requirements</strong>:
+          </p>
+          <ul>
+            <li>
+              The output must be a valid OWL ontology in Turtle (.ttl) format.
+            </li>
+            <li>
+              Preserve the original ontology and incorporate the newly created
+              individuals.
+            </li>
+            <li>
+              Use only classes, relationships, and properties defined in{" "}
+              <code>onto</code>.
+            </li>
+            <li>
+              Include all relevant data from <code>design data</code>.
+            </li>
+          </ul>
+          <p>
+            <strong>Deliverable</strong>:
+          </p>
+          <ul>
+            <li>
+              A .ttl file containing the transformed data merged with the given
+              ontology.
+            </li>
+          </ul>
+        </section>
         <section>
           <Semio />
           <Title />
