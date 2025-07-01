@@ -64,6 +64,7 @@ const StatsAboutLLMs: FC = () => {
           <p className="label">{`${payload[0].payload.name}`}</p>
           <p className="intro">{`Context: ${yAxisFormatter(payload[0].value)}`}</p>
           <p className="desc">{`Announced: ${dateFormatter(label)}`}</p>
+          {payload[0].payload.equivalent && <p className="equivalent">{`Equivalent: ${payload[0].payload.equivalent}`}</p>}
         </div>
       );
     }
@@ -82,13 +83,13 @@ const StatsAboutLLMs: FC = () => {
               bottom: 30,
             }}
             data={[
-              { name: 'GPT', context: 512, announced: "2018-06-11" },
-              { name: 'GPT-2', context: 1024, announced: "2019-11-05" },
-              { name: 'GPT-3', context: 2048, announced: "2020-05-28" },
-              { name: 'GPT-3.5', context: 16384, announced: "2022-03-15" },
-              { name: 'Claude 1.5', context: 100000, announced: "2023-03-14" },
-              { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15" },
-              { name: 'Llama 4', context: 10000000, announced: "2025-04-05" },
+              { name: 'GPT', context: 512, announced: "2018-06-11", equivalent: "< 1 page" },
+              { name: 'GPT-2', context: 1024, announced: "2019-11-05", equivalent: "~2 pages" },
+              { name: 'GPT-3', context: 2048, announced: "2020-05-28", equivalent: "~4 pages" },
+              { name: 'GPT-3.5', context: 16384, announced: "2022-03-15", equivalent: "~30 pages" },
+              { name: 'Claude 1.5', context: 100000, announced: "2023-03-14", equivalent: "~150 pages" },
+              { name: 'Gemini 1.5 Pro', context: 1000000, announced: "2024-02-15", equivalent: "~1500 pages" },
+              { name: 'Llama 4', context: 10000000, announced: "2025-04-05", equivalent: "~15000 pages" },
             ]}>
             <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
             <XAxis dataKey="announced" tickFormatter={dateFormatter} />
@@ -484,8 +485,8 @@ const Comparison: FC = () => (
     flexDirection: "column",
     justifyContent: "space-between",
   }}>
-    <ImageBar images={imagesRow1} />
-    <ImageBar images={imagesRow2} />
+    <ImageBar images={imagesRow1} imgStyle={{ height: "auto", width: "16.6vh" }} />
+    <ImageBar images={imagesRow2} imgStyle={{ height: "auto", width: "16.6vh" }} />
   </section>
 );
 
