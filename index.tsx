@@ -1160,7 +1160,6 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
-        <Regulation />
         <section>
           <Semio />
           <Title />
@@ -1169,8 +1168,8 @@ const App: FC = () => {
         <section>
           <StatsAboutLLMs />
           <Timeline />
+          <Analogy />
         </section>
-        <Analogy />
         <section>
           <Software />
           <Code />
@@ -1186,8 +1185,8 @@ const App: FC = () => {
           <ComplianceFormat />
           <ACCFramework />
           <Violation />
+          <Comparison />
         </section>
-        <Comparison />
         <section>
           <SoftwareBuilding />
           <CodeDesignFormat />
@@ -1203,6 +1202,7 @@ const App: FC = () => {
           <Formats />
           <Alignment />
         </section>
+        <Regulation />
       </div>
     </div>
   );
