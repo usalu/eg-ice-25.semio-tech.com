@@ -56,25 +56,17 @@ const Analogy: FC = () => (
   </section>
 );
 
-interface ImageAndTextProps {
-  id: string;
-  height: string;
-  src: string;
-}
-
-const ImageAndText: FC<ImageAndTextProps> = ({ height, src, id }) => (
-  <div style={{ textAlign: "center", margin: "0 1rem" }}>
-    <img
-      data-id={`${id}-img`}
-      style={{ height: height, width: height, objectFit: "cover", margin: "0px" }}
-      src={src}
-    />
-    <p data-id={`${id}-text`} style={{ fontSize: "0.9rem", margin: "0px" }}>{id}</p>
-  </div>
-);
-
-const Software: FC<{ height?: string }> = ({ height = "60vh" }) => (
-  <ImageAndText id="software" height={height} src="/sketchpad-demo.png" />
+const Software: FC = () => (
+  <section title="software" data-auto-animate>
+    <div style={{ textAlign: "center", margin: "0 1rem" }}>
+      <img
+        data-id="software-img"
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
+        src="/sketchpad-demo.png"
+      />
+      <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+    </div>
+  </section>
 );
 
 const Code: FC = () => (
@@ -82,12 +74,19 @@ const Code: FC = () => (
     <div
       style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
     >
-      <Software height="20vh" />
+      <div style={{ textAlign: "center", margin: "0 1rem" }}>
+        <img
+          data-id="software-img"
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
+          src="/sketchpad-demo.png"
+        />
+        <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
+      </div>
     </div>
     <div style={{ textAlign: "center", margin: "0 1rem" }}>
       <img
         data-id="code-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/code.png"
       />
       <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
@@ -103,7 +102,7 @@ const Docs: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/sketchpad-demo.png"
         />
         <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
@@ -111,7 +110,7 @@ const Docs: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/code.png"
         />
         <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
@@ -120,7 +119,7 @@ const Docs: FC = () => (
     <div style={{ textAlign: "center", margin: "0 1rem" }}>
       <img
         data-id="docs-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/docs.png"
       />
       <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
@@ -136,7 +135,7 @@ const Ast: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/sketchpad-demo.png"
         />
         <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
@@ -144,7 +143,7 @@ const Ast: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/code.png"
         />
         <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
@@ -152,7 +151,7 @@ const Ast: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/docs.png"
         />
         <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
@@ -161,7 +160,7 @@ const Ast: FC = () => (
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
       <img
         data-id="abstract-syntax-tree-format-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/abstract-syntax-tree-format.png"
       />
       <p
@@ -182,7 +181,7 @@ const DevServer: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/sketchpad-demo.png"
         />
         <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
@@ -190,7 +189,7 @@ const DevServer: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/code.png"
         />
         <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
@@ -198,7 +197,7 @@ const DevServer: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/docs.png"
         />
         <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
@@ -206,7 +205,7 @@ const DevServer: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="abstract-syntax-tree-format-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/abstract-syntax-tree-format.png"
         />
         <p
@@ -220,7 +219,7 @@ const DevServer: FC = () => (
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
       <img
         data-id="dev-server-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/dev-server.png"
       />
       <p data-id="dev-server-text" style={{ fontSize: "0.9rem", margin: "0px" }} >
@@ -238,7 +237,7 @@ const CodeError: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/sketchpad-demo.png"
         />
         <p data-id="software-text" style={{ fontSize: "0.9rem", margin: "0px" }} >software</p>
@@ -246,7 +245,7 @@ const CodeError: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/code.png"
         />
         <p data-id="code-text" style={{ fontSize: "0.9rem", margin: "0px" }} >code</p>
@@ -254,7 +253,7 @@ const CodeError: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/docs.png"
         />
         <p data-id="docs-text" style={{ fontSize: "0.9rem", margin: "0px" }} >docs</p>
@@ -262,7 +261,7 @@ const CodeError: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="abstract-syntax-tree-format-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/abstract-syntax-tree-format.png"
         />
         <p
@@ -275,7 +274,7 @@ const CodeError: FC = () => (
       <div style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id="dev-server-img"
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px" }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px" }}
           src="/dev-server.png"
         />
         <p data-id="dev-server-text" style={{ fontSize: "0.9rem", margin: "0px" }} >
@@ -286,7 +285,7 @@ const CodeError: FC = () => (
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
       <img
         data-id="code-error-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/code-error.png"
       />
       <p data-id="code-error-text" style={{ fontSize: "0.9rem", margin: "0px" }} >error</p>
@@ -318,7 +317,7 @@ const ImageBar: FC<{ images: { id: string; src: string; text: string; }[], imgSt
       <div key={img.id} style={{ textAlign: "center", margin: "0 1rem" }}>
         <img
           data-id={`${img.id}-img`}
-          style={{ height: "20vh", width: "20vh", objectFit: "cover", margin: "0px", ...imgStyle }}
+          style={{ height: "15vh", width: "15vh", objectFit: "cover", margin: "0px", ...imgStyle }}
           src={img.src}
         />
         <p data-id={`${img.id}-text`} style={{ fontSize: "0.9rem", margin: "0px" }}>{img.text}</p>
@@ -341,7 +340,7 @@ const Building: FC = () => (
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
       <img
         data-id="building-img"
-        style={{ height: "60vh", width: "60vh", objectFit: "cover" }}
+        style={{ height: "50vh", width: "auto", objectFit: "cover" }}
         src="/building.png"
       />
       <p data-id="building-text" style={{ fontSize: "0.9rem", margin: "0px" }} >building</p>
@@ -357,7 +356,7 @@ const DesignFormat: FC = () => (
   }}>
     <ImageBar images={imagesRow1} />
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="design-format-img" style={{ height: "60vh", width: "60vh", objectFit: "cover" }} src="/design-format.png" />
+      <img data-id="design-format-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/design-format.png" />
       <p data-id="design-format-text" style={{ fontSize: "0.9rem", margin: "0px" }}>design-format</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 1)} />
@@ -372,7 +371,7 @@ const ComplianceCode: FC = () => (
   }}>
     <ImageBar images={imagesRow1} />
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-code-img" style={{ height: "60vh", width: "60vh", objectFit: "cover" }} src="/compliance-code.png" />
+      <img data-id="compliance-code-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/compliance-code.png" />
       <p data-id="compliance-code-text" style={{ fontSize: "0.9rem", margin: "0px" }}>compliance-code</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 2)} />
@@ -387,7 +386,7 @@ const ComplianceFormat: FC = () => (
   }}>
     <ImageBar images={imagesRow1} />
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="compliance-format-img" style={{ height: "60vh", width: "60vh", objectFit: "cover" }} src="/compliance-format.png" />
+      <img data-id="compliance-format-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/compliance-format.png" />
       <p data-id="compliance-format-text" style={{ fontSize: "0.9rem", margin: "0px" }}>compliance-format</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 3)} />
@@ -402,7 +401,7 @@ const ConstraintServer: FC = () => (
   }}>
     <ImageBar images={imagesRow1} />
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="constraint-server-img" style={{ height: "60vh", width: "60vh", objectFit: "cover" }} src="/constraint-server.png" />
+      <img data-id="constraint-server-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/constraint-server.png" />
       <p data-id="constraint-server-text" style={{ fontSize: "0.9rem", margin: "0px" }}>constraint-server</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 4)} />
@@ -417,7 +416,7 @@ const Violation: FC = () => (
   }}>
     <ImageBar images={imagesRow1} />
     <div style={{ textAlign: "center", margin: "0 1rem", marginTop: "2rem" }}>
-      <img data-id="violation-img" style={{ height: "60vh", width: "60vh", objectFit: "cover" }} src="/violation.png" />
+      <img data-id="violation-img" style={{ height: "35vh", width: "auto", objectFit: "cover" }} src="/violation.png" />
       <p data-id="violation-text" style={{ fontSize: "0.9rem", margin: "0px" }}>violation</p>
     </div>
     <ImageBar images={imagesRow2.slice(0, 5)} />
@@ -431,7 +430,7 @@ const Comparison: FC = () => (
     justifyContent: "space-between",
   }}>
     <ImageBar images={imagesRow1} />
-    <ImageBar images={imagesRow2} imgStyle={{ height: "16.6vh", width: "16.6vh" }} />
+    <ImageBar images={imagesRow2} />
   </section>
 );
 
@@ -447,12 +446,12 @@ const PairedSlide: FC<{
       <ImageBar images={topImages} />
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ textAlign: "center", margin: "0 1rem" }}>
-          <img data-id={`${mainImageLeft.id}-img`} style={{ height: "40vh", width: "40vh", objectFit: "cover" }} src={mainImageLeft.src} />
+          <img data-id={`${mainImageLeft.id}-img`} style={{ height: "35vh", width: "auto", objectFit: "cover" }} src={mainImageLeft.src} />
           <p data-id={`${mainImageLeft.id}-text`}>{mainImageLeft.text}</p>
         </div>
         <h2>→</h2>
         <div style={{ textAlign: "center", margin: "0 1rem" }}>
-          <img data-id={`${mainImageRight.id}-img`} style={{ height: "40vh", width: "40vh", objectFit: "cover" }} src={mainImageRight.src} />
+          <img data-id={`${mainImageRight.id}-img`} style={{ height: "35vh", width: "auto", objectFit: "cover" }} src={mainImageRight.src} />
           <p data-id={`${mainImageRight.id}-text`}>{mainImageRight.text}</p>
         </div>
       </div>
@@ -565,9 +564,7 @@ const App: FC = () => {
         <Subtitle />
         <Background />
         <Analogy />
-        <section title="software" data-auto-animate>
-          <Software />
-        </section>
+        <Software />
         <Code />
         <Docs />
         <Ast />
