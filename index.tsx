@@ -22,7 +22,9 @@ import { CartesianGrid } from "recharts";
 
 const Semio: FC = () => (
   <section title="title" data-auto-animate>
-    <h1 data-id="name">semio</h1>
+    <h1 data-id="name" className="font-sans">
+      semio
+    </h1>
   </section>
 );
 
