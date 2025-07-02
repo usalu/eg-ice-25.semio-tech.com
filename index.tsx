@@ -1238,7 +1238,7 @@ const Prompt: FC = () => (
       </ul>
     </section>
     <section data-auto-animate>
-      <h3 data-id="title">Prompt</h3>
+      <h3 data-id="title">Prompt Engineering</h3>
       <div className="text-2xl text-left">
         <div data-id="task">
           <p>
@@ -1325,6 +1325,7 @@ const Prompt: FC = () => (
       </div>
     </section>
     <section data-auto-animate>
+      <h3 data-id="title">Results</h3>
       <div className="flex items-center justify-center">
         <div
           data-id="ontology"
@@ -1407,141 +1408,10 @@ const Prompt: FC = () => (
         <thead>
           <tr>
             <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="text-left">
-              <div data-id="requirements-turtle">Valid OWL code</div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td className="text-left">
-              <div data-id="requirements-named-individuals">
-                Generated OWL individuals
-              </div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td className="text-left">
-              <div data-id="requirements-onto">Utilized the ontology</div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td className="text-left">
-              <div data-id="requirements-complete">Extracted design data</div>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <section data-auto-animate>
-      <div className="flex items-center justify-center">
-        <div
-          data-id="ontology"
-          className="text-center"
-          style={{ margin: "0 1rem" }}
-        >
-          <img
-            data-id="ontology-img"
-            className={`object-cover h-[10vh] w-[13vw]`}
-            style={{ marginBottom: "0px" }}
-            src="/ontology.png"
-          />
-          <p
-            data-id="ontology-text"
-            className="text-[0.9rem]"
-            style={{ marginTop: "0px" }}
-          >
-            Ontology
-          </p>
-        </div>
-        <div
-          data-id="design-schema"
-          className="text-center"
-          style={{ margin: "0 1rem" }}
-        >
-          <img
-            data-id="design-schema-img"
-            className={`object-cover h-[10vh] w-[13vw]`}
-            style={{ marginBottom: "0px" }}
-            src="/design-schema.png"
-          />
-          <p
-            data-id="design-schema-text"
-            className="text-[0.9rem]"
-            style={{ marginTop: "0px" }}
-          >
-            Design Schema
-          </p>
-        </div>
-        <div
-          data-id="examples"
-          className="text-center"
-          style={{ margin: "0 1rem" }}
-        >
-          <img
-            data-id="examples-img"
-            className={`object-cover h-[10vh] w-[13vw]`}
-            style={{ marginBottom: "0px" }}
-            src="/examples.png"
-          />
-          <p
-            data-id="examples-text"
-            className="text-[0.9rem]"
-            style={{ marginTop: "0px" }}
-          >
-            Examples
-          </p>
-        </div>
-        <div
-          data-id="design-format"
-          className="text-center"
-          style={{ margin: "0 1rem" }}
-        >
-          <img
-            data-id="design-format-img"
-            className={`object-cover h-[10vh] w-[13vw]`}
-            style={{ marginBottom: "0px" }}
-            src="/design-format.png"
-          />
-          <p
-            data-id="design-format-text"
-            className="text-[0.9rem]"
-            style={{ marginTop: "0px" }}
-          >
-            Design Data
-          </p>
-        </div>
-      </div>
-      <table className="w-full text-2xl text-center">
-        <thead>
-          <tr>
-            <th></th>
-            <th className="fragment">Claude 3.7 Sonnet (thinking)</th>
-            <th className="fragment">DeepSeek v3 Base</th>
-            <th className="fragment">Gemini 2.5 Pro</th>
             <th className="fragment">Mistral Large</th>
+            <th className="fragment">DeepSeek v3 Base</th>
+            <th className="fragment">Claude 3.7 Sonnet (thinking)</th>
+            <th className="fragment">Gemini 2.5 Pro</th>
           </tr>
         </thead>
         <tbody>
@@ -1549,10 +1419,10 @@ const Prompt: FC = () => (
             <td className="text-left">
               <div data-id="requirements-turtle">Valid OWL code</div>
             </td>
-            <td className="fragment">✅</td>
-            <td className="fragment">✅</td>
-            <td className="fragment">✅</td>
             <td className="fragment">❌</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
           </tr>
           <tr>
             <td className="text-left">
@@ -1560,9 +1430,9 @@ const Prompt: FC = () => (
                 Generated OWL individuals
               </div>
             </td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
             <td className="fragment">❌</td>
-            <td className="fragment">✅</td>
-            <td className="fragment">✅</td>
             <td className="fragment">✅</td>
           </tr>
           <tr>
@@ -1571,8 +1441,8 @@ const Prompt: FC = () => (
             </td>
             <td className="fragment">❌</td>
             <td className="fragment">❌</td>
-            <td className="fragment">✅</td>
             <td className="fragment">❌</td>
+            <td className="fragment">✅</td>
           </tr>
           <tr>
             <td className="text-left">
@@ -1589,12 +1459,24 @@ const Prompt: FC = () => (
   </>
 );
 
+const Details: FC = () => (
+  <>
+    <section data-auto-animate>
+      <h3 data-id="title">Details</h3>
+      <div className="flex justify-around items-start">
+        <img src="/design-format.png" className="h-[50vh] w-auto" />
+        <img src="/design.png" className="h-[50vh] w-auto" />
+        <img src="/individuals.png" className="h-[50vh] w-auto" />
+      </div>
+    </section>
+  </>
+);
+
 const App: FC = () => {
-  const deckDivRef = useRef<HTMLDivElement>(null); // reference to deck container div
-  const deckRef = useRef<Reveal.Api | null>(null); // reference to deck reveal instance
+  const deckDivRef = useRef<HTMLDivElement>(null);
+  const deckRef = useRef<Reveal.Api | null>(null);
 
   useEffect(() => {
-    // Prevents double initialization in strict mode
     if (deckRef.current) return;
 
     deckRef.current = new Reveal(deckDivRef.current!, {
@@ -1604,9 +1486,7 @@ const App: FC = () => {
       // plugins: [RevealMarkdown],
     });
 
-    deckRef.current.initialize().then(() => {
-      // good place for event handlers and plugin setups
-    });
+    deckRef.current.initialize().then(() => {});
 
     return () => {
       try {
@@ -1627,6 +1507,7 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
+        <Details />
         <Prompt />
         <section>
           <Semio />
