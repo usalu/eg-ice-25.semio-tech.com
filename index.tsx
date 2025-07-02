@@ -56,6 +56,70 @@ const Subtitle: FC = () => (
   </section>
 );
 
+const Authors: FC = () => (
+  <section title="paper-subtitle" data-auto-animate>
+    <h1 data-id="name" className="opacity-20">
+      semio
+    </h1>
+    <h2 data-id="title" className="r-fit-text opacity-20">
+      LLM-based BIM Alignment for ACC
+    </h2>
+    <div data-id="subtitle">
+      <h2 className="r-fit-text opacity-20">Towards Closing the Gap between</h2>
+      <h2 className="r-fit-text opacity-20">
+        Model Authoring and Model Checking
+      </h2>
+      <h2 className="r-fit-text opacity-20">for Kit-of-Parts Architecture</h2>
+    </div>
+    <div data-id="authors">
+      <div className="flex flex-row">
+        <h4>Ueli Saluz</h4>
+        <h4>Ildar Baimuratov</h4>
+        <h4>Philipp Geyer</h4>
+      </div>
+    </div>
+  </section>
+);
+
+const Institutions: FC = () => (
+  <section title="paper-subtitle" data-auto-animate>
+    <h1 data-id="name" className="opacity-20">
+      semio
+    </h1>
+    <h2 data-id="title" className="r-fit-text opacity-20">
+      LLM-based BIM Alignment for ACC
+    </h2>
+    <div data-id="subtitle">
+      <h2 className="r-fit-text opacity-20">Towards Closing the Gap between</h2>
+      <h2 className="r-fit-text opacity-20">
+        Model Authoring and Model Checking
+      </h2>
+      <h2 className="r-fit-text opacity-20">for Kit-of-Parts Architecture</h2>
+    </div>
+    <div data-id="authors">
+      <div className="flex flex-row">
+        <h4>
+          <span className="opacity-20">Ueli Saluz</span>
+          <sup>1</sup>
+        </h4>
+        <h4>
+          <span className="opacity-20">Ildar Baimuratov</span>
+          <sup>1</sup>
+        </h4>
+        <h4>
+          <span className="opacity-20">Philipp Geyer</span>
+          <sup>1</sup>
+        </h4>
+      </div>
+    </div>
+    <div data-id="institutions">
+      <h5>
+        <sup>1</sup>Leibniz University Hannover
+      </h5>
+    </div>
+  </section>
+);
+
 const Timeline: FC = () => {
   const dateFormatter = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString("en-US", {
@@ -1052,6 +1116,15 @@ const TestCase: FC = () => (
       <h3 data-id="test-case-title">Test-Case</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
+          <h6 data-id="test-case-design-title">Conceptual Design</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Prefab
+          </p>
+          <div data-id="test-case-design">
+            <img src="/design.png" className="h-auto w-full object-cover" />
+          </div>
+        </div>
+        <div className="w-5/12">
           <h6 data-id="regulation-title">Berliner Bauordnung</h6>
           <p data-id="regulation-paragraph" className="text-2xl">
             § 35 Notwendige Treppenräume, Ausgänge
@@ -1083,20 +1156,20 @@ const TestCase: FC = () => (
             </ol>
           </div>
         </div>
-        <div className="w-5/12">
-          <h6 data-id="test-case-design-title">Conceptual Design</h6>
-          <p data-id="test-case-design-paragraph" className="text-2xl">
-            Prefab
-          </p>
-          <div data-id="test-case-design">
-            <img src="/design.png" className="h-auto w-full object-cover" />
-          </div>
-        </div>
       </div>
     </section>
     <section title="test-case" data-auto-animate>
       <h3 data-id="test-case-title">Components</h3>
       <div className="flex justify-around items-start">
+        <div className="w-5/12">
+          <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Kit-of-Parts
+          </p>
+          <div data-id="test-case-design">
+            <img src="/kit.png" className="h-auto w-full object-cover" />
+          </div>
+        </div>
         <div className="w-5/12">
           <h6 data-id="regulation-title">Building Code Berlin</h6>
           <p data-id="regulation-paragraph" className="text-2xl">
@@ -1128,32 +1201,11 @@ const TestCase: FC = () => (
             </ol>
           </div>
         </div>
-        <div className="w-5/12">
-          <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
-          <p data-id="test-case-design-paragraph" className="text-2xl">
-            Kit-of-Parts
-          </p>
-          <div data-id="test-case-design">
-            <img src="/kit.png" className="h-auto w-full object-cover" />
-          </div>
-        </div>
       </div>
     </section>
     <section title="test-case" data-auto-animate>
       <h3 data-id="test-case-title">Mapping</h3>
       <div className="flex justify-around items-start">
-        <div className="w-5/12">
-          <h6 data-id="regulation-title">Ontology</h6>
-          <p data-id="regulation-paragraph" className="text-2xl">
-            Web Ontology Language (OWL)
-          </p>
-          <div data-id="regulation-text">
-            <img data-id="regulation-text" src="/ontology.png" />
-          </div>
-          <div data-id="regulation-constraints">
-            <img data-id="regulation-constraints" src="/constraints.png" />
-          </div>
-        </div>
         <div className="w-5/12">
           <h6 data-id="test-case-design-title">Design-Information-Model</h6>
           <p data-id="test-case-design-paragraph" className="text-2xl">
@@ -1164,6 +1216,18 @@ const TestCase: FC = () => (
               src="/design-schema.png"
               className="h-auto w-full object-cover"
             />
+          </div>
+        </div>
+        <div className="w-5/12">
+          <h6 data-id="regulation-title">Ontology</h6>
+          <p data-id="regulation-paragraph" className="text-2xl">
+            Web Ontology Language (OWL)
+          </p>
+          <div data-id="regulation-text">
+            <img data-id="regulation-text" src="/ontology.png" />
+          </div>
+          <div data-id="regulation-constraints">
+            <img data-id="regulation-constraints" src="/constraints.png" />
           </div>
         </div>
       </div>
@@ -1271,6 +1335,8 @@ const App: FC = () => {
           <Semio />
           <Title />
           <Subtitle />
+          <Authors />
+          <Institutions />
           <Timeline />
           <Analogy />
         </section>
