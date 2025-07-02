@@ -1538,10 +1538,10 @@ const Prompt: FC = () => (
         <thead>
           <tr>
             <th></th>
-            <th>Claude 3.7 Sonnet (thinking)</th>
-            <th>DeepSeek v3 Base</th>
-            <th>Gemini 2.5 Pro</th>
-            <th>Mistral Large</th>
+            <th className="fragment">Claude 3.7 Sonnet (thinking)</th>
+            <th className="fragment">DeepSeek v3 Base</th>
+            <th className="fragment">Gemini 2.5 Pro</th>
+            <th className="fragment">Mistral Large</th>
           </tr>
         </thead>
         <tbody>
@@ -1549,10 +1549,10 @@ const Prompt: FC = () => (
             <td className="text-left">
               <div data-id="requirements-turtle">Valid OWL code</div>
             </td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>❌</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">❌</td>
           </tr>
           <tr>
             <td className="text-left">
@@ -1560,28 +1560,28 @@ const Prompt: FC = () => (
                 Generated OWL individuals
               </div>
             </td>
-            <td>❌</td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>✅</td>
+            <td className="fragment">❌</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
           </tr>
           <tr>
             <td className="text-left">
               <div data-id="requirements-onto">Utilized the ontology</div>
             </td>
-            <td>❌</td>
-            <td>❌</td>
-            <td>✅</td>
-            <td>❌</td>
+            <td className="fragment">❌</td>
+            <td className="fragment">❌</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">❌</td>
           </tr>
           <tr>
             <td className="text-left">
               <div data-id="requirements-complete">Extracted design data</div>
             </td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>✅</td>
-            <td>✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
+            <td className="fragment">✅</td>
           </tr>
         </tbody>
       </table>
