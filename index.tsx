@@ -281,7 +281,7 @@ const Timeline: FC = () => {
 
   return (
     <section title="stats-about-llms" data-auto-animate>
-      <div className="w-[70vw] h-[80vh] mx-auto">
+      <div className="h-[40vh] w-[60vw] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             data={combinedData}
@@ -421,14 +421,11 @@ const Software: FC = () => (
     <div className="text-center" style={{ margin: "0 1rem" }}>
       <img
         data-id="software-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/sketchpad-demo.png"
       />
-      <p
-        data-id="software-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="software-text" style={{ marginTop: "0px" }}>
         software
       </p>
     </div>
@@ -441,7 +438,7 @@ const Code: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
@@ -457,14 +454,11 @@ const Code: FC = () => (
     <div className="text-center" style={{ margin: "0 1rem" }}>
       <img
         data-id="code-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/code.png"
       />
-      <p
-        data-id="code-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="code-text" style={{ marginTop: "0px" }}>
         code
       </p>
     </div>
@@ -477,7 +471,7 @@ const Docs: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
@@ -492,7 +486,7 @@ const Docs: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/code.png"
         />
@@ -508,14 +502,11 @@ const Docs: FC = () => (
     <div className="text-center" style={{ margin: "0 1rem" }}>
       <img
         data-id="docs-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/docs.png"
       />
-      <p
-        data-id="docs-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="docs-text" style={{ marginTop: "0px" }}>
         docs
       </p>
     </div>
@@ -528,7 +519,7 @@ const AST: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
@@ -543,7 +534,7 @@ const AST: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/code.png"
         />
@@ -558,7 +549,7 @@ const AST: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/docs.png"
         />
@@ -577,13 +568,13 @@ const AST: FC = () => (
     >
       <img
         data-id="abstract-syntax-tree-format-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/abstract-syntax-tree-format.png"
       />
       <p
         data-id="abstract-syntax-tree-format-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
+        style={{ marginTop: "0px" }}
       >
         ast
       </p>
@@ -597,7 +588,7 @@ const DevServer: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
@@ -612,7 +603,7 @@ const DevServer: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/code.png"
         />
@@ -627,7 +618,7 @@ const DevServer: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/docs.png"
         />
@@ -642,7 +633,7 @@ const DevServer: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="abstract-syntax-tree-format-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/abstract-syntax-tree-format.png"
         />
@@ -661,14 +652,11 @@ const DevServer: FC = () => (
     >
       <img
         data-id="compiler-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/compiler.png"
       />
-      <p
-        data-id="compiler-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="compiler-text" style={{ marginTop: "0px" }}>
         compiler
       </p>
     </div>
@@ -681,7 +669,7 @@ const CodeError: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="software-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/sketchpad-demo.png"
         />
@@ -696,7 +684,7 @@ const CodeError: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="code-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/code.png"
         />
@@ -711,7 +699,7 @@ const CodeError: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="docs-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/docs.png"
         />
@@ -726,7 +714,7 @@ const CodeError: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="abstract-syntax-tree-format-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/abstract-syntax-tree-format.png"
         />
@@ -741,7 +729,7 @@ const CodeError: FC = () => (
       <div className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id="compiler-img"
-          className="h-[15vh] w-[15vh] object-cover"
+          className="h-[10vh] w-[13vw] object-cover"
           style={{ margin: "0px" }}
           src="/compiler.png"
         />
@@ -760,14 +748,11 @@ const CodeError: FC = () => (
     >
       <img
         data-id="code-error-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/code-error.png"
       />
-      <p
-        data-id="code-error-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="code-error-text" style={{ marginTop: "0px" }}>
         error
       </p>
     </div>
@@ -809,14 +794,14 @@ const ImageBar: FC<{
       <div key={img.id} className="text-center" style={{ margin: "0 1rem" }}>
         <img
           data-id={`${img.id}-img`}
-          className={`object-cover ${imgClassName || "h-[15vh] w-[15vh]"}`}
-          style={{ margin: "0px" }}
+          className={`object-cover ${imgClassName || "h-[10vh] w-[13vw]"}`}
+          style={{ marginBottom: "0px" }}
           src={img.src}
         />
         <p
           data-id={`${img.id}-text`}
           className="text-[0.9rem]"
-          style={{ margin: "0px" }}
+          style={{ marginTop: "0px" }}
         >
           {img.text}
         </p>
@@ -838,14 +823,11 @@ const Design: FC = () => (
     >
       <img
         data-id="design-img"
-        className="h-[50vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/design.png"
       />
-      <p
-        data-id="design-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="design-text" style={{ marginTop: "0px" }}>
         design
       </p>
     </div>
@@ -865,14 +847,11 @@ const DesignFormat: FC = () => (
     >
       <img
         data-id="design-format-img"
-        className="h-[35vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/design-format.png"
       />
-      <p
-        data-id="design-format-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="design-format-text" style={{ marginTop: "0px" }}>
         design-format
       </p>
     </div>
@@ -893,14 +872,11 @@ const ComplianceCode: FC = () => (
     >
       <img
         data-id="compliance-code-img"
-        className="h-[35vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/compliance-code.png"
       />
-      <p
-        data-id="compliance-code-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="compliance-code-text" style={{ marginTop: "0px" }}>
         compliance-code
       </p>
     </div>
@@ -921,14 +897,11 @@ const ComplianceFormat: FC = () => (
     >
       <img
         data-id="compliance-format-img"
-        className="h-[35vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/compliance-format.png"
       />
-      <p
-        data-id="compliance-format-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="compliance-format-text" style={{ marginTop: "0px" }}>
         compliance-format
       </p>
     </div>
@@ -949,14 +922,11 @@ const ACCFramework: FC = () => (
     >
       <img
         data-id="acc-framework-img"
-        className="h-[35vh] w-auto object-cover"
+        className="h-[30vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/acc-framework.png"
       />
-      <p
-        data-id="acc-framework-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="acc-framework-text" style={{ marginTop: "0px" }}>
         acc-framework
       </p>
     </div>
@@ -978,13 +948,10 @@ const Violation: FC = () => (
       <img
         data-id="violation-img"
         className="h-[25vh] w-auto object-cover"
+        style={{ marginBottom: "0px" }}
         src="/violation.png"
       />
-      <p
-        data-id="violation-text"
-        className="text-[0.9rem]"
-        style={{ margin: "0px" }}
-      >
+      <p data-id="violation-text" style={{ margin: "0px" }}>
         violation
       </p>
     </div>
@@ -1014,22 +981,28 @@ const PairedSlide: FC<{
     <div className="flex flex-col items-center justify-center">
       <ImageBar images={topImages} />
       <div className="flex items-center justify-center">
-        <div className="text-center" style={{ margin: "0 1rem" }}>
+        <div className="text-center" style={{ margin: "0 0" }}>
           <img
             data-id={`${mainImageLeft.id}-img`}
-            className="h-[35vh] w-auto object-cover"
+            className="h-[30vh] w-auto object-cover"
+            style={{ marginBottom: "0px" }}
             src={mainImageLeft.src}
           />
-          <p data-id={`${mainImageLeft.id}-text`}>{mainImageLeft.text}</p>
+          <p data-id={`${mainImageLeft.id}-text`} style={{ marginTop: "0px" }}>
+            {mainImageLeft.text}
+          </p>
         </div>
         <h2>→</h2>
-        <div className="text-center" style={{ margin: "0 1rem" }}>
+        <div className="text-center" style={{ margin: "0 0" }}>
           <img
             data-id={`${mainImageRight.id}-img`}
-            className="h-[35vh] w-auto object-cover"
+            className="h-[30vh] w-auto object-cover"
+            style={{ marginBottom: "0px" }}
             src={mainImageRight.src}
           />
-          <p data-id={`${mainImageRight.id}-text`}>{mainImageRight.text}</p>
+          <p data-id={`${mainImageRight.id}-text`} style={{ marginTop: "0px" }}>
+            {mainImageRight.text}
+          </p>
         </div>
       </div>
       <div>
@@ -1120,7 +1093,7 @@ const TestCase: FC = () => (
             Prefab
           </p>
           <div data-id="test-case-design">
-            <img src="/typology.png" className="h-auto w-full object-cover" />
+            <img src="/typology.png" className="h-[40vh] w-full object-cover" />
           </div>
         </div>
         <div className="w-5/12">
@@ -1129,7 +1102,7 @@ const TestCase: FC = () => (
             § 35 Notwendige Treppenräume, Ausgänge
           </p>
           <div data-id="regulation-text">
-            <p className="text-xl">
+            <p className="text-lg">
               (1) Jede notwendige Treppe muss zur Sicherstellung der
               Rettungswege aus den Geschossen ins Freie in einem eigenen,
               durchgehenden Treppenraum liegen (notwendiger Treppenraum).
@@ -1140,7 +1113,7 @@ const TestCase: FC = () => (
             </p>
           </div>
           <div data-id="regulation-constraints">
-            <ol className="text-xl">
+            <ol className="text-lg">
               <li>in Gebäuden der Gebäudeklassen 1 und 2, </li>
               <li>
                 für die Verbindung von höchstens zwei Geschossen innerhalb
@@ -1166,7 +1139,7 @@ const TestCase: FC = () => (
             Kit-of-Parts
           </p>
           <div data-id="test-case-design">
-            <img src="/kit.png" className="h-auto w-full object-cover" />
+            <img src="/kit.png" className="h-[40vh] w-full object-cover" />
           </div>
         </div>
         <div className="w-5/12">
@@ -1175,7 +1148,7 @@ const TestCase: FC = () => (
             § 35 Necessary stairwells, exits
           </p>
           <div data-id="regulation-text">
-            <p className="text-xl">
+            <p className="text-lg">
               (1) Each necessary staircase must be located in a separate,
               continuous stairwell to ensure escape routes from the storeys to
               the outside (necessary stairwell). Necessary stairwells must be
@@ -1186,7 +1159,7 @@ const TestCase: FC = () => (
             </p>
           </div>
           <div data-id="regulation-constraints">
-            <ol className="text-xl">
+            <ol className="text-lg">
               <li>in buildings of building classes 1 and 2,</li>
               <li>
                 for connecting a maximum of two storeys within the same usage
@@ -1213,7 +1186,7 @@ const TestCase: FC = () => (
           <div data-id="test-case-design">
             <img
               src="/design-schema.png"
-              className="h-auto w-full object-cover"
+              className="h-[40vh] w-full object-cover"
             />
           </div>
         </div>
@@ -1223,10 +1196,18 @@ const TestCase: FC = () => (
             Web Ontology Language (OWL)
           </p>
           <div data-id="regulation-text">
-            <img data-id="regulation-text" src="/ontology.png" />
+            <img
+              data-id="regulation-text"
+              src="/ontology.png"
+              className="h-[30vh] w-full object-cover"
+            />
           </div>
           <div data-id="regulation-constraints">
-            <img data-id="regulation-constraints" src="/constraints.png" />
+            <img
+              data-id="regulation-constraints"
+              src="/constraints.png"
+              className="h-[10vh] w-full object-cover"
+            />
           </div>
         </div>
       </div>
