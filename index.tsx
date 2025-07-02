@@ -100,21 +100,25 @@ const Institutions: FC = () => (
       <div className="flex flex-row">
         <h4>
           <span className="opacity-20">Ueli Saluz</span>
-          <sup>1</sup>
+          <sup>1,a</sup>
         </h4>
         <h4>
           <span className="opacity-20">Ildar Baimuratov</span>
-          <sup>1</sup>
+          <sup>1,b</sup>
         </h4>
         <h4>
           <span className="opacity-20">Philipp Geyer</span>
-          <sup>1</sup>
+          <sup>1,a</sup>
         </h4>
       </div>
     </div>
     <div data-id="institutions">
       <h5>
         <sup>1</sup>Leibniz University Hannover
+        <br />
+        <sup>a</sup>Faculty of Architecture
+        <br />
+        <sup>b</sup>Faculty of Computer Science
       </h5>
     </div>
   </section>
@@ -277,16 +281,11 @@ const Timeline: FC = () => {
 
   return (
     <section title="stats-about-llms" data-auto-animate>
-      <div className="w-[80vw] h-[80vh] mx-auto">
+      <div className="w-[70vw] h-[80vh] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart
             data={combinedData}
-            margin={{
-              top: 60,
-              right: 60,
-              left: 60,
-              bottom: 60,
-            }}
+            className="size-full mr-20"
             syncMethod="index"
           >
             <CartesianGrid />
@@ -785,7 +784,7 @@ const imagesRow1 = [
 ];
 
 const imagesRow2 = [
-  { id: "building", src: "/building.png", text: "building" },
+  { id: "design", src: "/design.png", text: "design" },
   { id: "design-format", src: "/design-format.png", text: "design-format" },
   {
     id: "compliance-code",
@@ -826,9 +825,9 @@ const ImageBar: FC<{
   </div>
 );
 
-const Building: FC = () => (
+const Design: FC = () => (
   <section
-    title="building"
+    title="design"
     data-auto-animate
     className="flex flex-col justify-between"
   >
@@ -838,16 +837,16 @@ const Building: FC = () => (
       style={{ margin: "0 1rem", marginTop: "2rem" }}
     >
       <img
-        data-id="building-img"
+        data-id="design-img"
         className="h-[50vh] w-auto object-cover"
-        src="/building.png"
+        src="/design.png"
       />
       <p
-        data-id="building-text"
+        data-id="design-text"
         className="text-[0.9rem]"
         style={{ margin: "0px" }}
       >
-        building
+        design
       </p>
     </div>
   </section>
@@ -1040,9 +1039,9 @@ const PairedSlide: FC<{
   </section>
 );
 
-const SoftwareBuilding: FC = () => (
+const SoftwareDesign: FC = () => (
   <PairedSlide
-    title="software-building"
+    title="software-design"
     topImages={imagesRow1.slice(1)}
     mainImageLeft={imagesRow1[0]}
     mainImageRight={imagesRow2[0]}
@@ -1121,7 +1120,7 @@ const TestCase: FC = () => (
             Prefab
           </p>
           <div data-id="test-case-design">
-            <img src="/design.png" className="h-auto w-full object-cover" />
+            <img src="/typology.png" className="h-auto w-full object-cover" />
           </div>
         </div>
         <div className="w-5/12">
@@ -1349,7 +1348,7 @@ const App: FC = () => {
           <CodeError />
         </section>
         <section>
-          <Building />
+          <Design />
           <DesignFormat />
           <ComplianceCode />
           <ComplianceFormat />
@@ -1358,7 +1357,7 @@ const App: FC = () => {
           <Comparison />
         </section>
         <section>
-          <SoftwareBuilding />
+          <SoftwareDesign />
           <CodeDesignFormat />
           <DocsComplianceCode />
           <ASTComplianceFormat />
