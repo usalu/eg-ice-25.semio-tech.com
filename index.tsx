@@ -1407,6 +1407,137 @@ const Prompt: FC = () => (
         <thead>
           <tr>
             <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="text-left">
+              <div data-id="requirements-turtle">Valid OWL code</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="text-left">
+              <div data-id="requirements-named-individuals">
+                Generated OWL individuals
+              </div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="text-left">
+              <div data-id="requirements-onto">Utilized the ontology</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td className="text-left">
+              <div data-id="requirements-complete">Extracted design data</div>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section data-auto-animate>
+      <div className="flex items-center justify-center">
+        <div
+          data-id="ontology"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="ontology-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/ontology.png"
+          />
+          <p
+            data-id="ontology-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Ontology
+          </p>
+        </div>
+        <div
+          data-id="design-schema"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="design-schema-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/design-schema.png"
+          />
+          <p
+            data-id="design-schema-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Design Schema
+          </p>
+        </div>
+        <div
+          data-id="examples"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="examples-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/examples.png"
+          />
+          <p
+            data-id="examples-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Examples
+          </p>
+        </div>
+        <div
+          data-id="design-format"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="design-format-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/design-format.png"
+          />
+          <p
+            data-id="design-format-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Design Data
+          </p>
+        </div>
+      </div>
+      <table className="w-full text-2xl text-center">
+        <thead>
+          <tr>
+            <th></th>
             <th>Claude 3.7 Sonnet (thinking)</th>
             <th>DeepSeek v3 Base</th>
             <th>Gemini 2.5 Pro</th>
