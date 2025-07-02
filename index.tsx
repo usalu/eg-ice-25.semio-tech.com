@@ -1403,6 +1403,40 @@ const Prompt: FC = () => (
           </p>
         </div>
       </div>
+      <table className="w-full text-2xl text-center">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Claude</th>
+            <th>DeepSeek</th>
+            <th>Gemini</th>
+            <th>Mistral</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="text-left">Valid OWL code</td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td className="text-left">Generated OWL individuals</td>
+            <td>-</td>
+            <td>+</td>
+            <td>+</td>
+            <td>+</td>
+          </tr>
+          <tr>
+            <td className="text-left">Utilized the ontology</td>
+            <td>-</td>
+            <td>-</td>
+            <td>+</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </>
 );
