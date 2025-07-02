@@ -1464,9 +1464,81 @@ const Details: FC = () => (
     <section data-auto-animate>
       <h3 data-id="title">Details</h3>
       <div className="flex justify-around items-start">
-        <img src="/design-format.png" className="h-[50vh] w-auto" />
-        <img src="/design.png" className="h-[50vh] w-auto" />
-        <img src="/individuals.png" className="h-[50vh] w-auto" />
+        <div className="text-center">
+          <img
+            data-id="design-format-img"
+            src="/design-format.png"
+            className="h-[50vh] w-auto"
+          />
+          <p data-id="design-format-text" style={{ marginTop: "0px" }}>
+            design-format
+          </p>
+        </div>
+        <div className="text-center">
+          <img
+            data-id="design-img"
+            src="/design.png"
+            className="h-[50vh] w-auto"
+          />
+          <p data-id="design-text" style={{ marginTop: "0px" }}>
+            design
+          </p>
+        </div>
+        <div className="text-center">
+          <img
+            data-id="individuals-img"
+            src="/individuals.png"
+            className="h-[50vh] w-auto"
+          />
+          <p data-id="individuals-text" style={{ marginTop: "0px" }}>
+            named individuals
+          </p>
+        </div>
+      </div>
+    </section>
+    <section data-auto-animate>
+      <h3 data-id="title">Explainability</h3>
+      <div className="flex justify-around items-start">
+        <div className="text-center">
+          <img
+            data-id="compliance-format-img"
+            src="/compliance-format.png"
+            className="h-[50vh] w-auto"
+          />
+          <p data-id="compliance-format-text" style={{ marginTop: "0px" }}>
+            Compliance Format
+          </p>
+        </div>
+        <div className="text-center h-[50vh] w-auto">
+          <p
+            data-id="thinking-log"
+            className="text-xl"
+            style={{ marginTop: "0px" }}
+          >
+            The concept of a "Storey" needs to be inferred. A set of pieces at
+            the same vertical level (implied by connections like `t-0-0` to
+            `t-0-1`) could constitute a `Storey`. A `Storey` likely contains
+            `UsageUnit`s (Capsules) and is connected by `NecessaryStaircase`s
+            (Tambours) or `ExternalStaircase`s. * The concept of a "Usage Unit"
+            might be more complex than just a single capsule. Perhaps a block
+            (`t-0-*` plus its connected `c-0-*`) represents a `UsageUnit`? The
+            description mentions "A block is a usage unit". Let's refine: The
+            group of pieces `t-0-0` to `t-0-3` and `c-0-*-*` could form one
+            `UsageUnit`, and `t-1-0` to `t-1-3` and `c-1-*-*` could form
+            another. * The concept of a `Storey` could be represented by the
+            pieces at a certain level, e.g., `t-0-0`, `t-1-0`, `b-1` (connected
+            to `t-1-0`), `c-0-0-*`, `c-1-0-*` could conceptually form `storey0`.
+            ... * `totalGrossFloorArea`: This needs to be calculated for
+            `UsageUnit` individuals. The JSON provides "effective floor area"
+            for `Capsule` types. We need to sum these up for all capsules within
+            a conceptual `UsageUnit`. For "block 0", we have 4 storeys * 6
+            capsules/storey = 24 capsules. Each capsule has 8.74 m². Total area
+            = 24 * 8.74 = 209.76 m². For "block 1", it's the same: 209.76 m².
+          </p>
+          <p data-id="compliance-format-text" style={{ marginTop: "0px" }}>
+            Thinking Log
+          </p>
+        </div>
       </div>
     </section>
   </>
