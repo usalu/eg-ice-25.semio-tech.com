@@ -1221,26 +1221,26 @@ const Prompt: FC = () => (
       <h3 data-id="title">Prompt Engineering</h3>
       <ul>
         <li className="fragment">
-          <div data-id="prompt-task">Task</div>
+          <div data-id="task">Task</div>
         </li>
         <li className="fragment">
-          <div data-id="prompt-examples">Examples</div>
+          <div data-id="examples">Examples</div>
         </li>
         <li className="fragment">
-          <div data-id="prompt-input-files">Input Files</div>
+          <div data-id="inputs">Input Files</div>
         </li>
         <li className="fragment">
-          <div data-id="prompt-requirements">Requirements</div>
+          <div data-id="requirements">Requirements</div>
         </li>
         <li className="fragment">
-          <div data-id="prompt-deliverable">Deliverable</div>
+          <div data-id="deliverable">Deliverable</div>
         </li>
       </ul>
     </section>
     <section data-auto-animate>
       <h3 data-id="title">Prompt</h3>
       <div className="text-2xl text-left">
-        <div data-id="prompt-task">
+        <div data-id="task">
           <p>
             <strong>Task</strong>: Instantiate the OWL ontology from{" "}
             <code>onto</code> by creating OWL NamedIndividuals based on the data
@@ -1248,63 +1248,159 @@ const Prompt: FC = () => (
             <code>design schema</code>
           </p>
         </div>
-        <div data-id="prompt-examples">
+        <div data-id="examples">
           <p>
             <strong>Examples</strong>: When instantiating the ontology, use the
             following OWL NamedIndividuals as examples:{" "}
             <code>example OWL individuals</code>
           </p>
         </div>
-        <div data-id="prompt-input-files">
+        <div data-id="inputs">
           <p>
             <strong>Input Files</strong>:
           </p>
           <ul>
             <li>
-              <code>onto</code> – Defines the ontology with predefined classes,
-              relationships, and properties.
+              <div data-id="ontology">
+                <code>onto</code> - Defines the ontology with predefined
+                classes, relationships, and properties.
+              </div>
             </li>
             <li>
-              <code>design schema</code> – Contains the dataset to be
-              instantiated.
+              <div data-id="design-schema">
+                <code>design schema</code> - Contains the dataset to be
+                instantiated.
+              </div>
             </li>
             <li>
-              <code>design data</code> – Specifies the structure and constraints
-              of the dataset.
+              <div data-id="design-format">
+                <code>design data</code> - Specifies the structure and
+                constraints of the dataset.
+              </div>
             </li>
           </ul>
         </div>
-        <div data-id="prompt-requirements">
+        <div data-id="requirements">
           <p>
             <strong>Requirements</strong>:
           </p>
           <ul>
             <li>
-              The output must be a valid OWL ontology in Turtle (.ttl) format.
+              <div data-id="requirements-turtle">
+                The output must be a valid OWL ontology in Turtle (.ttl) format.
+              </div>
             </li>
             <li>
-              Preserve the original ontology and incorporate the newly created
-              individuals.
+              <div data-id="requirements-named-individuals">
+                Preserve the original ontology and incorporate the newly created
+                individuals.
+              </div>
             </li>
             <li>
-              Use only classes, relationships, and properties defined in{" "}
-              <code>onto</code>.
+              <div data-id="requirements-onto">
+                Use only classes, relationships, and properties defined in{" "}
+                <code>onto</code>.
+              </div>
             </li>
             <li>
-              Include all relevant data from <code>design data</code>.
+              <div data-id="requirements-complete">
+                Include all relevant data from <code>design data</code>.
+              </div>
             </li>
           </ul>
         </div>
-        <div data-id="prompt-deliverable">
+        <div data-id="deliverable">
           <p>
             <strong>Deliverable</strong>:
           </p>
           <ul>
             <li>
-              A .ttl file containing the transformed data merged with the given
-              ontology.
+              <div data-id="deliverable-ttl">
+                A .ttl file containing the transformed data merged with the
+                given ontology.
+              </div>
             </li>
           </ul>
+        </div>
+      </div>
+    </section>
+    <section data-auto-animate>
+      <div className="flex items-center justify-center">
+        <div
+          data-id="ontology"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="ontology-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/ontology.png"
+          />
+          <p
+            data-id="ontology-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Ontology
+          </p>
+        </div>
+        <div
+          data-id="design-schema"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="design-schema-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/design-schema.png"
+          />
+          <p
+            data-id="design-schema-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Design Schema
+          </p>
+        </div>
+        <div
+          data-id="examples"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="examples-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/examples.png"
+          />
+          <p
+            data-id="examples-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Examples
+          </p>
+        </div>
+        <div
+          data-id="design-format"
+          className="text-center"
+          style={{ margin: "0 1rem" }}
+        >
+          <img
+            data-id="design-format-img"
+            className={`object-cover h-[10vh] w-[13vw]`}
+            style={{ marginBottom: "0px" }}
+            src="/design-format.png"
+          />
+          <p
+            data-id="design-format-text"
+            className="text-[0.9rem]"
+            style={{ marginTop: "0px" }}
+          >
+            Design Data
+          </p>
         </div>
       </div>
     </section>
