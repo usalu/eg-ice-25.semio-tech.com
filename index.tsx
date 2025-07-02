@@ -1544,6 +1544,20 @@ const Reasoning: FC = () => (
   </>
 );
 
+const Report: FC = () => (
+  <section data-auto-animate>
+    <h3 data-id="title">Automated Compliance Check</h3>
+    <div className="flex justify-around items-start">
+      <div className="text-center">
+        <img src="/report.png" className="h-[50vh] w-auto" />
+        <p data-id="report-text" style={{ marginTop: "0px" }}>
+          Report
+        </p>
+      </div>
+    </div>
+  </section>
+);
+
 const End: FC = () => (
   <section data-auto-animate>
     <h3 data-id="title">github.com/usalu/semio</h3>
@@ -1640,6 +1654,7 @@ const App: FC = () => {
         <section>
           <Prompt />
           <Reasoning />
+          <Report />
           <End />
         </section>
       </div>
