@@ -97,17 +97,13 @@ const Timeline: FC = () => {
       if (point.image) {
         return (
           <div className="custom-tooltip">
-            <p className="label">
-              <span className="font-bold">Event:</span>
-              {` ${point.name}`}
-            </p>
+            <p className="label">{` ${point.name}`}</p>
             <img
               src={point.image}
               alt={point.name}
               className="h-[40vh] w-auto"
             />
             <p className="desc">
-              <span className="font-bold">Date:</span>
               {` ${point.date ? dateFormatter(point.date) : ""}`}
             </p>
           </div>
@@ -115,18 +111,13 @@ const Timeline: FC = () => {
       }
       return (
         <div className="custom-tooltip">
-          <p className="label">
-            <span className="font-bold">Name:</span>
-            {` ${point.name}`}
-          </p>
+          <p className="label">{` ${point.name}`}</p>
           {point.context && (
             <p className="intro">
-              <span className="font-bold">Context:</span>
-              {` ${yAxisFormatter(point.context)} (${point.equivalent})`}
+              {` ${yAxisFormatter(point.context)} Tokens (${point.equivalent})`}
             </p>
           )}
           <p className="desc">
-            <span className="font-bold">Announced:</span>
             {` ${point.date ? dateFormatter(point.date) : ""}`}
           </p>
         </div>
@@ -227,10 +218,10 @@ const Timeline: FC = () => {
           <ScatterChart
             data={combinedData}
             margin={{
-              top: 5,
-              right: 40,
-              left: 40,
-              bottom: 30,
+              top: 60,
+              right: 60,
+              left: 60,
+              bottom: 60,
             }}
             syncMethod="index"
           >
@@ -245,11 +236,13 @@ const Timeline: FC = () => {
               scale="time"
               domain={["dataMin", "dataMax"]}
               allowDuplicatedCategory={false}
+              className="text-2xl"
             />
             <YAxis
               dataKey="context"
               tickFormatter={yAxisFormatter}
               type="number"
+              className="text-2xl"
             />
             <Scatter data={modelData} name="Model" fill="#ff344f" line />
             <Scatter data={eventData} name="Event" fill="#00a69d" />
@@ -1105,15 +1098,6 @@ const TestCase: FC = () => (
       <h3 data-id="test-case-title">Components</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
-          <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
-          <p data-id="test-case-design-paragraph" className="text-2xl">
-            Kit-of-Parts
-          </p>
-          <div data-id="test-case-design">
-            <img src="/kit.png" className="h-auto w-full object-cover" />
-          </div>
-        </div>
-        <div className="w-5/12">
           <h6 data-id="regulation-title">Building Code Berlin</h6>
           <p data-id="regulation-paragraph" className="text-2xl">
             § 35 Necessary stairwells, exits
@@ -1142,6 +1126,15 @@ const TestCase: FC = () => (
                 cannot be endangered in the event of fire.
               </li>
             </ol>
+          </div>
+        </div>
+        <div className="w-5/12">
+          <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
+          <p data-id="test-case-design-paragraph" className="text-2xl">
+            Kit-of-Parts
+          </p>
+          <div data-id="test-case-design">
+            <img src="/kit.png" className="h-auto w-full object-cover" />
           </div>
         </div>
       </div>
