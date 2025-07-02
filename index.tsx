@@ -1220,72 +1220,92 @@ const Prompt: FC = () => (
     <section data-auto-animate>
       <h3 data-id="title">Prompt Engineering</h3>
       <ul>
-        <li className="fragment">Task</li>
-        <li className="fragment">Examples</li>
-        <li className="fragment">Input Files</li>
-        <li className="fragment">Requirements</li>
-        <li className="fragment">Deliverable</li>
+        <li className="fragment">
+          <div data-id="prompt-task">Task</div>
+        </li>
+        <li className="fragment">
+          <div data-id="prompt-examples">Examples</div>
+        </li>
+        <li className="fragment">
+          <div data-id="prompt-input-files">Input Files</div>
+        </li>
+        <li className="fragment">
+          <div data-id="prompt-requirements">Requirements</div>
+        </li>
+        <li className="fragment">
+          <div data-id="prompt-deliverable">Deliverable</div>
+        </li>
       </ul>
     </section>
     <section data-auto-animate>
       <h3 data-id="title">Prompt</h3>
       <div className="text-2xl text-left">
-        <p>
-          <strong>Task</strong>: Instantiate the OWL ontology from{" "}
-          <code>onto</code> by creating OWL NamedIndividuals based on the data
-          from <code>design data</code>, following the structure defined in{" "}
-          <code>design schema</code>
-        </p>
-        <p>
-          <strong>Examples</strong>: When instantiating the ontology, use the
-          following OWL NamedIndividuals as examples:{" "}
-          <code>example OWL individuals</code>
-        </p>
-        <p>
-          <strong>Input Files</strong>:
-        </p>
-        <ul>
-          <li>
-            <code>onto</code> – Defines the ontology with predefined classes,
-            relationships, and properties.
-          </li>
-          <li>
-            <code>design schema</code> – Contains the dataset to be
-            instantiated.
-          </li>
-          <li>
-            <code>design data</code> – Specifies the structure and constraints
-            of the dataset.
-          </li>
-        </ul>
-        <p>
-          <strong>Requirements</strong>:
-        </p>
-        <ul>
-          <li>
-            The output must be a valid OWL ontology in Turtle (.ttl) format.
-          </li>
-          <li>
-            Preserve the original ontology and incorporate the newly created
-            individuals.
-          </li>
-          <li>
-            Use only classes, relationships, and properties defined in{" "}
-            <code>onto</code>.
-          </li>
-          <li>
-            Include all relevant data from <code>design data</code>.
-          </li>
-        </ul>
-        <p>
-          <strong>Deliverable</strong>:
-        </p>
-        <ul>
-          <li>
-            A .ttl file containing the transformed data merged with the given
-            ontology.
-          </li>
-        </ul>
+        <div data-id="prompt-task">
+          <p>
+            <strong>Task</strong>: Instantiate the OWL ontology from{" "}
+            <code>onto</code> by creating OWL NamedIndividuals based on the data
+            from <code>design data</code>, following the structure defined in{" "}
+            <code>design schema</code>
+          </p>
+        </div>
+        <div data-id="prompt-examples">
+          <p>
+            <strong>Examples</strong>: When instantiating the ontology, use the
+            following OWL NamedIndividuals as examples:{" "}
+            <code>example OWL individuals</code>
+          </p>
+        </div>
+        <div data-id="prompt-input-files">
+          <p>
+            <strong>Input Files</strong>:
+          </p>
+          <ul>
+            <li>
+              <code>onto</code> – Defines the ontology with predefined classes,
+              relationships, and properties.
+            </li>
+            <li>
+              <code>design schema</code> – Contains the dataset to be
+              instantiated.
+            </li>
+            <li>
+              <code>design data</code> – Specifies the structure and constraints
+              of the dataset.
+            </li>
+          </ul>
+        </div>
+        <div data-id="prompt-requirements">
+          <p>
+            <strong>Requirements</strong>:
+          </p>
+          <ul>
+            <li>
+              The output must be a valid OWL ontology in Turtle (.ttl) format.
+            </li>
+            <li>
+              Preserve the original ontology and incorporate the newly created
+              individuals.
+            </li>
+            <li>
+              Use only classes, relationships, and properties defined in{" "}
+              <code>onto</code>.
+            </li>
+            <li>
+              Include all relevant data from <code>design data</code>.
+            </li>
+          </ul>
+        </div>
+        <div data-id="prompt-deliverable">
+          <p>
+            <strong>Deliverable</strong>:
+          </p>
+          <ul>
+            <li>
+              A .ttl file containing the transformed data merged with the given
+              ontology.
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   </>
@@ -1329,6 +1349,7 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
+        <Prompt />
         <section>
           <Semio />
           <Title />
@@ -1371,7 +1392,6 @@ const App: FC = () => {
           <Alignment />
         </section>
         <TestCase />
-        <Prompt />
       </div>
     </div>
   );
