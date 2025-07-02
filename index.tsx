@@ -1407,33 +1407,50 @@ const Prompt: FC = () => (
         <thead>
           <tr>
             <th></th>
-            <th>Claude</th>
-            <th>DeepSeek</th>
-            <th>Gemini</th>
-            <th>Mistral</th>
+            <th>Claude 3.7 Sonnet (thinking)</th>
+            <th>DeepSeek v3 Base</th>
+            <th>Gemini 2.5 Pro</th>
+            <th>Mistral Large</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="text-left">Valid OWL code</td>
-            <td>+</td>
-            <td>+</td>
-            <td>+</td>
-            <td>-</td>
+            <td className="text-left">
+              <div data-id="requirements-turtle">Valid OWL code</div>
+            </td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
           </tr>
           <tr>
-            <td className="text-left">Generated OWL individuals</td>
-            <td>-</td>
-            <td>+</td>
-            <td>+</td>
-            <td>+</td>
+            <td className="text-left">
+              <div data-id="requirements-named-individuals">
+                Generated OWL individuals
+              </div>
+            </td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
           </tr>
           <tr>
-            <td className="text-left">Utilized the ontology</td>
-            <td>-</td>
-            <td>-</td>
-            <td>+</td>
-            <td>-</td>
+            <td className="text-left">
+              <div data-id="requirements-onto">Utilized the ontology</div>
+            </td>
+            <td>❌</td>
+            <td>❌</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td className="text-left">
+              <div data-id="requirements-complete">Extracted design data</div>
+            </td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
           </tr>
         </tbody>
       </table>
