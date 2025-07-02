@@ -1085,7 +1085,7 @@ const DesignFormatConstraintFormat: FC = () => (
 const TestCase: FC = () => (
   <section>
     <section title="test-case" data-auto-animate>
-      <h3 data-id="test-case-title">Test-Case</h3>
+      <h3 data-id="title">Test-Case</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
           <h6 data-id="test-case-design-title">Conceptual Design</h6>
@@ -1131,7 +1131,7 @@ const TestCase: FC = () => (
       </div>
     </section>
     <section title="test-case" data-auto-animate>
-      <h3 data-id="test-case-title">Components</h3>
+      <h3 data-id="title">Components</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
           <h6 data-id="test-case-design-title">Metabolistic Architecture</h6>
@@ -1176,7 +1176,7 @@ const TestCase: FC = () => (
       </div>
     </section>
     <section title="test-case" data-auto-animate>
-      <h3 data-id="test-case-title">Mapping</h3>
+      <h3 data-id="title">Mapping</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
           <h6 data-id="test-case-design-title">Design-Information-Model</h6>
@@ -1216,60 +1216,65 @@ const TestCase: FC = () => (
 );
 
 const Prompt: FC = () => (
-  <section data-markdown className="text-2xl text-left">
-    <p>
-      <strong>Task</strong>: Instantiate the OWL ontology from <code>onto</code>{" "}
-      by creating OWL NamedIndividuals based on the data from{" "}
-      <code>design data</code>, following the structure defined in{" "}
-      <code>design schema</code>
-    </p>
-    <p>
-      <strong>Examples</strong>: When instantiating the ontology, use the
-      following OWL NamedIndividuals as examples:{" "}
-      <code>example OWL individuals</code>
-    </p>
-    <p>
-      <strong>Input Files</strong>:
-    </p>
-    <ul>
-      <li>
-        <code>onto</code> – Defines the ontology with predefined classes,
-        relationships, and properties.
-      </li>
-      <li>
-        <code>design schema</code> – Contains the dataset to be instantiated.
-      </li>
-      <li>
-        <code>design data</code> – Specifies the structure and constraints of
-        the dataset.
-      </li>
-    </ul>
-    <p>
-      <strong>Requirements</strong>:
-    </p>
-    <ul>
-      <li>The output must be a valid OWL ontology in Turtle (.ttl) format.</li>
-      <li>
-        Preserve the original ontology and incorporate the newly created
-        individuals.
-      </li>
-      <li>
-        Use only classes, relationships, and properties defined in{" "}
-        <code>onto</code>.
-      </li>
-      <li>
-        Include all relevant data from <code>design data</code>.
-      </li>
-    </ul>
-    <p>
-      <strong>Deliverable</strong>:
-    </p>
-    <ul>
-      <li>
-        A .ttl file containing the transformed data merged with the given
-        ontology.
-      </li>
-    </ul>
+  <section data-auto-animate>
+    <h3 data-id="title">Prompt</h3>
+    <div className="text-2xl text-left">
+      <p>
+        <strong>Task</strong>: Instantiate the OWL ontology from{" "}
+        <code>onto</code> by creating OWL NamedIndividuals based on the data
+        from <code>design data</code>, following the structure defined in{" "}
+        <code>design schema</code>
+      </p>
+      <p>
+        <strong>Examples</strong>: When instantiating the ontology, use the
+        following OWL NamedIndividuals as examples:{" "}
+        <code>example OWL individuals</code>
+      </p>
+      <p>
+        <strong>Input Files</strong>:
+      </p>
+      <ul>
+        <li>
+          <code>onto</code> – Defines the ontology with predefined classes,
+          relationships, and properties.
+        </li>
+        <li>
+          <code>design schema</code> – Contains the dataset to be instantiated.
+        </li>
+        <li>
+          <code>design data</code> – Specifies the structure and constraints of
+          the dataset.
+        </li>
+      </ul>
+      <p>
+        <strong>Requirements</strong>:
+      </p>
+      <ul>
+        <li>
+          The output must be a valid OWL ontology in Turtle (.ttl) format.
+        </li>
+        <li>
+          Preserve the original ontology and incorporate the newly created
+          individuals.
+        </li>
+        <li>
+          Use only classes, relationships, and properties defined in{" "}
+          <code>onto</code>.
+        </li>
+        <li>
+          Include all relevant data from <code>design data</code>.
+        </li>
+      </ul>
+      <p>
+        <strong>Deliverable</strong>:
+      </p>
+      <ul>
+        <li>
+          A .ttl file containing the transformed data merged with the given
+          ontology.
+        </li>
+      </ul>
+    </div>
   </section>
 );
 
