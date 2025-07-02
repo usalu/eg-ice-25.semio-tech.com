@@ -1083,7 +1083,7 @@ const DesignFormatConstraintFormat: FC = () => (
 );
 
 const TestCase: FC = () => (
-  <section>
+  <>
     <section title="test-case" data-auto-animate>
       <h3 data-id="title">Test-Case</h3>
       <div className="flex justify-around items-start">
@@ -1130,7 +1130,7 @@ const TestCase: FC = () => (
         </div>
       </div>
     </section>
-    <section title="test-case" data-auto-animate>
+    <section title="components" data-auto-animate>
       <h3 data-id="title">Components</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
@@ -1175,7 +1175,7 @@ const TestCase: FC = () => (
         </div>
       </div>
     </section>
-    <section title="test-case" data-auto-animate>
+    <section title="mapping" data-auto-animate>
       <h3 data-id="title">Mapping</h3>
       <div className="flex justify-around items-start">
         <div className="w-5/12">
@@ -1212,7 +1212,7 @@ const TestCase: FC = () => (
         </div>
       </div>
     </section>
-  </section>
+  </>
 );
 
 const Prompt: FC = () => (
@@ -1546,7 +1546,7 @@ const Reasoning: FC = () => (
 
 const End: FC = () => (
   <section data-auto-animate>
-    <h3 data-id="title">https://github.com/usalu/semio</h3>
+    <h3 data-id="title">github.com/usalu/semio</h3>
     <div className="text-center">
       <img
         data-id="github"
