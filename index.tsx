@@ -1459,10 +1459,10 @@ const Prompt: FC = () => (
   </>
 );
 
-const Details: FC = () => (
+const Reasoning: FC = () => (
   <>
     <section data-auto-animate>
-      <h3 data-id="title">Details</h3>
+      <h3 data-id="title">Reasoning</h3>
       <div className="flex justify-around items-start">
         <div className="text-center">
           <img
@@ -1512,10 +1512,10 @@ const Details: FC = () => (
         <div className="text-center h-[50vh] w-auto">
           <p
             data-id="thinking-log"
-            className="text-xl"
+            className="text-2xl"
             style={{ marginTop: "0px" }}
           >
-            The concept of a "Storey" needs to be inferred. A set of pieces at
+            … The concept of a "Storey" needs to be inferred. A set of pieces at
             the same vertical level (implied by connections like `t-0-0` to
             `t-0-1`) could constitute a `Storey`. A `Storey` likely contains
             `UsageUnit`s (Capsules) and is connected by `NecessaryStaircase`s
@@ -1533,7 +1533,7 @@ const Details: FC = () => (
             for `Capsule` types. We need to sum these up for all capsules within
             a conceptual `UsageUnit`. For "block 0", we have 4 storeys * 6
             capsules/storey = 24 capsules. Each capsule has 8.74 m². Total area
-            = 24 * 8.74 = 209.76 m². For "block 1", it's the same: 209.76 m².
+            = 24 * 8.74 = 209.76 m². For "block 1", it's the same: 209.76 m². …
           </p>
           <p data-id="compliance-format-text" style={{ marginTop: "0px" }}>
             Thinking Log
@@ -1542,6 +1542,22 @@ const Details: FC = () => (
       </div>
     </section>
   </>
+);
+
+const End: FC = () => (
+  <section data-auto-animate>
+    <h3 data-id="title">https://github.com/usalu/semio</h3>
+    <div className="text-center">
+      <img
+        data-id="github"
+        src="/github.png"
+        className="h-[50vh] w-auto object-cover"
+      />
+      <p data-id="end-text" style={{ marginTop: "0px" }}>
+        Thank you for your attention!
+      </p>
+    </div>
+  </section>
 );
 
 const App: FC = () => {
@@ -1579,8 +1595,6 @@ const App: FC = () => {
       style={{ width: "100vw", height: "100vh" }}
     >
       <div className="slides">
-        <Details />
-        <Prompt />
         <section>
           <Semio />
           <Title />
@@ -1621,8 +1635,13 @@ const App: FC = () => {
           <Schemas />
           <Formats />
           <Alignment />
+          <TestCase />
         </section>
-        <TestCase />
+        <section>
+          <Prompt />
+          <Reasoning />
+          <End />
+        </section>
       </div>
     </div>
   );
